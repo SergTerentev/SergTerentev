@@ -76,7 +76,7 @@
 
             --fs-body: clamp(1.25rem, 1.17rem + .36vw, 1.4rem);
             --gutter: clamp(22px, 6vw, 48px);
-            --band-y: clamp(68px, 13vw, 124px);
+            --band-y: clamp(92px, 18vw, 140px);
             --measure: 39rem;
 
             --shadow-photo: 0 1px 2px rgba(70, 62, 24, .14), 0 16px 30px -14px rgba(70, 62, 24, .38);
@@ -1349,10 +1349,7 @@
             },
             
             // Программа дня
-            schedule: [
-                { time: "16:00", title: "Торжественная церемония", description: "Дворец бракосочетания № 2. Самые важные слова, немного слёз и много любви" },
-                { time: "17:00", title: "Празднование", description: "Аманд Холл. Зал Арт. Вкусная еда, тосты и наши любимые люди рядом" }
-            ],
+            schedule: [], // Раздел «Во сколько?» скрыт; чтобы вернуть, добавьте события {time, title, description}
             
             // Дресс-код
             dresscode: {
@@ -1417,7 +1414,7 @@
         <!-- 1. ПЕРВЫЙ ЭКРАН -->
         <section class="band hero" id="hero">
             <div class="hero__grid">
-                <div class="hero__doodles" aria-hidden="true"><svg class="deco" style="--w:40px;--c:var(--rose);top:2%;left:-2%;--r:-14deg" viewBox="0 0 48 90" aria-hidden="true"><use href="#dd-balloon"/></svg><svg class="deco" style="--w:36px;--c:var(--ochre);top:8%;right:-2%;--r:12deg" viewBox="0 0 48 90" aria-hidden="true"><use href="#dd-balloon"/></svg><svg class="deco" style="--w:30px;--c:var(--ochre);top:27%;left:0;--r:-14deg" viewBox="0 0 48 48" aria-hidden="true"><use href="#dd-star"/></svg><svg class="deco" style="--w:30px;--c:var(--rose);top:30%;right:0;--r:12deg" viewBox="0 0 48 44" aria-hidden="true"><use href="#dd-heartline"/></svg><svg class="deco" style="--w:18px;--c:var(--wine);top:20%;left:26%;--r:10deg" viewBox="0 0 48 48" aria-hidden="true"><use href="#dd-star"/></svg><svg class="deco" style="--w:18px;--c:var(--rose);top:18%;right:24%;--r:-10deg" viewBox="0 0 48 44" aria-hidden="true"><use href="#dd-heartline"/></svg><svg class="deco" style="--w:84px;--c:var(--ochre);top:83%;left:4%;--r:-6deg" viewBox="0 0 120 24" aria-hidden="true"><use href="#dd-squiggle"/></svg><svg class="deco" style="--w:72px;--c:var(--rose);top:84%;right:4%;--r:5deg" viewBox="0 0 120 24" aria-hidden="true"><use href="#dd-squiggle"/></svg><svg class="deco" style="--w:20px;--c:var(--rose);top:78%;left:46%;--r:8deg" viewBox="0 0 48 48" aria-hidden="true"><use href="#dd-star"/></svg></div>
+                <div class="hero__doodles" aria-hidden="true"><svg class="deco" style="--w:56px;--c:var(--rose);top:0;left:-3%;--r:-14deg" viewBox="0 0 48 90" aria-hidden="true"><use href="#dd-balloon"/></svg><svg class="deco" style="--w:50px;--c:var(--ochre);top:6%;right:-3%;--r:12deg" viewBox="0 0 48 90" aria-hidden="true"><use href="#dd-balloon"/></svg><svg class="deco" style="--w:38px;--c:var(--wine);top:13%;left:9%;--r:8deg" viewBox="0 0 48 90" aria-hidden="true"><use href="#dd-balloon"/></svg><svg class="deco" style="--w:40px;--c:var(--ochre);top:26%;left:-1%;--r:-14deg" viewBox="0 0 48 48" aria-hidden="true"><use href="#dd-star"/></svg><svg class="deco" style="--w:40px;--c:var(--rose);top:29%;right:-1%;--r:12deg" viewBox="0 0 48 44" aria-hidden="true"><use href="#dd-heartline"/></svg><svg class="deco" style="--w:24px;--c:var(--wine);top:19%;left:27%;--r:10deg" viewBox="0 0 48 48" aria-hidden="true"><use href="#dd-star"/></svg><svg class="deco" style="--w:24px;--c:var(--rose);top:17%;right:26%;--r:-10deg" viewBox="0 0 48 44" aria-hidden="true"><use href="#dd-heartline"/></svg><svg class="deco" style="--w:20px;--c:var(--ochre);top:23%;right:12%;--r:6deg" viewBox="0 0 48 48" aria-hidden="true"><use href="#dd-star"/></svg><svg class="deco" style="--w:110px;--c:var(--ochre);top:82%;left:2%;--r:-6deg" viewBox="0 0 120 24" aria-hidden="true"><use href="#dd-squiggle"/></svg><svg class="deco" style="--w:96px;--c:var(--rose);top:84%;right:2%;--r:5deg" viewBox="0 0 120 24" aria-hidden="true"><use href="#dd-squiggle"/></svg><svg class="deco" style="--w:28px;--c:var(--wine);top:71%;left:14%;--r:-8deg" viewBox="0 0 48 44" aria-hidden="true"><use href="#dd-heartline"/></svg><svg class="deco" style="--w:30px;--c:var(--ochre);top:72%;right:13%;--r:12deg" viewBox="0 0 48 48" aria-hidden="true"><use href="#dd-star"/></svg><svg class="deco" style="--w:60px;--c:var(--rose);top:92%;left:3%;--r:-10deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg><svg class="deco" style="--w:54px;--c:var(--ochre);top:92%;right:4%;--r:10deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg></div>
                 <div class="hero__title"><svg class="spark" style="--s:16px;top:8%;left:6%" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-spark"/></svg><svg class="spark" style="--s:11px;top:38%;left:1%" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-spark"/></svg><svg class="spark" style="--s:18px;top:14%;right:5%" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-spark"/></svg><svg class="spark" style="--s:10px;top:60%;right:2%" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-spark"/></svg>
                     <p class="hero__kicker">Приглашение на нашу свадьбу</p>
                     <h1><span>Тили-тили</span> <span>тесто!</span></h1>
@@ -1456,7 +1453,10 @@
 
         <!-- 2. ЗНАКОМСТВО С ПАРОЙ -->
         <section class="band" id="about" data-tone="blush">
-            <svg class="deco" style="--w:46px;--c:var(--wine);top:16px;right:max(10px,3vw);--r:14deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
+            <svg class="deco" style="--w:66px;--c:var(--wine);top:12px;right:max(8px,2.5vw);--r:14deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
+            <svg class="deco" style="--w:58px;--c:var(--ochre);top:14px;left:max(8px,2.5vw);--r:-12deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg>
+            <svg class="deco" style="--w:104px;--c:var(--rose);bottom:10px;left:max(8px,2.5vw);--r:-4deg" viewBox="0 0 170 94" aria-hidden="true"><use href="#dd-cherubs"/></svg>
+            <svg class="deco" style="--w:60px;--c:var(--ochre);bottom:12px;right:max(8px,2.5vw);--r:-12deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
             <div class="wrap wrap--wide reveal">
                 <header class="head">
                     <h2>Узнали?</h2>
@@ -1474,6 +1474,10 @@
 
         <!-- 3. ПРИГЛАШЕНИЕ И ДАТА -->
         <section class="band" id="invitation">
+            <svg class="deco" style="--w:62px;--c:var(--wine);top:12px;left:max(8px,2.5vw);--r:-10deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg>
+            <svg class="deco" style="--w:64px;--c:var(--rose);top:10px;right:max(8px,2.5vw);--r:12deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
+            <svg class="deco" style="--w:96px;--c:var(--ochre);bottom:12px;left:max(8px,2.5vw);--r:-6deg" viewBox="0 0 120 84" aria-hidden="true"><use href="#dd-rings"/></svg>
+            <svg class="deco" style="--w:58px;--c:var(--rose);bottom:12px;right:max(8px,2.5vw);--r:10deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg>
             <div class="wrap reveal">
                 <header class="head">
                     <h2>Наш день</h2>
@@ -1481,7 +1485,7 @@
                 </header>
                 <p class="lead">Есть моменты, которые хочется разделить с самыми близкими. Приглашаем вас провести с нами день, в котором мы станем семьёй!</p>
 
-                <svg class="illus illus--lead" style="--w:150px" viewBox="0 0 170 94" aria-hidden="true"><use href="#dd-cherubs"/></svg>
+                <svg class="illus illus--lead" style="--w:210px" viewBox="0 0 170 94" aria-hidden="true"><use href="#dd-cherubs"/></svg>
 
                 <div id="calendar-container"></div>
 
@@ -1499,6 +1503,10 @@
 
         <!-- 4. ЛОКАЦИЯ -->
         <section class="band band--dark" id="location">
+            <svg class="deco" style="--w:66px;--c:var(--sand);top:22px;left:max(18px,3.5vw);--r:-10deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
+            <svg class="deco" style="--w:60px;--c:var(--sand);top:24px;right:max(18px,3.5vw);--r:10deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg>
+            <svg class="deco" style="--w:104px;--c:var(--sand);bottom:24px;left:max(18px,3.5vw);--r:-3deg" viewBox="0 0 170 94" aria-hidden="true"><use href="#dd-cherubs"/></svg>
+            <svg class="deco" style="--w:60px;--c:var(--sand);bottom:24px;right:max(18px,3.5vw);--r:12deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
             <div class="wrap wrap--wide reveal">
                 <header class="head">
                     <h2>Места встречи</h2>
@@ -1507,10 +1515,11 @@
 
                 <div class="places">
                     <article class="place">
-                        <svg class="illus" style="--w:104px" viewBox="0 0 120 84" aria-hidden="true"><use href="#dd-rings"/></svg>
+                        <svg class="illus" style="--w:150px" viewBox="0 0 120 84" aria-hidden="true"><use href="#dd-rings"/></svg>
                         <h3 class="place__label">Торжественная церемония</h3>
                         <p class="place__time" id="ceremony-time"></p>
                         <p class="place__name" id="ceremony-name"></p>
+                        <p class="place__note">Самые важные слова, немного слёз и много любви</p>
                         <a href="#" id="ceremony-map-link" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-pin"/></svg>Карта церемонии
                         </a>
@@ -1520,10 +1529,11 @@
                     </article>
 
                     <article class="place">
-                        <svg class="illus" style="--w:200px" viewBox="0 0 240 140" aria-hidden="true"><use href="#dd-table"/></svg>
+                        <svg class="illus" style="--w:270px" viewBox="0 0 240 140" aria-hidden="true"><use href="#dd-table"/></svg>
                         <h3 class="place__label">Празднование</h3>
                         <p class="place__time" id="celebration-time"></p>
                         <p class="place__name" id="venue-name"></p>
+                        <p class="place__note">Вкусная еда, тосты и наши любимые люди рядом</p>
                         <p class="place__note" id="venue-address"></p>
                         <a href="#" id="map-link" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-pin"/></svg>Открыть метку на карте
@@ -1543,7 +1553,6 @@
 
         <!-- 5. ПРОГРАММА ДНЯ -->
         <section class="band" id="schedule">
-            <svg class="deco" style="--w:44px;--c:var(--ochre);top:18px;left:max(10px,3vw);--r:-12deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg>
             <div class="wrap reveal">
                 <header class="head">
                     <h2>Во сколько?</h2>
@@ -1558,7 +1567,10 @@
 
         <!-- 6. ДРЕСС-КОД -->
         <section class="band" id="dresscode" hidden>
-            <svg class="deco" style="--w:40px;--c:var(--wine);bottom:20px;right:max(10px,3vw);--r:10deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg>
+            <svg class="deco" style="--w:64px;--c:var(--rose);top:12px;left:max(8px,2.5vw);--r:-12deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
+            <svg class="deco" style="--w:58px;--c:var(--ochre);top:14px;right:max(8px,2.5vw);--r:10deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg>
+            <svg class="deco" style="--w:56px;--c:var(--wine);bottom:12px;left:max(8px,2.5vw);--r:-8deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg>
+            <svg class="deco" style="--w:104px;--c:var(--rose);bottom:10px;right:max(8px,2.5vw);--r:3deg" viewBox="0 0 170 94" aria-hidden="true"><use href="#dd-cherubs"/></svg>
             <div class="wrap reveal">
                 <header class="head">
                     <h2><svg class="doodle doodle--l" viewBox="0 0 64 64" aria-hidden="true"><use href="#dd-lemon"/></svg>Дресс-код<svg class="doodle doodle--r" viewBox="0 0 64 64" aria-hidden="true"><use href="#dd-sprig"/></svg></h2>
@@ -1590,7 +1602,10 @@
 
         <!-- 8. ПОДТВЕРЖДЕНИЕ ПРИСУТСТВИЯ -->
         <section class="band" id="rsvp" data-tone="blush">
-            <svg class="deco" style="--w:44px;--c:var(--rose);bottom:18px;left:max(10px,3vw);--r:-10deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
+            <svg class="deco" style="--w:108px;--c:var(--wine);top:12px;left:max(8px,2.5vw);--r:-3deg" viewBox="0 0 170 94" aria-hidden="true"><use href="#dd-cherubs"/></svg>
+            <svg class="deco" style="--w:62px;--c:var(--ochre);top:12px;right:max(8px,2.5vw);--r:12deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
+            <svg class="deco" style="--w:62px;--c:var(--rose);bottom:12px;left:max(8px,2.5vw);--r:-10deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
+            <svg class="deco" style="--w:58px;--c:var(--wine);bottom:12px;right:max(8px,2.5vw);--r:10deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg>
             <div class="wrap reveal">
                 <header class="head">
                     <h2>Вы с нами?</h2>
@@ -1694,7 +1709,9 @@
 
         <!-- 9. КОНТАКТЫ И ФИНАЛ -->
         <section class="band band--dark" id="contacts">
-            <svg class="deco" style="--w:44px;--c:var(--sand);top:26px;left:max(14px,4vw);--r:-8deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
+            <svg class="deco" style="--w:64px;--c:var(--sand);top:24px;left:max(18px,3.5vw);--r:-8deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
+            <svg class="deco" style="--w:58px;--c:var(--sand);top:26px;right:max(18px,3.5vw);--r:10deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg>
+            <svg class="deco" style="--w:104px;--c:var(--sand);bottom:24px;right:max(18px,3.5vw);--r:3deg" viewBox="0 0 170 94" aria-hidden="true"><use href="#dd-cherubs"/></svg>
             <div class="wrap reveal">
                 <div class="organizer" id="organizer-block">
                     <header class="head">
