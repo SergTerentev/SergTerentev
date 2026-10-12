@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сергей и Полина — приглашение на свадьбу</title>
     <meta name="description" content="Приглашаем вас разделить с нами самый счастливый день!">
-    <meta name="theme-color" content="#EFE6D9">
+    <meta name="theme-color" content="#FFF6D9">
     <meta name="color-scheme" content="only light">
 
     <!-- Open Graph для мессенджеров -->
@@ -54,21 +54,21 @@
             color-scheme: light;
             color-scheme: only light;
 
-            --linen: #EFE6D9;        /* фон страницы */
-            --paper: #FAF5EC;        /* карточки: календарь, форма */
-            --photo-paper: #FDFBF6;  /* поля фотографий */
-            --blush: #E8D8CB;        /* мягкая розово-бежевая полоса */
-            --ink: #40332E;          /* основной текст */
-            --ink-soft: #6B5A50;     /* второстепенный текст */
-            --wine: #7A4643;         /* приглушённая марсала — главный акцент */
-            --wine-deep: #5C3533;    /* тёмные секции */
-            --rose: #D4B0A1;         /* пыльная роза */
-            --ochre: #B5935D;        /* охра — орнамент и линии */
-            --bronze: #735831;       /* охра для мелкого текста */
-            --cream: #F5ECDF;        /* текст на тёмном */
-            --sand: #DEC8A0;         /* акцент на тёмном */
-            --line: rgba(181, 147, 93, .45);
-            --field: #CDBBA6;
+            --linen: #FFF6D9;        /* фон страницы */
+            --paper: #FFFBEC;        /* карточки: календарь, форма */
+            --photo-paper: #FFFDF5;  /* поля фотографий */
+            --blush: #F8E596;        /* мягкая розово-бежевая полоса */
+            --ink: #3B4429;          /* основной текст */
+            --ink-soft: #566340;     /* второстепенный текст */
+            --wine: #5E6B47;         /* мох — главный акцент */
+            --wine-deep: #55623F;    /* тёмные секции */
+            --rose: #DDA58C;         /* пыльная роза */
+            --ochre: #C4A24A;        /* охра — орнамент и линии */
+            --bronze: #766420;       /* охра для мелкого текста */
+            --cream: #FFF6D9;        /* текст на тёмном */
+            --sand: #F8E596;         /* акцент на тёмном */
+            --line: rgba(196, 162, 74, .5);
+            --field: #D7C98F;
 
             --serif: 'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif;
             --display: 'Monplesir Script', 'Marck Script', 'Segoe Script', cursive;
@@ -79,7 +79,7 @@
             --band-y: clamp(68px, 13vw, 124px);
             --measure: 39rem;
 
-            --shadow-photo: 0 1px 2px rgba(74, 48, 40, .14), 0 16px 30px -14px rgba(74, 48, 40, .38);
+            --shadow-photo: 0 1px 2px rgba(70, 62, 24, .14), 0 16px 30px -14px rgba(70, 62, 24, .38);
             --ease: cubic-bezier(.22, .68, .2, 1);
 
             /* лёгкое бумажное зерно: две маленькие PNG-плитки (не нагружают прокрутку) */
@@ -96,7 +96,7 @@
             scroll-behavior: smooth;
         }
 
-        ::selection { background-color: rgba(122, 70, 67, .2); }
+        ::selection { background-color: rgba(94, 107, 71, .2); }
 
         body {
             margin: 0;
@@ -135,14 +135,14 @@
         }
 
         .band--dark {
-            --orn: #D9BF94;
-            --orn-heart: #E6C7B5;
-            --orn-grain: rgba(217, 191, 148, .32);
-            --orn-leaf: rgba(230, 199, 181, .3);
-            --orn-leaf-line: #D2AD9B;
-            --orn-head: rgba(245, 236, 223, .2);
-            --orn-soft: #D6C1A8;
-            --orn-dot: rgba(230, 199, 181, .55);
+            --orn: #F8E596;
+            --orn-heart: #F0BFA8;
+            --orn-grain: rgba(248, 229, 150, .32);
+            --orn-leaf: rgba(221, 165, 140, .3);
+            --orn-leaf-line: #DDA58C;
+            --orn-head: rgba(255, 246, 217, .2);
+            --orn-soft: #EADFB0;
+            --orn-dot: rgba(221, 165, 140, .55);
             background-color: var(--wine-deep);
             background-image: var(--grain-light);
             color: var(--cream);
@@ -157,7 +157,7 @@
             right: var(--frame);
             bottom: var(--frame);
             left: var(--frame);
-            border: 1px solid rgba(222, 200, 160, .3);
+            border: 1px solid rgba(248, 229, 150, .3);
             pointer-events: none;
         }
 
@@ -256,7 +256,7 @@
             text-align: center;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
-            box-shadow: 0 10px 20px -12px rgba(92, 53, 51, .7);
+            box-shadow: 0 10px 20px -12px rgba(60, 70, 40, .7);
             transition: background-color .25s ease, border-color .25s ease, transform .25s var(--ease), box-shadow .25s ease;
         }
 
@@ -276,12 +276,12 @@
 
         .btn--ghost {
             background-color: transparent;
-            border-color: rgba(245, 236, 223, .5);
+            border-color: rgba(255, 246, 217, .5);
             color: var(--cream);
             box-shadow: none;
         }
 
-        .btn--ghost:active { background-color: rgba(245, 236, 223, .12); }
+        .btn--ghost:active { background-color: rgba(255, 246, 217, .12); }
 
         .btn--ghost:focus-visible { outline-color: var(--sand); }
 
@@ -374,7 +374,7 @@
             --ratio: 125%;   /* высота кадра относительно ширины: 4 × 5 */
             position: relative;
             overflow: hidden;
-            background-color: #E9DACD;
+            background-color: #F6EBC0;
         }
 
         .photo::before {
@@ -405,8 +405,8 @@
             justify-content: center;
             gap: .5em;
             padding: 8%;
-            background: linear-gradient(155deg, #EFE2D5, #E3D0C1);
-            color: #775F53;
+            background: linear-gradient(155deg, #FBF0C4, #F1E2A8);
+            color: #566340;
             font-style: italic;
             font-size: clamp(1.01rem, 3.9vw, 1.16rem);
             line-height: 1.25;
@@ -427,7 +427,7 @@
             width: 1.5em;
             height: 1.5em;
             fill: none;
-            stroke: #B4978A;
+            stroke: #92A36E;
             stroke-width: 1.3;
         }
 
@@ -472,7 +472,7 @@
         }
 
         .hero__names .name { white-space: nowrap; }
-        .hero__names .plus { color: #9A7A48; font-weight: 400; }
+        .hero__names .plus { color: #C98467; font-weight: 400; }
 
         .hero__lockup .ornament { margin-top: clamp(14px, 4vw, 20px); }
 
@@ -615,7 +615,7 @@
             background-color: var(--paper);
             border: 1px solid var(--line);
             border-radius: 4px;
-            box-shadow: 0 24px 46px -32px rgba(92, 53, 51, .5);
+            box-shadow: 0 24px 46px -32px rgba(60, 70, 40, .5);
         }
 
         .calendar::before {
@@ -625,7 +625,7 @@
             right: 5px;
             bottom: 5px;
             left: 5px;
-            border: 1px solid rgba(181, 147, 93, .26);
+            border: 1px solid rgba(196, 162, 74, .26);
             border-radius: 2px;
             pointer-events: none;
         }
@@ -672,7 +672,7 @@
 
         .calendar__cell--weekend { color: var(--wine); }
 
-        .calendar__cell--day-off { color: #8C5F57; }
+        .calendar__cell--day-off { color: #B9694F; }
 
         .calendar__cell--wedding { color: var(--cream); font-weight: 600; }
 
@@ -715,7 +715,7 @@
             width: 56px;
             height: 1px;
             margin: clamp(38px, 10vw, 52px) 0;
-            background-color: rgba(222, 200, 160, .55);
+            background-color: rgba(248, 229, 150, .55);
         }
 
         .place__label {
@@ -746,7 +746,7 @@
             margin-top: .35em;
             font-style: italic;
             line-height: 1.4;
-            color: rgba(245, 236, 223, .82);
+            color: rgba(255, 246, 217, .82);
         }
 
         .place .btn { margin-top: 1.15em; }
@@ -757,10 +757,10 @@
             max-width: 26rem;
             margin-top: 1.4em;
             aspect-ratio: 4 / 3;
-            border: 1px solid rgba(222, 200, 160, .45);
+            border: 1px solid rgba(248, 229, 150, .45);
             border-radius: 2px;
             overflow: hidden;
-            background-color: rgba(245, 236, 223, .08);
+            background-color: rgba(255, 246, 217, .08);
         }
 
         .map iframe { display: block; width: 100%; height: 100%; border: 0; }
@@ -782,7 +782,7 @@
             display: none;
             margin-top: 1.1em;
             font-style: italic;
-            color: rgba(245, 236, 223, .82);
+            color: rgba(255, 246, 217, .82);
         }
 
         /* ==========================================================
@@ -881,7 +881,7 @@
             aspect-ratio: 1;
             border: 3px solid var(--photo-paper);
             border-radius: 50%;
-            box-shadow: 0 0 0 1px var(--line), 0 10px 18px -12px rgba(74, 48, 40, .55);
+            box-shadow: 0 0 0 1px var(--line), 0 10px 18px -12px rgba(70, 62, 24, .55);
         }
 
         .dresscode__note { margin-top: 1.1em; }
@@ -921,7 +921,7 @@
             background-color: var(--paper);
             border: 1px solid var(--line);
             border-radius: 4px;
-            box-shadow: 0 30px 56px -40px rgba(92, 53, 51, .6);
+            box-shadow: 0 30px 56px -40px rgba(60, 70, 40, .6);
             text-align: left;
         }
 
@@ -957,7 +957,7 @@
         .input:focus {
             outline: none;
             border-color: var(--wine);
-            box-shadow: 0 0 0 3px rgba(122, 70, 67, .15);
+            box-shadow: 0 0 0 3px rgba(94, 107, 71, .15);
         }
 
         textarea.input { min-height: 116px; resize: vertical; }
@@ -1008,7 +1008,7 @@
             place-items: center;
             width: 22px;
             height: 22px;
-            border: 1.5px solid #B8A28C;
+            border: 1.5px solid #C4B16A;
             border-radius: 50%;
             background-color: #fff;
             transition: border-color .2s ease, background-color .2s ease;
@@ -1042,7 +1042,7 @@
         .choice input[type="checkbox"]:checked ~ .choice__mark { background-color: var(--wine); }
         .choice input[type="checkbox"]:checked ~ .choice__mark::after { transform: rotate(-45deg) scale(1); }
 
-        .choice:has(input:checked) { border-color: var(--wine); background-color: #F7ECE4; }
+        .choice:has(input:checked) { border-color: var(--wine); background-color: #FBF1BF; }
         .choice input:focus-visible ~ .choice__mark { outline: 2px solid var(--ochre); outline-offset: 2px; }
 
         .form-extra { animation: unfold .45s var(--ease) both; }
@@ -1059,7 +1059,7 @@
             padding: 16px 18px;
             border: 1px solid var(--rose);
             border-radius: 8px;
-            background-color: #F7ECE4;
+            background-color: #FBF1BF;
             font-size: 1.25rem;
             line-height: 1.4;
             text-align: center;
@@ -1122,17 +1122,17 @@
             .btn:hover {
                 background-color: var(--wine-deep);
                 transform: translateY(-1px);
-                box-shadow: 0 14px 24px -12px rgba(92, 53, 51, .75);
+                box-shadow: 0 14px 24px -12px rgba(60, 70, 40, .75);
             }
 
             .btn--ghost:hover {
-                background-color: rgba(245, 236, 223, .1);
+                background-color: rgba(255, 246, 217, .1);
                 border-color: var(--cream);
                 box-shadow: none;
             }
 
             .btn:disabled:hover { transform: none; }
-            .choice:hover { border-color: #B8A28C; }
+            .choice:hover { border-color: #C4B16A; }
             .choice:has(input:checked):hover { border-color: var(--wine); }
             .contact-link:hover { color: var(--sand); }
             .polaroid:hover .polaroid__card { transform: rotate(calc(var(--tilt) * .35)) translateY(-4px); }
@@ -1164,9 +1164,8 @@
 
             .places { grid-template-columns: 1fr 1fr; align-items: start; }
             .place { padding-left: clamp(10px, 2.2vw, 36px); padding-right: clamp(10px, 2.2vw, 36px); }
-            .place + .place { border-left: 1px solid rgba(222, 200, 160, .34); }
+            .place + .place { border-left: 1px solid rgba(248, 229, 150, .34); }
             .place + .place::before { content: none; }
-            .venue figcaption { display: block; }
 
             .wishes--pair { grid-template-columns: 1fr 1fr; max-width: 52rem; column-gap: clamp(36px, 6vw, 72px); align-items: start; }
             .wishes--pair .wish + .wish::before { content: none; }
