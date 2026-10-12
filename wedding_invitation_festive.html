@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сергей и Полина — приглашение на свадьбу</title>
+    <meta name="description" content="Приглашаем вас разделить с нами самый счастливый день!">
+    <meta name="theme-color" content="#EFE6D9">
+    <meta name="color-scheme" content="only light">
+
+    <!-- Open Graph для мессенджеров -->
+    <meta property="og:title" content="Сергей и Полина — приглашение на свадьбу">
+    <meta property="og:description" content="Приглашаем вас разделить с нами самый счастливый день!">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%237A4643' d='M12 20.6c-6.3-4.4-9.6-8-9.6-11.7C2.4 6.1 4.5 4 7.1 4c2 0 3.8 1.2 4.9 3.1C13.1 5.2 14.9 4 16.9 4c2.6 0 4.7 2.1 4.7 4.9 0 3.7-3.3 7.3-9.6 11.7z'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Marck+Script&display=swap" rel="stylesheet">
+
+    <script>
+        // Класс js включает анимации; is-ready запускает выход первого экрана, когда шрифты на месте
+        (function (root) {
+            root.classList.add('js');
+            var start = function () { root.classList.add('is-ready'); };
+            var fonts = document.fonts;
+            if (fonts && fonts.load && window.Promise) {
+                Promise.all([
+                    fonts.load('1em "Marck Script"', 'Тили-тили'),
+                    fonts.load('500 1em "Cormorant Garamond"', 'Сергей')
+                ]).then(start, start);
+            }
+            setTimeout(start, 1800);
+        })(document.documentElement);
+    </script>
+
+    <style>
+        /* ==========================================================
+           1. ПАЛИТРА И ОСНОВА
+           Тёплые приглушённые тона: лён, бумага, пыльная роза,
+           марсала и охра. Основные цвета меняются здесь.
+           ========================================================== */
+        :root {
+            color-scheme: light;
+            color-scheme: only light;
+
+            --linen: #EFE6D9;        /* фон страницы */
+            --paper: #FAF5EC;        /* карточки: календарь, форма */
+            --photo-paper: #FDFBF6;  /* поля фотографий */
+            --blush: #E8D8CB;        /* мягкая розово-бежевая полоса */
+            --ink: #40332E;          /* основной текст */
+            --ink-soft: #6B5A50;     /* второстепенный текст */
+            --wine: #7A4643;         /* приглушённая марсала — главный акцент */
+            --wine-deep: #5C3533;    /* тёмные секции */
+            --rose: #D4B0A1;         /* пыльная роза */
+            --ochre: #B5935D;        /* охра — орнамент и линии */
+            --bronze: #735831;       /* охра для мелкого текста */
+            --cream: #F5ECDF;        /* текст на тёмном */
+            --sand: #DEC8A0;         /* акцент на тёмном */
+            --line: rgba(181, 147, 93, .45);
+            --field: #CDBBA6;
+
+            --serif: 'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif;
+            --script: 'Marck Script', 'Segoe Script', 'Bradley Hand', cursive;
+
+            --fs-body: clamp(1.25rem, 1.17rem + .36vw, 1.4rem);
+            --gutter: clamp(22px, 6vw, 48px);
+            --band-y: clamp(68px, 13vw, 124px);
+            --measure: 39rem;
+
+            --shadow-photo: 0 1px 2px rgba(74, 48, 40, .14), 0 16px 30px -14px rgba(74, 48, 40, .38);
+            --ease: cubic-bezier(.22, .68, .2, 1);
+
+            /* лёгкое бумажное зерно: две маленькие PNG-плитки (не нагружают прокрутку) */
+            --grain: url("data:image/png;base64,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");
+            --grain-light: url("data:image/png;base64,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");
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html {
+            background-color: var(--linen);
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            scroll-behavior: smooth;
+        }
+
+        ::selection { background-color: rgba(122, 70, 67, .2); }
+
+        body {
+            margin: 0;
+            background-color: var(--linen);
+            background-image: var(--grain);
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: var(--fs-body);
+            font-weight: 500;
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        h1, h2, h3, p, figure, ol, ul, fieldset, legend { margin: 0; padding: 0; }
+        fieldset { border: 0; min-width: 0; }
+        ol, ul { list-style: none; }
+        img, svg { display: block; max-width: 100%; }
+        a { color: inherit; }
+        p { text-wrap: pretty; }
+        [hidden] { display: none !important; }
+        .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+        /* ==========================================================
+           2. СЕКЦИИ
+           ========================================================== */
+        .band {
+            position: relative;
+            padding: var(--band-y) var(--gutter);
+            overflow: hidden;
+        }
+
+        .band[data-tone="blush"] {
+            background-color: var(--blush);
+            background-image: var(--grain);
+        }
+
+        .band--dark {
+            --orn: #D9BF94;
+            --orn-heart: #E6C7B5;
+            --orn-grain: rgba(217, 191, 148, .32);
+            --orn-leaf: rgba(230, 199, 181, .3);
+            --orn-leaf-line: #D2AD9B;
+            --orn-head: rgba(245, 236, 223, .2);
+            --orn-soft: #D6C1A8;
+            --orn-dot: rgba(230, 199, 181, .55);
+            background-color: var(--wine-deep);
+            background-image: var(--grain-light);
+            color: var(--cream);
+        }
+
+        /* тонкая рамка внутри тёмных секций */
+        .band--dark::before {
+            --frame: clamp(8px, 2.4vw, 14px);
+            content: "";
+            position: absolute;
+            top: var(--frame);
+            right: var(--frame);
+            bottom: var(--frame);
+            left: var(--frame);
+            border: 1px solid rgba(222, 200, 160, .3);
+            pointer-events: none;
+        }
+
+        .wrap {
+            position: relative;
+            max-width: var(--measure);
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .wrap--wide { max-width: 58rem; }
+
+        /* мягкое появление секций при прокрутке */
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity .9s ease, transform .9s var(--ease);
+        }
+
+        .js .reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ==========================================================
+           3. ТИПОГРАФИКА И ОРНАМЕНТ
+           ========================================================== */
+        .head { margin-bottom: clamp(24px, 5vw, 36px); }
+
+        h2 {
+            font: italic 400 clamp(2.6rem, 2.1rem + 2.4vw, 3.6rem)/1.06 var(--serif);
+            color: var(--wine);
+            text-wrap: balance;
+        }
+
+        .band--dark h2 { color: var(--cream); }
+
+        .ornament {
+            width: clamp(150px, 42vw, 176px);
+            height: auto;
+            aspect-ratio: 220 / 30;
+            margin: 14px auto 0;
+            overflow: visible;
+        }
+
+        .lead {
+            max-width: 31em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .heart {
+            display: inline-block;
+            width: .62em;
+            height: .62em;
+            vertical-align: -.02em;
+            fill: currentColor;
+        }
+
+        /* рисунок орнамента (сами символы лежат в спрайте в начале страницы) */
+        .o-stem, .b-stem, .b-awn, .b-fuzz {
+            fill: none;
+            stroke: var(--orn, var(--ochre));
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .o-stem { stroke-width: 1; }
+        .o-leaf { fill: var(--orn, var(--ochre)); }
+        .o-heart { fill: var(--orn-heart, var(--wine)); }
+        .b-stem { stroke-width: 1.3; }
+        .b-awn { stroke-width: .9; opacity: .85; }
+        .b-fuzz { stroke-width: .9; stroke: var(--orn-soft, #C9A98F); }
+        .b-grain { fill: var(--orn-grain, #DCC292); stroke: var(--orn, var(--ochre)); stroke-width: 1; stroke-linejoin: round; }
+        .b-leaf { fill: var(--orn-leaf, #DDBFAE); stroke: var(--orn-leaf-line, #B98F7C); stroke-width: 1; stroke-linejoin: round; }
+        .b-head { fill: var(--orn-head, #F4E6D7); stroke: var(--orn-soft, #C9A98F); stroke-width: 1; }
+        .b-dot circle { fill: var(--orn-dot, #E3C2B2); stroke: var(--orn-leaf-line, #B98F7C); stroke-width: .8; }
+
+        /* ==========================================================
+           4. КНОПКИ
+           ========================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5em;
+            min-height: 52px;
+            padding: .62em clamp(1.25em, 6.4vw, 1.9em) .7em;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            background-color: var(--wine);
+            color: var(--cream);
+            font: 600 1.19rem/1.1 var(--serif);
+            letter-spacing: .02em;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 10px 20px -12px rgba(92, 53, 51, .7);
+            transition: background-color .25s ease, border-color .25s ease, transform .25s var(--ease), box-shadow .25s ease;
+        }
+
+        .btn:active { background-color: var(--wine-deep); }
+
+        .btn:focus-visible,
+        .contact-link:focus-visible {
+            outline: 2px solid var(--ochre);
+            outline-offset: 3px;
+        }
+
+        .btn:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn--ghost {
+            background-color: transparent;
+            border-color: rgba(245, 236, 223, .5);
+            color: var(--cream);
+            box-shadow: none;
+        }
+
+        .btn--ghost:active { background-color: rgba(245, 236, 223, .12); }
+
+        .btn--ghost:focus-visible { outline-color: var(--sand); }
+
+        .btn svg {
+            flex: none;
+            width: 1em;
+            height: 1em;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ==========================================================
+           5. ПЕРВЫЙ ЭКРАН
+           ========================================================== */
+        .hero {
+            padding-top: clamp(44px, 11vw, 72px);
+            padding-bottom: clamp(64px, 14vw, 96px);
+        }
+
+        .hero__grid {
+            --polaroid-w: min(52vw, 260px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                "title title"
+                "groom bride"
+                "lockup lockup";
+            justify-items: center;
+            max-width: 34rem;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .hero__title { grid-area: title; position: relative; z-index: 2; }
+
+        .hero__kicker,
+        .hero__married {
+            font-style: italic;
+            font-size: clamp(1.1rem, 4.6vw, 1.3rem);
+            line-height: 1.3;
+            color: var(--bronze);
+            letter-spacing: .02em;
+        }
+
+        h1 {
+            margin-top: clamp(14px, 4vw, 22px);
+            font: 400 clamp(3.4rem, 16.4vw, 5.6rem)/.88 var(--script);
+            letter-spacing: -.02em;
+            color: var(--wine);
+            transform: rotate(-4deg);
+        }
+
+        h1 span { display: block; padding: 0 .12em; }
+
+        /* --- фотографии-полароиды --- */
+        .polaroid {
+            position: relative;
+            width: var(--polaroid-w);
+            margin-top: clamp(96px, 27vw, 150px);
+        }
+
+        .polaroid--groom { grid-area: groom; --tilt: -5deg; justify-self: end; margin-right: -5px; }
+        .polaroid--bride { grid-area: bride; --tilt: 4deg; justify-self: start; margin-left: -5px; top: 12px; }
+
+        .polaroid__card {
+            position: relative;
+            z-index: 1;
+            padding: 6.5% 6.5% 0;
+            background-color: var(--photo-paper);
+            border-radius: 2px;
+            box-shadow: var(--shadow-photo);
+            transform: rotate(var(--tilt));
+            transition: transform .6s var(--ease);
+        }
+
+        .polaroid figcaption {
+            padding: .34em 0 .5em;
+            font: 400 clamp(1.3rem, 5.6vw, 1.75rem)/1.1 var(--script);
+            letter-spacing: -.02em;
+            color: var(--wine);
+        }
+
+        .polaroid figcaption .heart { width: .46em; height: .46em; margin-left: .32em; }
+
+        .photo {
+            --ratio: 125%;   /* высота кадра относительно ширины: 4 × 5 */
+            position: relative;
+            overflow: hidden;
+            background-color: #E9DACD;
+        }
+
+        .photo::before {
+            content: "";
+            display: block;
+            padding-top: var(--ratio);
+        }
+
+        .photo img,
+        .photo__empty {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .photo img {
+            object-fit: cover;
+            object-position: 50% 35%;
+        }
+
+        /* место под фотографию, пока она не добавлена */
+        .photo__empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .5em;
+            padding: 8%;
+            background: linear-gradient(155deg, #EFE2D5, #E3D0C1);
+            color: #775F53;
+            font-style: italic;
+            font-size: clamp(.95rem, 3.9vw, 1.1rem);
+            line-height: 1.25;
+            text-align: center;
+        }
+
+        .photo__empty::before {
+            content: "";
+            position: absolute;
+            top: 7px;
+            right: 7px;
+            bottom: 7px;
+            left: 7px;
+            border: 1px dashed rgba(140, 116, 102, .4);
+        }
+
+        .photo__empty svg {
+            width: 1.5em;
+            height: 1.5em;
+            fill: none;
+            stroke: #B4978A;
+            stroke-width: 1.3;
+        }
+
+        /* букет сухоцветов, выглядывающий из-за фотографии */
+        .polaroid__bouquet {
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            left: -12%;
+            width: 122%;
+            max-width: none;
+            aspect-ratio: 1;
+            overflow: visible;
+            pointer-events: none;
+            transform: translateY(-58%) rotate(-4deg);
+            transform-origin: 50% 100%;
+        }
+
+        .polaroid--bride .polaroid__bouquet {
+            left: auto;
+            right: -12%;
+            transform: translateY(-58%) scaleX(-1) rotate(-4deg);
+        }
+
+        /* --- имена и дата --- */
+        .hero__lockup {
+            grid-area: lockup;
+            margin-top: clamp(38px, 10vw, 54px);
+        }
+
+        .hero__names {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            column-gap: .26em;
+            margin-top: .08em;
+            font-size: clamp(2.3rem, 10.4vw, 3.6rem);
+            line-height: 1.08;
+            letter-spacing: -.005em;
+        }
+
+        .hero__names .name { white-space: nowrap; }
+        .hero__names .plus { color: #9A7A48; font-weight: 400; }
+
+        .hero__lockup .ornament { margin-top: clamp(14px, 4vw, 20px); }
+
+        .hero__date {
+            margin-top: clamp(12px, 3.4vw, 16px);
+            font-size: clamp(1.4rem, 6vw, 1.7rem);
+            line-height: 1.25;
+            letter-spacing: .03em;
+        }
+
+        .hero__weekday {
+            display: block;
+            margin-top: .1em;
+            font-style: italic;
+            font-size: .8em;
+            letter-spacing: .02em;
+            color: var(--ink-soft);
+        }
+
+        .hero__lockup .btn { margin-top: clamp(24px, 7vw, 32px); }
+
+        /* единственная «постановочная» анимация — выход первого экрана.
+           Стартует, когда загрузились шрифты (класс is-ready ставит скрипт). */
+        @media (prefers-reduced-motion: no-preference) {
+            .js:not(.is-ready) .hero__kicker,
+            .js:not(.is-ready) h1 span,
+            .js:not(.is-ready) .polaroid__card,
+            .js:not(.is-ready) .polaroid__bouquet,
+            .js:not(.is-ready) .hero__lockup { opacity: 0; }
+
+            .is-ready .hero__kicker { animation: rise .7s ease .1s backwards; }
+            .is-ready h1 span { animation: write .75s var(--ease) backwards; }
+            .is-ready h1 span:nth-child(1) { animation-delay: .2s; }
+            .is-ready h1 span:nth-child(2) { animation-delay: .55s; }
+            .is-ready .polaroid__card { animation: land .95s var(--ease) backwards; }
+            .is-ready .polaroid--groom .polaroid__card { --from-x: -26px; --from-tilt: -13deg; animation-delay: .75s; }
+            .is-ready .polaroid--bride .polaroid__card { --from-x: 26px; --from-tilt: 12deg; animation-delay: .9s; }
+            .is-ready .polaroid__bouquet { animation: grow 1.1s var(--ease) 1.15s backwards; }
+            .is-ready .hero__lockup { animation: rise .8s ease 1.2s backwards; }
+        }
+
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: none; }
+        }
+
+        @keyframes write {
+            from { opacity: 0; clip-path: inset(-40% 100% -40% -15%); }
+            12% { opacity: 1; }
+            to { opacity: 1; clip-path: inset(-40% -15% -40% -15%); }
+        }
+
+        @keyframes land {
+            from { opacity: 0; transform: translate(var(--from-x), -18px) rotate(var(--from-tilt)); }
+            to { opacity: 1; transform: rotate(var(--tilt)); }
+        }
+
+        @keyframes grow {
+            from { opacity: 0; scale: .86; }
+            to { opacity: 1; scale: 1; }
+        }
+
+        /* ==========================================================
+           6. ФОТОГРАФИИ ПАРЫ
+           ========================================================== */
+        .print {
+            position: relative;
+            padding: clamp(6px, 1.9vw, 10px);
+            background-color: var(--photo-paper);
+            border-radius: 2px;
+            box-shadow: var(--shadow-photo);
+            transform: rotate(var(--tilt, 0deg));
+            transition: transform .6s var(--ease);
+        }
+
+        /* полоска бумажного скотча */
+        .tape {
+            position: absolute;
+            z-index: 2;
+            top: -10px;
+            left: 50%;
+            width: clamp(46px, 30%, 76px);
+            height: 21px;
+            background: linear-gradient(180deg, rgba(224, 204, 168, .78), rgba(212, 189, 151, .68));
+            transform: translateX(-50%) rotate(var(--tape-tilt, -3deg));
+            clip-path: polygon(0 0, 3% 12%, 0 25%, 3% 37%, 0 50%, 3% 62%, 0 75%, 3% 87%, 0 100%, 100% 100%, 97% 87%, 100% 75%, 97% 62%, 100% 50%, 97% 37%, 100% 25%, 97% 12%, 100% 0);
+        }
+
+        .collage {
+            --cols: 2;
+            --gap: clamp(14px, 4vw, 22px);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: var(--gap);
+            max-width: 30rem;
+            margin: clamp(44px, 10vw, 64px) auto 0;
+        }
+
+        .collage .print {
+            flex: 0 0 calc((100% - var(--gap) * (var(--cols) - 1)) / var(--cols));
+            min-width: 0;
+        }
+
+        .collage .print:nth-child(odd) { --tilt: -2.5deg; --tape-tilt: 4deg; }
+        .collage .print:nth-child(even) { --tilt: 2.5deg; --tape-tilt: -5deg; }
+
+        .collage[data-count="1"] { --cols: 1; max-width: 26rem; }
+        .collage[data-count="1"] .print { --tilt: -1.5deg; }
+
+        /* три фотографии: одна крупная и две поменьше внахлёст */
+        .collage[data-count="3"] {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0;
+        }
+        .collage[data-count="3"] .print:nth-child(1) { grid-column: 1 / -1; justify-self: center; width: 86%; z-index: 2; --tilt: -1.5deg; --tape-tilt: 3deg; }
+        .collage[data-count="3"] .print:nth-child(2) { justify-self: start; width: 98%; margin-top: -16%; z-index: 1; --tilt: -5deg; --tape-tilt: 6deg; }
+        .collage[data-count="3"] .print:nth-child(3) { justify-self: end; width: 98%; margin-top: -8%; z-index: 3; --tilt: 4deg; --tape-tilt: -4deg; }
+
+        .signature {
+            margin-top: clamp(38px, 9vw, 56px);
+            font: 400 clamp(1.7rem, 6.9vw, 2.6rem)/1.15 var(--script);
+            letter-spacing: -.02em;
+            word-spacing: -.14em;
+            color: var(--wine);
+            text-wrap: balance;
+            transform: rotate(-2.5deg);
+        }
+
+        /* ==========================================================
+           7. КАЛЕНДАРЬ
+           ========================================================== */
+        .calendar {
+            position: relative;
+            width: min(100%, 22.5rem);
+            margin: clamp(34px, 8vw, 48px) auto 0;
+            padding: clamp(24px, 6.4vw, 30px) clamp(16px, 4.6vw, 26px) clamp(20px, 5.4vw, 26px);
+            background-color: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            box-shadow: 0 24px 46px -32px rgba(92, 53, 51, .5);
+        }
+
+        .calendar::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            bottom: 5px;
+            left: 5px;
+            border: 1px solid rgba(181, 147, 93, .26);
+            border-radius: 2px;
+            pointer-events: none;
+        }
+
+        .calendar__month {
+            padding-bottom: .5em;
+            border-bottom: 1px solid var(--line);
+            font: italic 500 clamp(1.6rem, 6.6vw, 1.9rem)/1.1 var(--serif);
+            color: var(--wine);
+        }
+
+        .calendar__grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            row-gap: 2px;
+            margin-top: .7em;
+            font-variant-numeric: lining-nums tabular-nums;
+        }
+
+        .calendar__cell {
+            position: relative;
+            display: grid;
+            place-items: center;
+            aspect-ratio: 1;
+            font-size: clamp(1.05rem, 4.9vw, 1.3rem);
+            line-height: 1;
+        }
+
+        /* старые браузеры без aspect-ratio: высота ячейки задаётся явно */
+        @supports not (aspect-ratio: 1) {
+            .calendar__cell { min-height: 2.1em; }
+            .calendar__cell--head { min-height: 0; }
+        }
+
+        .calendar__cell--head {
+            aspect-ratio: auto;
+            padding-bottom: .5em;
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--bronze);
+        }
+
+        .calendar__cell--weekend { color: var(--wine); }
+
+        .calendar__cell--day-off { color: #8C5F57; }
+
+        .calendar__cell--wedding { color: var(--cream); font-weight: 600; }
+
+        .calendar__cell--wedding svg {
+            position: absolute;
+            top: -12%;
+            left: -12%;
+            width: 124%;
+            height: 124%;
+            max-width: none;
+            fill: var(--wine);
+        }
+
+        .calendar__cell--wedding span { position: relative; top: -.06em; }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .calendar__cell--wedding svg { animation: heartbeat 3.2s ease-in-out 1.2s infinite; }
+        }
+
+        @keyframes heartbeat {
+            0%, 26%, 100% { transform: scale(1); }
+            8% { transform: scale(1.1); }
+            16% { transform: scale(1); }
+            21% { transform: scale(1.06); }
+        }
+
+        /* ==========================================================
+           8. МЕСТА ВСТРЕЧИ
+           ========================================================== */
+        .places { display: grid; }
+
+        .place {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .place + .place::before {
+            content: "";
+            width: 56px;
+            height: 1px;
+            margin: clamp(38px, 10vw, 52px) 0;
+            background-color: rgba(222, 200, 160, .55);
+        }
+
+        .place__label {
+            font: italic 500 clamp(1.25rem, 5.2vw, 1.45rem)/1.25 var(--serif);
+            letter-spacing: .02em;
+            color: var(--sand);
+        }
+
+        .place__time {
+            margin-top: .1em;
+            font-size: clamp(3.7rem, 17vw, 5.2rem);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: .01em;
+            font-variant-numeric: lining-nums;
+        }
+
+        .colon { position: relative; top: -.07em; margin: 0 .02em; }
+
+        .place__name {
+            margin-top: .4em;
+            font-size: clamp(1.45rem, 6.2vw, 1.8rem);
+            line-height: 1.2;
+            text-wrap: balance;
+        }
+
+        .place__note {
+            margin-top: .35em;
+            font-style: italic;
+            line-height: 1.4;
+            color: rgba(245, 236, 223, .82);
+        }
+
+        .place .btn { margin-top: 1.15em; }
+        .place .btn + .place__note { margin-top: 1.1em; }
+
+        .venue {
+            width: min(100%, 31rem);
+            margin: clamp(48px, 12vw, 68px) auto 0;
+        }
+
+        .venue .print { --tilt: 1.4deg; --tape-tilt: -3deg; }
+        .venue .photo { --ratio: 66.667%; }
+        .venue .photo img { object-position: 50% 50%; }
+
+        /* вертикальный снимок площадки — рамка 4 × 5 и поуже */
+        .venue--portrait { width: min(100%, 20rem); }
+        .venue--portrait .photo { --ratio: 125%; }
+
+        .venue figcaption {
+            display: none;
+            margin-top: 1.1em;
+            font-style: italic;
+            color: rgba(245, 236, 223, .82);
+        }
+
+        /* ==========================================================
+           9. ПРОГРАММА ДНЯ
+           ========================================================== */
+        .timeline {
+            --time-col: clamp(4.9rem, 22vw, 6rem);
+            max-width: 33rem;
+            margin: clamp(30px, 7vw, 44px) auto 0;
+            text-align: left;
+        }
+
+        .timeline__item {
+            display: grid;
+            grid-template-columns: var(--time-col) minmax(0, 1fr);
+        }
+
+        .timeline__time {
+            padding-right: clamp(14px, 4vw, 22px);
+            font-size: clamp(1.75rem, 7.4vw, 2.2rem);
+            line-height: 1.1;
+            text-align: right;
+            white-space: nowrap;
+            color: var(--wine);
+            font-variant-numeric: lining-nums;
+        }
+
+        .timeline__body {
+            position: relative;
+            padding: 0 0 clamp(34px, 8vw, 46px) clamp(20px, 5.4vw, 30px);
+        }
+
+        /* линия от точки события вниз, до следующей точки */
+        .timeline__body::after {
+            content: "";
+            position: absolute;
+            top: calc(.5em + 11px);
+            bottom: -.5em;
+            left: 0;
+            width: 1px;
+            background-color: var(--line);
+        }
+
+        .timeline__body::before {
+            content: "";
+            position: absolute;
+            top: .5em;
+            left: -5px;
+            width: 11px;
+            height: 11px;
+            border: 1.5px solid var(--ochre);
+            border-radius: 50%;
+        }
+
+        .timeline__title {
+            padding-top: .12em;
+            font: 600 clamp(1.4rem, 5.9vw, 1.7rem)/1.2 var(--serif);
+            text-wrap: balance;
+        }
+
+        .timeline__desc {
+            margin-top: .35em;
+            font-style: italic;
+            line-height: 1.45;
+            color: var(--ink-soft);
+        }
+
+        .timeline__end {
+            display: grid;
+            grid-template-columns: var(--time-col) minmax(0, 1fr);
+        }
+
+        .timeline__end svg {
+            grid-column: 2;
+            width: 17px;
+            height: 17px;
+            margin: calc(.5em + 2px) 0 0 -8px;
+            fill: var(--wine);
+        }
+
+        /* ==========================================================
+           10. ДРЕСС-КОД И ПОЖЕЛАНИЯ
+           ========================================================== */
+        .palette {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: clamp(10px, 3vw, 16px);
+            margin: clamp(26px, 6vw, 36px) 0;
+        }
+
+        .palette:empty { display: none; }
+
+        .palette__swatch {
+            width: clamp(48px, 13vw, 62px);
+            aspect-ratio: 1;
+            border: 3px solid var(--photo-paper);
+            border-radius: 50%;
+            box-shadow: 0 0 0 1px var(--line), 0 10px 18px -12px rgba(74, 48, 40, .55);
+        }
+
+        .dresscode__note { margin-top: 1.1em; }
+
+        .wishes {
+            display: grid;
+            gap: clamp(30px, 7vw, 40px);
+            max-width: 31em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .wish h3 {
+            font: italic 500 clamp(1.5rem, 6.2vw, 1.8rem)/1.2 var(--serif);
+            color: var(--wine);
+        }
+
+        .wish p { margin-top: .4em; }
+
+        .wish + .wish::before {
+            content: "";
+            display: block;
+            width: 56px;
+            height: 1px;
+            margin: 0 auto clamp(30px, 7vw, 40px);
+            background-color: var(--line);
+        }
+
+        /* ==========================================================
+           11. ФОРМА ОТВЕТА
+           ========================================================== */
+        .form-card {
+            position: relative;
+            max-width: 34rem;
+            margin: clamp(32px, 8vw, 46px) auto 0;
+            padding: clamp(26px, 7vw, 46px) clamp(20px, 6vw, 46px);
+            background-color: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            box-shadow: 0 30px 56px -40px rgba(92, 53, 51, .6);
+            text-align: left;
+        }
+
+        .field { margin-bottom: clamp(22px, 6vw, 28px); }
+
+        .field > label,
+        .field > legend {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.19rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .req { color: var(--wine); }
+
+        .input {
+            display: block;
+            width: 100%;
+            padding: 12px 16px 13px;
+            border: 1px solid var(--field);
+            border-radius: 8px;
+            background-color: #FFFDF9;
+            color: var(--ink);
+            font: 500 1.19rem/1.4 var(--serif);
+            -webkit-appearance: none;
+            appearance: none;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .input::placeholder { color: #857468; font-style: italic; opacity: 1; }
+
+        .input:focus {
+            outline: none;
+            border-color: var(--wine);
+            box-shadow: 0 0 0 3px rgba(122, 70, 67, .15);
+        }
+
+        textarea.input { min-height: 116px; resize: vertical; }
+
+        .hint {
+            margin-top: 8px;
+            font-style: italic;
+            font-size: 1.06rem;
+            line-height: 1.35;
+            color: var(--ink-soft);
+        }
+
+        .choices { display: grid; gap: 10px; }
+        .choices--chips { display: flex; flex-wrap: wrap; }
+
+        .choice {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-height: 52px;
+            padding: 10px 16px 11px;
+            border: 1px solid var(--field);
+            border-radius: 8px;
+            background-color: #FFFDF9;
+            font-size: 1.19rem;
+            line-height: 1.25;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            transition: border-color .2s ease, background-color .2s ease;
+        }
+
+        .choices--chips .choice { min-height: 46px; padding: 8px 16px 9px 12px; gap: 9px; border-radius: 999px; }
+
+        .choice input {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            width: 1px;
+            height: 1px;
+            margin: 0;
+            opacity: 0;
+        }
+
+        .choice__mark {
+            flex: none;
+            display: grid;
+            place-items: center;
+            width: 22px;
+            height: 22px;
+            border: 1.5px solid #B8A28C;
+            border-radius: 50%;
+            background-color: #fff;
+            transition: border-color .2s ease, background-color .2s ease;
+        }
+
+        .choice__mark::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--wine);
+            transform: scale(0);
+            transition: transform .25s var(--ease);
+        }
+
+        .choice input[type="checkbox"] ~ .choice__mark { border-radius: 6px; }
+
+        .choice input[type="checkbox"] ~ .choice__mark::after {
+            width: 11px;
+            height: 6px;
+            margin-top: -3px;
+            border: solid var(--cream);
+            border-width: 0 0 2px 2px;
+            border-radius: 0;
+            background: none;
+            transform: rotate(-45deg) scale(0);
+        }
+
+        .choice input:checked ~ .choice__mark { border-color: var(--wine); }
+        .choice input:checked ~ .choice__mark::after { transform: scale(1); }
+        .choice input[type="checkbox"]:checked ~ .choice__mark { background-color: var(--wine); }
+        .choice input[type="checkbox"]:checked ~ .choice__mark::after { transform: rotate(-45deg) scale(1); }
+
+        .choice:has(input:checked) { border-color: var(--wine); background-color: #F7ECE4; }
+        .choice input:focus-visible ~ .choice__mark { outline: 2px solid var(--ochre); outline-offset: 2px; }
+
+        .form-extra { animation: unfold .45s var(--ease) both; }
+
+        @keyframes unfold {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: none; }
+        }
+
+        .form-card .btn { display: flex; width: 100%; margin-top: clamp(26px, 7vw, 34px); }
+
+        .form-note {
+            margin-top: 20px;
+            padding: 16px 18px;
+            border: 1px solid var(--rose);
+            border-radius: 8px;
+            background-color: #F7ECE4;
+            font-size: 1.19rem;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .form-note .heart { color: var(--wine); margin-left: .15em; }
+        .form-error { border-color: #C9988A; background-color: #F6E4DC; color: #6A302B; }
+
+        /* ==========================================================
+           12. КОНТАКТЫ И ФИНАЛ
+           ========================================================== */
+        .contact-link {
+            font-variant-numeric: lining-nums;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid var(--sand);
+            transition: border-color .2s ease, color .2s ease;
+        }
+
+        .organizer p + p { margin-top: .5em; }
+        .organizer { margin-bottom: clamp(52px, 12vw, 76px); }
+
+        /* веер сухоцветов над прощальной строкой; стебли внизу мягко растворяются */
+        .farewell__crown {
+            width: clamp(220px, 62vw, 290px);
+            height: auto;
+            margin: 0 auto clamp(18px, 5vw, 26px);
+            -webkit-mask-image: linear-gradient(#000 58%, transparent 97%);
+            mask-image: linear-gradient(#000 58%, transparent 97%);
+        }
+
+        .farewell__script {
+            font: 400 clamp(2.1rem, 8.8vw, 3.3rem)/1.14 var(--script);
+            letter-spacing: -.02em;
+            word-spacing: -.1em;
+            text-wrap: balance;
+            transform: rotate(-2deg);
+        }
+
+        .farewell__sign {
+            margin-top: 1.2em;
+            font-style: italic;
+            font-size: clamp(1.3rem, 5.4vw, 1.55rem);
+            line-height: 1.3;
+            color: #EADAC6;
+        }
+
+        .farewell > .heart {
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin: clamp(22px, 6vw, 30px) auto 0;
+            color: var(--sand);
+        }
+
+        /* ==========================================================
+           13. ПЛАНШЕТ И ДЕСКТОП
+           ========================================================== */
+        @media (hover: hover) {
+            .btn:hover {
+                background-color: var(--wine-deep);
+                transform: translateY(-1px);
+                box-shadow: 0 14px 24px -12px rgba(92, 53, 51, .75);
+            }
+
+            .btn--ghost:hover {
+                background-color: rgba(245, 236, 223, .1);
+                border-color: var(--cream);
+                box-shadow: none;
+            }
+
+            .btn:disabled:hover { transform: none; }
+            .choice:hover { border-color: #B8A28C; }
+            .choice:has(input:checked):hover { border-color: var(--wine); }
+            .contact-link:hover { color: var(--sand); }
+            .polaroid:hover .polaroid__card { transform: rotate(calc(var(--tilt) * .35)) translateY(-4px); }
+            .print:hover { transform: rotate(calc(var(--tilt, 0deg) * .35)) translateY(-3px); }
+        }
+
+        @media (min-width: 700px) {
+            .collage { --cols: 3; max-width: 56rem; }
+            .collage[data-count="1"] { --cols: 1; max-width: 30rem; }
+            .collage[data-count="2"] { --cols: 2; max-width: 46rem; }
+            .collage[data-count="4"] { --cols: 2; max-width: 48rem; }
+
+            .collage[data-count="3"] { grid-template-columns: 1fr 1.22fr 1fr; align-items: center; }
+            .collage[data-count="3"] .print:nth-child(1) { grid-column: 2; grid-row: 1; width: 100%; }
+            .collage[data-count="3"] .print:nth-child(2) { grid-column: 1; grid-row: 1; width: 104%; margin: 0; justify-self: end; left: 5%; }
+            .collage[data-count="3"] .print:nth-child(3) { grid-column: 3; grid-row: 1; width: 104%; margin: 0; justify-self: start; right: 5%; }
+
+            .places { grid-template-columns: 1fr 1fr; align-items: start; }
+            .place { padding-left: clamp(10px, 2.2vw, 36px); padding-right: clamp(10px, 2.2vw, 36px); }
+            .place + .place { border-left: 1px solid rgba(222, 200, 160, .34); }
+            .place + .place::before { content: none; }
+            .venue figcaption { display: block; }
+
+            .wishes--pair { grid-template-columns: 1fr 1fr; max-width: 52rem; column-gap: clamp(36px, 6vw, 72px); align-items: start; }
+            .wishes--pair .wish + .wish::before { content: none; }
+
+            .form-card .btn { width: auto; margin-left: auto; margin-right: auto; padding-left: 2.6em; padding-right: 2.6em; }
+        }
+
+        @media (min-width: 1000px) {
+            .hero {
+                display: grid;
+                align-items: center;
+                min-height: min(100vh, 66rem);
+                min-height: min(100svh, 66rem);
+                padding-top: clamp(48px, 7vh, 88px);
+                padding-bottom: clamp(48px, 7vh, 88px);
+            }
+
+            .hero__grid {
+                --polaroid-w: clamp(210px, 19.5vw, 330px);
+                grid-template-columns: minmax(0, 1fr) minmax(27rem, auto) minmax(0, 1fr);
+                grid-template-areas:
+                    "groom title bride"
+                    "groom lockup bride";
+                align-items: center;
+                column-gap: clamp(20px, 3.4vw, 64px);
+                width: 100%;
+                max-width: 82rem;
+            }
+
+            h1 { font-size: clamp(4.6rem, 7.2vw, 7.4rem); }
+
+            .polaroid { grid-row: 1 / -1; margin-top: clamp(70px, 9vw, 120px); }
+            .polaroid--groom { margin-right: 0; }
+            .polaroid--bride { margin-left: 0; top: 0; }
+
+            .hero__title { align-self: end; }
+            .hero__kicker, .hero__married { font-size: 1.5rem; }
+            .hero__lockup { align-self: start; margin-top: clamp(30px, 3.4vw, 46px); }
+            .hero__names { font-size: clamp(3.1rem, 4.5vw, 4rem); }
+            .hero__date { font-size: 1.9rem; }
+            .hero__lockup .btn { font-size: 1.3rem; min-height: 58px; }
+        }
+
+        /* ==========================================================
+           14. БЕЗ АНИМАЦИЙ, ЕСЛИ ОНИ ОТКЛЮЧЕНЫ В СИСТЕМЕ
+           ========================================================== */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .js .reveal { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- КОНФИГУРАЦИЯ ДАННЫХ -->
+    <script>
+        const CONFIG = {
+            // Основная информация
+            groomName: "Сергей",
+            brideName: "Полина",
+            weddingDate: "27 февраля 2027",
+            weddingDateISO: "2027-02-27",
+            gatheringTime: "",
+            
+            // Локации
+            ceremony: {name: "Дворец бракосочетания № 2", time: "16:00", mapLink: "https://yandex.ru/maps/org/dvorets_brakosochetaniya_2/1063007010/?ll=30.365281%2C59.945128&z=19.67"},
+            venue: {
+                name: "Аманд Холл", time: "17:00",
+                address: "",
+                mapLink: "https://yandex.ru/maps/?ll=30.408026%2C59.950087&z=17&pt=30.408026%2C59.950087%2Cpm2rdm&l=map",
+                parking: "", // Необязательно
+                photo: "images/amand.png" // URL фотографии площадки
+            },
+            
+            // Программа дня
+            schedule: [
+                { time: "16:00", title: "Торжественная церемония", description: "Дворец бракосочетания № 2. Самые важные слова, немного слёз и много любви" },
+                { time: "17:00", title: "Празднование", description: "Аманд Холл. Вкусная еда, тосты и наши любимые люди рядом" }
+            ],
+            
+            // Дресс-код
+            dresscode: {
+                colors: [], // Массив цветов, например: ["#E8D5C4", "#C9A690", "#8B4513"]
+                description: "[ПОЖЕЛАНИЯ К ДРЕСС-КОДУ]"
+            },
+            
+            // Пожелания гостям (необязательные секции)
+            wishes: {
+                gifts: "", // Текст о подарках
+                children: "", // Текст об участии детей
+                transport: "", // Информация о трансфере
+                other: "" // Другие пожелания
+            },
+            
+            // RSVP
+            rsvpDeadline: "[ДАТА RSVP]",
+            
+            // Контакты
+            organizer: {
+                name: "[ИМЯ ОРГАНИЗАТОРА]",
+                contact: "[ТЕЛЕФОН]", // Формат: "+79991234567" или ссылка на мессенджер
+                contactLink: "[ССЫЛКА]" // Например: "tel:+79991234567" или "https://t.me/username"
+            },
+            
+            // Фотографии
+            photos: {
+                groomChild: "images/жених.jpg", // URL детской фотографии жениха
+                brideChild: "", // URL детской фотографии невесты
+                couple: ["images/пара2.jpg", "", "images/пара1.jpg"], // Массив URL фотографий пары (первая — крупная, в центре)
+                venue: "" // URL фотографии площадки
+            },
+            
+            // Настройки формы
+            formEndpoint: "https://script.google.com/macros/s/AKfycby7C-1IsMg2FoFjE43nJ5jMUiSrFRkuIWaruvTE7hWI5JJwDi1ADcGP1DZal22pVFLh/exec" // URL для отправки формы (например, FormSubmit, Google Forms, или свой сервер)
+        };
+    </script>
+
+    <!-- Орнамент и значки: рисуются один раз и переиспользуются по всей странице -->
+    <svg class="sprite" aria-hidden="true" focusable="false">
+        <symbol id="ico-heart" viewBox="0 0 24 24"><path d="M12 20.6c-6.3-4.4-9.6-8-9.6-11.7C2.4 6.1 4.5 4 7.1 4c2 0 3.8 1.2 4.9 3.1C13.1 5.2 14.9 4 16.9 4c2.6 0 4.7 2.1 4.7 4.9 0 3.7-3.3 7.3-9.6 11.7z"/></symbol>
+        <symbol id="ico-pin" viewBox="0 0 24 24"><path d="M12 21.2s-6.6-6.1-6.6-11.3a6.6 6.6 0 0 1 13.2 0c0 5.2-6.6 11.3-6.6 11.3z"/><circle cx="12" cy="9.8" r="2.4"/></symbol>
+        <symbol id="orn-divider" viewBox="0 0 220 30"><path class="o-stem" d="M95 18.2Q87.1 19.1 83.4 19.5Q79.7 19.8 76.1 20.1Q72.6 20.3 69.3 20.4Q66 20.6 62.7 20.6Q59.5 20.6 56.3 20.5Q53.2 20.4 50.1 20.2Q46.9 20 43.8 19.7Q40.6 19.4 37.4 18.9Q34.2 18.5 30.8 17.9Q27.5 17.3 24 16.6Q20.5 15.9 16.8 15.1L13.2 14.3M125 18.2Q132.9 19.1 136.6 19.5Q140.3 19.8 143.9 20.1Q147.4 20.3 150.7 20.4Q154 20.6 157.3 20.6Q160.5 20.6 163.7 20.5Q166.8 20.4 169.9 20.2Q173.1 20 176.2 19.7Q179.4 19.4 182.6 18.9Q185.8 18.5 189.2 17.9Q192.5 17.3 196 16.6Q199.5 15.9 203.2 15.1L206.8 14.3"/><path class="o-leaf" d="M83.1 19.5Q79.4 13.7 71.7 12.2Q76.3 18.6 83.1 19.5ZM69.4 20.5Q63.3 22.1 59.9 28.6Q66.8 26.2 69.4 20.5ZM56.9 20.6Q54.4 15.3 48 13.3Q51.2 19.1 56.9 20.6ZM44.7 19.8Q39.4 20.5 35.8 25.5Q41.9 24.4 44.7 19.8ZM32.2 18.2Q30.8 13.5 25.8 11.2Q27.7 16.4 32.2 18.2ZM18.8 15.6Q14.5 15.6 11.2 19.3Q16.1 19 18.8 15.6ZM13.2 14.3Q9.6 11.4 4.4 12.2Q8.7 15.3 13.2 14.3ZM136.9 19.5Q143.7 18.6 148.3 12.2Q140.6 13.7 136.9 19.5ZM150.6 20.5Q153.2 26.2 160.1 28.6Q156.7 22.1 150.6 20.5ZM163.1 20.6Q168.8 19.1 172 13.3Q165.6 15.3 163.1 20.6ZM175.3 19.8Q178.1 24.4 184.2 25.5Q180.6 20.5 175.3 19.8ZM187.8 18.2Q192.3 16.4 194.2 11.2Q189.2 13.5 187.8 18.2ZM201.2 15.6Q203.9 19 208.8 19.3Q205.5 15.6 201.2 15.6ZM206.8 14.3Q211.3 15.3 215.6 12.2Q210.4 11.4 206.8 14.3Z"/><path class="o-heart" d="M110 23.4c-4.6-3.2-7-5.8-7-8.5 0-2 1.5-3.5 3.4-3.5 1.5 0 2.8.9 3.6 2.3.8-1.4 2.1-2.3 3.6-2.3 1.9 0 3.4 1.5 3.4 3.5 0 2.7-2.4 5.3-7 8.5z"/></symbol>
+        <symbol id="orn-bouquet" viewBox="0 0 300 300"><path class="b-stem" d="M133.2 259.5Q129.6 244.1 127.7 236.6Q125.8 229 123.7 221.5Q121.7 214.1 119.4 206.7Q117.2 199.3 114.8 192Q112.4 184.7 109.8 177.4Q107.2 170.2 104.5 162.9Q101.7 155.7 98.8 148.5Q95.9 141.3 92.7 134.1Q89.6 126.9 86.3 119.8Q83 112.6 79.5 105.3Q76 98.1 72.2 90.9Q68.5 83.6 64.6 76.3Q60.7 69 56.6 61.7L52.4 54.3M167 267.6Q170 253.9 171.6 247.2Q173.2 240.4 174.9 233.7Q176.6 227 178.5 220.4Q180.3 213.8 182.3 207.2Q184.3 200.6 186.4 194.1Q188.5 187.6 190.7 181.1Q193 174.6 195.4 168.1Q197.8 161.6 200.3 155.1Q202.8 148.5 205.5 142Q208.2 135.5 211.1 128.9Q213.9 122.4 217 115.8Q220 109.1 223.2 102.5Q226.3 95.8 229.7 89L233 82.3M145 260.1Q143.7 243.2 143.1 234.6Q142.4 226.1 141.7 217.5Q141 208.8 140.2 200.2Q139.4 191.5 138.6 182.9Q137.8 174.2 136.9 165.5Q136 156.9 135.1 148.2Q134.2 139.6 133.3 131Q132.3 122.5 131.3 114Q130.3 105.6 129.3 97.2Q128.2 88.9 127.2 80.7Q126.1 72.5 125 64.5Q123.9 56.5 122.8 48.6Q121.7 40.8 120.5 33.3L119.4 25.7M123.1 277.3Q118.4 265.6 115.9 259.8Q113.4 254 110.8 248.3Q108.2 242.6 105.5 237.1Q102.7 231.5 99.8 226Q96.9 220.5 93.9 215.1Q90.9 209.7 87.7 204.3Q84.5 198.9 81.1 193.6Q77.8 188.3 74.3 183.1Q70.7 177.8 67.1 172.6Q63.4 167.4 59.5 162.2Q55.6 157 51.6 151.8Q47.6 146.6 43.3 141.4Q39.1 136.2 34.7 131L30.3 125.9M175.9 280Q180.1 268.7 182.3 263.2Q184.5 257.6 186.9 252.2Q189.2 246.8 191.7 241.4Q194.2 236 196.8 230.8Q199.4 225.5 202.1 220.3Q204.9 215 207.7 209.9Q210.6 204.7 213.7 199.6Q216.7 194.5 219.9 189.4Q223.1 184.3 226.4 179.2Q229.7 174.2 233.2 169.1Q236.8 164.1 240.4 159Q244.1 154 247.9 148.9Q251.8 143.9 255.8 138.8L259.8 133.7M154 208Q156.2 190.9 157.4 182.3Q158.6 173.7 159.9 165.1Q161.2 156.5 162.5 147.9Q163.9 139.3 165.4 130.7Q166.8 122.2 168.4 113.7L169.9 105.2M169.9 105.2Q169.5 97.7 169.3 93.9Q169.1 90.1 169 86.3Q168.8 82.5 168.6 78.7Q168.5 74.9 168.4 71.1Q168.2 67.3 168.1 63.5L168 59.7M168 59.7Q167.2 56.6 166.8 55Q166.4 53.3 166 51.7Q165.7 50.1 165.3 48.5Q165 46.8 164.7 45.2Q164.4 43.6 164.1 42L163.8 40.3M163.8 40.3Q163.1 39.1 162.8 38.5Q162.4 37.8 162.1 37.2Q161.7 36.6 161.4 35.9Q161 35.3 160.6 34.7Q160.3 34 159.9 33.4L159.6 32.8M163.8 40.3Q163.9 38.8 164 38Q164 37.2 164 36.4Q164.1 35.7 164.1 34.9Q164.1 34.1 164.1 33.3Q164 32.5 164 31.7L164 31M168 59.7Q168.5 56.4 168.8 54.8Q169 53.1 169.4 51.5Q169.7 49.8 170 48.2Q170.4 46.6 170.8 44.9Q171.2 43.3 171.7 41.7L172.1 40.1M172.1 40.1Q171.6 38.6 171.3 37.8Q171.1 37 170.8 36.3Q170.6 35.5 170.4 34.7Q170.1 34 169.9 33.2Q169.7 32.4 169.5 31.6L169.3 30.9M172.1 40.1Q172.6 38.7 172.9 38Q173.2 37.4 173.4 36.7Q173.7 36 174 35.3Q174.3 34.6 174.6 34Q174.9 33.3 175.2 32.6L175.5 32M172.1 40.1Q173.2 39.1 173.8 38.6Q174.4 38.1 174.9 37.6Q175.5 37.1 176.1 36.6Q176.7 36.1 177.3 35.6Q177.9 35.2 178.5 34.7L179.1 34.3M169.9 105.2Q173.1 97.6 174.6 93.7Q176.1 89.8 177.5 85.9Q178.9 81.9 180.2 78Q181.5 74 182.7 70Q183.9 66 185 62L186.1 58M186.1 58Q186.4 54.1 186.6 52.1Q186.9 50.1 187.1 48.2Q187.4 46.2 187.8 44.2Q188.1 42.2 188.5 40.3Q188.9 38.3 189.3 36.4L189.8 34.5M189.8 34.5Q189.2 32.8 188.9 32Q188.6 31.1 188.4 30.3Q188.1 29.4 187.9 28.6Q187.6 27.7 187.3 26.9Q187.1 26 186.9 25.2L186.6 24.3M189.8 34.5Q190.1 32.9 190.3 32Q190.4 31.2 190.6 30.4Q190.7 29.6 190.9 28.7Q191 27.9 191.1 27.1Q191.2 26.3 191.3 25.4L191.4 24.6M189.8 34.5Q190.9 33.4 191.5 32.8Q192.1 32.2 192.7 31.6Q193.3 31 193.9 30.4Q194.5 29.8 195 29.2Q195.6 28.6 196.1 28L196.7 27.4M186.1 58Q187.9 55.2 188.8 53.7Q189.7 52.3 190.6 50.8Q191.5 49.3 192.3 47.9Q193.2 46.4 194.1 45Q195 43.5 195.9 42L196.7 40.6M196.7 40.6Q196.9 38.9 197 38.1Q197.1 37.2 197.3 36.4Q197.4 35.5 197.5 34.7Q197.7 33.9 197.9 33Q198 32.2 198.2 31.4L198.4 30.5M196.7 40.6Q197.5 39.3 197.9 38.7Q198.3 38 198.7 37.4Q199.1 36.7 199.6 36.1Q200 35.5 200.4 34.9Q200.9 34.3 201.3 33.7L201.8 33.1M196.7 40.6Q197.9 39.8 198.5 39.4Q199.1 39 199.7 38.6Q200.3 38.1 200.9 37.7Q201.5 37.3 202 36.9Q202.6 36.4 203.2 36L203.7 35.5"/><path class="b-leaf" d="M138.2 178.3Q153.7 174.6 156.3 161.1Q142.6 163 138.2 178.3ZM135.8 154.1Q128.9 141 116 141.8Q121 153.6 135.8 154.1ZM133.2 130.1Q146.4 126.7 148.5 115Q136.8 116.9 133.2 130.1ZM130.4 106.4Q124.4 95.3 113.5 96.1Q117.8 106.1 130.4 106.4ZM127.5 83.1Q138.6 80.1 140.2 70.3Q130.4 72 127.5 83.1ZM124.5 60.5Q119.4 51.5 110.4 52.3Q114.1 60.5 124.5 60.5ZM121.4 38.6Q130.2 36.1 131.3 28.1Q123.5 29.7 121.4 38.6ZM120 30Q123.5 20.8 117.7 14.6Q114 22.3 120 30Z"/><path class="b-awn" d="M84.3 130.9L73.8 116.3M96.5 125.8L93.5 108M77.6 115.5L65.7 99.8M89 110.4L85.2 91.1M70.5 100.1L57.1 83.4M81.1 95L76.4 74.1M62.8 84.5L48.1 66.8M72.7 79.5L67.1 57.1M54.8 68.8L38.5 50.2M63.8 63.9L57.3 40.1M46.2 52.9L28.4 33.4M54.5 48.2L47 22.9M46.5 43.9L32.2 18.9M194.7 151.9L196.8 135.5M206.4 156.2L215.4 142.4M202.8 133.2L205.7 115M213.5 137.6L224.1 122.5M211.5 114.5L215.2 94.5M221.4 118.8L233.5 102.5M220.9 95.6L225.6 73.8M229.8 99.8L243.6 82.2M231 76.4L236.6 52.8M239 80.4L254.4 61.7M238.2 72.1L250 48.6"/><path class="b-grain" d="M96.2 142.1Q92.7 133.4 83.8 130.5Q87.3 139.1 96.2 142.1ZM96.2 142.1Q100.3 133.7 96.5 125.1Q92.5 133.5 96.2 142.1ZM89.1 125.8Q85.6 117.7 77.1 115.1Q80.7 123.2 89.1 125.8ZM89.1 125.8Q92.7 117.7 89 109.7Q85.4 117.8 89.1 125.8ZM81.5 109.4Q78 101.9 70 99.7Q73.5 107.2 81.5 109.4ZM81.5 109.4Q84.7 101.8 81.1 94.4Q77.8 102 81.5 109.4ZM73.4 93Q69.9 86.1 62.4 84.1Q65.9 91.1 73.4 93ZM73.4 93Q76.3 85.8 72.7 78.9Q69.8 86.1 73.4 93ZM64.8 76.5Q61.4 70.1 54.3 68.5Q57.7 74.9 64.8 76.5ZM64.8 76.5Q67.3 69.7 63.8 63.4Q61.3 70.2 64.8 76.5ZM55.6 59.9Q52.4 54 45.8 52.6Q49 58.5 55.6 59.9ZM55.6 59.9Q57.8 53.5 54.4 47.7Q52.2 54.1 55.6 59.9ZM53.2 55.7Q52.3 47.9 46.1 43.2Q46.9 51 53.2 55.7ZM195.7 167.2Q198.8 159 194.6 151.2Q191.4 159.4 195.7 167.2ZM195.7 167.2Q203.9 164 206.8 155.7Q198.6 158.9 195.7 167.2ZM203.3 147.5Q206.5 139.9 202.8 132.6Q199.6 140.2 203.3 147.5ZM203.3 147.5Q211 144.8 214 137.2Q206.2 139.8 203.3 147.5ZM211.6 127.7Q214.7 120.8 211.5 113.9Q208.4 120.8 211.6 127.7ZM211.6 127.7Q218.8 125.4 221.8 118.4Q214.5 120.7 211.6 127.7ZM220.7 107.7Q223.7 101.4 220.9 95.1Q217.9 101.3 220.7 107.7ZM220.7 107.7Q227.3 105.8 230.2 99.4Q223.5 101.4 220.7 107.7ZM230.5 87.4Q233.4 81.8 231 75.9Q228.1 81.5 230.5 87.4ZM230.5 87.4Q236.6 85.8 239.4 80.1Q233.2 81.7 230.5 87.4ZM232.4 83.6Q238.1 78.8 238.5 71.4Q232.8 76.2 232.4 83.6Z"/><path class="b-head" d="M32.2 128.1C38.7 121.5 24.9 104.9 6.6 98.7C10.3 117.6 24.8 133.6 32.2 128.1ZM258 136.1C265.1 141 277.8 125.9 280.6 108.1C263.8 114.5 251.7 130.2 258 136.1Z"/><path class="b-fuzz" d="M25 128.7L20.9 129.3M33.8 121L34.9 117.4M22 126.5L17.4 127M32.1 117.8L32.9 114.2M19.3 124.1L14.8 124.3M30.1 114.7L30.8 110.6M16.8 121.5L13.1 121.5M27.9 111.9L28.4 107.5M14.5 118.7L10.8 118.4M25.4 109.2L25.7 105M12.5 115.7L8.8 115.2M22.7 106.8L22.7 103.1M10.7 112.5L6.5 111.7M19.8 104.6L19.5 99.7M9.1 109.1L5.4 108.2M16.7 102.5L16.2 98.6M7.7 105.6L3.3 104.1M13.3 100.7L12.4 95.7M6.6 98.7L3.7 95.3M256.2 129.6L254.7 125.3M264.7 136.4L268.9 136.9M257.7 126.5L256.3 121.5M267.4 134.3L271 134.6M259.4 123.7L258.4 118.8M269.8 132.1L273.9 132.1M261.3 121L260.7 117.2M272 129.6L275.8 129.4M263.5 118.5L263.1 114.4M274 127L278.9 126.4M265.9 116.2L265.8 112.3M275.8 124.2L280.2 123.4M268.5 114L268.6 109.4M277.3 121.2L281.4 120.2M271.3 112.1L271.7 107.6M278.6 118L282.2 116.9M274.4 110.3L274.9 106.6M279.7 114.7L283.4 113.3M280.6 108.1L283.4 104.6"/><g class="b-dot"><circle cx="159.6" cy="32.8" r="2.6"/><circle cx="164" cy="31" r="2.8"/><circle cx="169.3" cy="30.9" r="2.9"/><circle cx="175.5" cy="32" r="2.9"/><circle cx="179.1" cy="34.3" r="3.2"/><circle cx="186.6" cy="24.3" r="2.3"/><circle cx="191.4" cy="24.6" r="2.4"/><circle cx="196.7" cy="27.4" r="2.7"/><circle cx="198.4" cy="30.5" r="2.6"/><circle cx="201.8" cy="33.1" r="3.3"/><circle cx="203.7" cy="35.5" r="2.5"/></g></symbol>
+        <symbol id="orn-crown" viewBox="0 0 360 200"><path class="b-stem" d="M180 259.4Q180 246 180 239.3Q180 232.5 180 225.6Q180 218.6 180 211.3L180 204M164.9 197.3Q163.1 185 162.1 178.8Q161.2 172.6 160.2 166.5Q159.3 160.3 158.2 154.1Q157.2 147.9 156.2 141.7Q155.2 135.6 154.1 129.4Q153.1 123.3 152 117.2Q150.9 111.2 149.8 105.1Q148.7 99.1 147.5 93.2Q146.4 87.2 145.3 81.4Q144.1 75.5 143 69.8Q141.8 64 140.6 58.4Q139.4 52.8 138.3 47.3Q137.1 41.8 135.9 36.4L134.7 31M149.2 199.8Q145.5 189 143.6 183.7Q141.7 178.4 139.7 173.1Q137.7 167.8 135.6 162.5Q133.5 157.3 131.3 152.1Q129.1 146.8 126.9 141.6Q124.6 136.4 122.2 131.2Q119.8 126 117.3 120.8Q114.9 115.6 112.3 110.4Q109.7 105.2 107 99.9Q104.3 94.7 101.5 89.5Q98.7 84.2 95.8 78.9Q92.8 73.7 89.8 68.3Q86.8 63 83.6 57.6L80.4 52.3M133.1 223.2Q127.9 215.2 125.2 211.2Q122.4 207.2 119.6 203.3Q116.8 199.4 113.9 195.6Q111.1 191.8 108.1 188Q105.1 184.2 102 180.5Q98.9 176.8 95.7 173.1Q92.5 169.5 89.2 165.9Q85.9 162.3 82.5 158.7Q79.1 155.1 75.6 151.6Q72.1 148.1 68.4 144.6Q64.8 141.1 61 137.6Q57.3 134.1 53.4 130.7Q49.5 127.2 45.5 123.8L41.5 120.4M195.1 197.3Q196.9 185 197.9 178.8Q198.8 172.6 199.8 166.5Q200.7 160.3 201.8 154.1Q202.8 147.9 203.8 141.7Q204.8 135.6 205.9 129.4Q206.9 123.3 208 117.2Q209.1 111.2 210.2 105.1Q211.3 99.1 212.5 93.2Q213.6 87.2 214.7 81.4Q215.9 75.5 217 69.8Q218.2 64 219.4 58.4Q220.6 52.8 221.7 47.3Q222.9 41.8 224.1 36.4L225.3 31M210.8 199.8Q214.5 189 216.4 183.7Q218.3 178.4 220.3 173.1Q222.3 167.8 224.4 162.5Q226.5 157.3 228.7 152.1Q230.9 146.8 233.1 141.6Q235.4 136.4 237.8 131.2Q240.2 126 242.7 120.8Q245.1 115.6 247.7 110.4Q250.3 105.2 253 99.9Q255.7 94.7 258.5 89.5Q261.3 84.2 264.2 78.9Q267.2 73.7 270.2 68.3Q273.2 63 276.4 57.6L279.6 52.3M226.9 223.2Q232.1 215.2 234.8 211.2Q237.6 207.2 240.4 203.3Q243.2 199.4 246.1 195.6Q248.9 191.8 251.9 188Q254.9 184.2 258 180.5Q261.1 176.8 264.3 173.1Q267.5 169.5 270.8 165.9Q274.1 162.3 277.5 158.7Q280.9 155.1 284.4 151.6Q287.9 148.1 291.6 144.6Q295.2 141.1 299 137.6Q302.7 134.1 306.6 130.7Q310.5 127.2 314.5 123.8L318.5 120.4M180 204Q180 183.5 180 173.7Q180 164 180 154.5Q180 145 180 135.5Q180 126 180 116.3Q180 106.5 180 96.3L180 86M180 86Q176.4 79.5 174.9 76.4Q173.3 73.2 172 70Q170.6 66.9 169.4 63.7Q168.2 60.4 167.2 57.1Q166.1 53.7 165.2 50.1L164.3 46.5M164.3 46.5Q162.2 43.5 161.3 42Q160.4 40.5 159.6 38.9Q158.8 37.4 158.1 35.8Q157.4 34.3 156.8 32.6Q156.1 30.9 155.6 29.2L155 27.4M164.3 46.5Q164.8 42.9 165 41.1Q165.2 39.4 165.4 37.7Q165.6 36 165.8 34.3Q166 32.6 166.1 30.9Q166.3 29.1 166.4 27.3L166.5 25.4M180 86Q180 78.6 180 75.1Q180 71.6 180 68.2Q180 64.8 180 61.3Q180 57.9 180 54.4Q180 50.9 180 47.2L180 43.5M180 43.5Q178.7 40.1 178.1 38.4Q177.5 36.7 177 35.1Q176.5 33.5 176.1 31.8Q175.6 30.2 175.2 28.4Q174.9 26.7 174.5 24.9L174.2 23.1M180 43.5Q181.3 40.1 181.9 38.4Q182.5 36.7 183 35.1Q183.5 33.5 183.9 31.8Q184.4 30.2 184.8 28.4Q185.1 26.7 185.5 24.9L185.8 23.1M180 86Q183.6 79.5 185.1 76.4Q186.7 73.2 188 70Q189.4 66.9 190.6 63.7Q191.8 60.4 192.8 57.1Q193.9 53.7 194.8 50.1L195.7 46.5M195.7 46.5Q195.2 42.9 195 41.1Q194.8 39.4 194.6 37.7Q194.4 36 194.2 34.3Q194 32.6 193.9 30.9Q193.7 29.1 193.6 27.3L193.5 25.4M195.7 46.5Q197.8 43.5 198.7 42Q199.6 40.5 200.4 38.9Q201.2 37.4 201.9 35.8Q202.6 34.3 203.2 32.6Q203.9 30.9 204.4 29.2L205 27.4"/><path class="b-leaf" d="M156.9 145.9Q149.3 133.3 136.7 134.8Q142.3 146.3 156.9 145.9ZM153.2 124.2Q166 120.2 167.3 108.6Q156 111.1 153.2 124.2ZM149.4 102.9Q142.9 92.6 132.4 94.1Q137.2 103.5 149.4 102.9ZM145.4 82.1Q155.8 78.5 156.7 69.1Q147.4 71.3 145.4 82.1ZM141.3 61.8Q136 53.6 127.6 55Q131.6 62.5 141.3 61.8ZM137.2 42.2Q145.1 39.3 145.7 31.9Q138.5 33.8 137.2 42.2ZM135.5 34.7Q138.1 26.1 132.4 20.8Q129.4 28.1 135.5 34.7ZM203.1 145.9Q217.7 146.3 223.3 134.8Q210.7 133.3 203.1 145.9ZM206.8 124.2Q204 111.1 192.7 108.6Q194 120.2 206.8 124.2ZM210.6 102.9Q222.8 103.5 227.6 94.1Q217.1 92.6 210.6 102.9ZM214.6 82.1Q212.6 71.3 203.3 69.1Q204.2 78.5 214.6 82.1ZM218.7 61.8Q228.4 62.5 232.4 55Q224 53.6 218.7 61.8ZM222.8 42.2Q221.5 33.8 214.3 31.9Q214.9 39.3 222.8 42.2ZM224.5 34.7Q230.6 28.1 227.6 20.8Q221.9 26.1 224.5 34.7Z"/><path class="b-awn" d="M110.7 121.5L100.2 107.8M122.4 116.1L119 99.2M104.2 107.5L92.4 92.8M115.1 102.2L111 83.8M97.3 93.5L84.1 77.8M107.5 88.3L102.5 68.4M90 79.4L75.4 62.8M99.4 74.3L93.6 53M82.3 65.1L66.3 47.6M91 60.2L84.3 37.4M74.1 50.6L56.7 32.2M82.1 45.9L74.5 21.8M74.4 42.2L60.3 18.5M237.6 116.1L241 99.2M249.3 121.5L259.8 107.8M244.9 102.2L249 83.8M255.8 107.5L267.6 92.8M252.5 88.3L257.5 68.4M262.7 93.5L275.9 77.8M260.6 74.3L266.4 53M270 79.4L284.6 62.8M269 60.2L275.7 37.4M277.7 65.1L293.7 47.6M277.9 45.9L285.5 21.8M285.9 50.6L303.3 32.2M285.6 42.2L299.7 18.5"/><path class="b-grain" d="M122.6 132Q118.9 123.7 110.2 121Q113.9 129.4 122.6 132ZM122.6 132Q126.3 123.7 122.4 115.5Q118.7 123.8 122.6 132ZM115.6 117.2Q112 109.4 103.7 107.1Q107.4 114.9 115.6 117.2ZM115.6 117.2Q119 109.3 115.1 101.6Q111.8 109.5 115.6 117.2ZM108.2 102.3Q104.7 95.1 96.8 93.1Q100.4 100.3 108.2 102.3ZM108.2 102.3Q111.2 94.8 107.4 87.7Q104.5 95.2 108.2 102.3ZM100.4 87.4Q96.9 80.7 89.6 79Q93 85.7 100.4 87.4ZM100.4 87.4Q103.1 80.3 99.4 73.7Q96.7 80.8 100.4 87.4ZM92.1 72.4Q88.7 66.2 81.8 64.8Q85.2 71 92.1 72.4ZM92.1 72.4Q94.5 65.7 90.9 59.7Q88.6 66.3 92.1 72.4ZM83.4 57.2Q80.1 51.5 73.7 50.3Q76.9 56 83.4 57.2ZM83.4 57.2Q85.4 51 82 45.4Q80 51.6 83.4 57.2ZM81.2 53.5Q80.2 45.9 74 41.5Q75 49 81.2 53.5ZM237.4 132Q241.3 123.8 237.6 115.5Q233.7 123.7 237.4 132ZM237.4 132Q246.1 129.4 249.8 121Q241.1 123.7 237.4 132ZM244.4 117.2Q248.2 109.5 244.9 101.6Q241 109.3 244.4 117.2ZM244.4 117.2Q252.6 114.9 256.3 107.1Q248 109.4 244.4 117.2ZM251.8 102.3Q255.5 95.2 252.6 87.7Q248.8 94.8 251.8 102.3ZM251.8 102.3Q259.6 100.3 263.2 93.1Q255.3 95.1 251.8 102.3ZM259.6 87.4Q263.3 80.8 260.6 73.7Q256.9 80.3 259.6 87.4ZM259.6 87.4Q267 85.7 270.4 79Q263.1 80.7 259.6 87.4ZM267.9 72.4Q271.4 66.3 269.1 59.7Q265.5 65.7 267.9 72.4ZM267.9 72.4Q274.8 71 278.2 64.8Q271.3 66.2 267.9 72.4ZM276.6 57.2Q280 51.6 278 45.4Q274.6 51 276.6 57.2ZM276.6 57.2Q283.1 56 286.3 50.3Q279.9 51.5 276.6 57.2ZM278.8 53.5Q285 49 286 41.5Q279.8 45.9 278.8 53.5Z"/><path class="b-head" d="M43.8 122.3C48.9 115.1 33.6 101.7 15.5 98.5C21.7 115.9 37.6 128.6 43.8 122.3ZM316.2 122.3C322.4 128.6 338.3 115.9 344.5 98.5C326.4 101.7 311.1 115.1 316.2 122.3Z"/><path class="b-fuzz" d="M37.1 124L32.9 125.3M44.3 115.4L44.9 111.1M34 122.4L29.7 123.5M42.2 112.6L42.5 108.3M31.1 120.6L26.8 121.4M39.9 110.1L40 105.7M28.3 118.5L24 119.1M37.4 107.8L37.2 103.4M25.8 116.3L21.4 116.6M34.7 105.7L34.3 101.3M23.5 113.8L19.1 113.8M31.8 103.8L31.2 99.4M21.3 111L16.9 110.8M28.8 102.1L27.8 97.9M19.4 108.1L15 107.6M25.5 100.7L24.3 96.5M17.6 104.9L13.2 104.2M22.1 99.5L20.7 95.4M15.5 98.5L12 95.7M315.7 115.4L315.1 111.1M322.9 124L327.1 125.3M317.8 112.6L317.5 108.3M326 122.4L330.3 123.5M320.1 110.1L320 105.7M328.9 120.6L333.2 121.4M322.6 107.8L322.8 103.4M331.7 118.5L336 119.1M325.3 105.7L325.7 101.3M334.2 116.3L338.6 116.6M328.2 103.8L328.8 99.4M336.5 113.8L340.9 113.8M331.2 102.1L332.2 97.9M338.7 111L343.1 110.8M334.5 100.7L335.7 96.5M340.6 108.1L345 107.6M337.9 99.5L339.3 95.4M342.4 104.9L346.8 104.2M344.5 98.5L348 95.7"/><g class="b-dot"><circle cx="155" cy="27.4" r="2.9"/><circle cx="166.5" cy="25.4" r="2.9"/><circle cx="174.2" cy="23.1" r="2.9"/><circle cx="185.8" cy="23.1" r="2.9"/><circle cx="193.5" cy="25.4" r="2.9"/><circle cx="205" cy="27.4" r="2.9"/></g></symbol>
+    </svg>
+
+    <main>
+        <!-- 1. ПЕРВЫЙ ЭКРАН -->
+        <section class="band hero" id="hero">
+            <div class="hero__grid">
+                <div class="hero__title">
+                    <p class="hero__kicker">Приглашение на нашу свадьбу</p>
+                    <h1><span>Тили-тили</span> <span>тесто!</span></h1>
+                </div>
+
+                <div class="polaroid polaroid--groom">
+                    <svg class="polaroid__bouquet" viewBox="0 0 300 300" aria-hidden="true"><use href="#orn-bouquet"/></svg>
+                    <figure class="polaroid__card">
+                        <div class="photo" id="groom-photo"></div>
+                        <figcaption>жених<svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-heart"/></svg></figcaption>
+                    </figure>
+                </div>
+
+                <div class="polaroid polaroid--bride">
+                    <svg class="polaroid__bouquet" viewBox="0 0 300 300" aria-hidden="true"><use href="#orn-bouquet"/></svg>
+                    <figure class="polaroid__card">
+                        <div class="photo" id="bride-photo"></div>
+                        <figcaption>невеста<svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-heart"/></svg></figcaption>
+                    </figure>
+                </div>
+
+                <div class="hero__lockup">
+                    <p class="hero__married">Мы женимся!</p>
+                    <p class="hero__names" id="couple-names"></p>
+                    <svg class="ornament" viewBox="0 0 220 30" aria-hidden="true"><use href="#orn-divider"/></svg>
+                    <p class="hero__date">
+                        <span id="wedding-date"></span>
+                        <span class="hero__weekday" id="wedding-weekday"></span>
+                    </p>
+                    <a href="#rsvp" class="btn">Буду с вами</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ЗНАКОМСТВО С ПАРОЙ -->
+        <section class="band" id="about" data-tone="blush">
+            <div class="wrap wrap--wide reveal">
+                <header class="head">
+                    <h2>Узнали?</h2>
+                    <svg class="ornament" viewBox="0 0 220 30" aria-hidden="true"><use href="#orn-divider"/></svg>
+                </header>
+                <p class="lead">Да-да, это мы! Время пронеслось незаметно, и у этих двух милых детей скоро свадьба.</p>
+
+                <div class="collage" id="couple-photos-container">
+                    <!-- Фотографии пары будут добавлены через JS -->
+                </div>
+
+                <p class="signature" id="couple-signature"></p>
+            </div>
+        </section>
+
+        <!-- 3. ПРИГЛАШЕНИЕ И ДАТА -->
+        <section class="band" id="invitation">
+            <div class="wrap reveal">
+                <header class="head">
+                    <h2>Наш день</h2>
+                    <svg class="ornament" viewBox="0 0 220 30" aria-hidden="true"><use href="#orn-divider"/></svg>
+                </header>
+                <p class="lead">Есть моменты, которые хочется разделить с самыми близкими. Приглашаем вас провести с нами день, в котором мы станем семьёй!</p>
+
+                <div id="calendar-container"></div>
+            </div>
+        </section>
+
+        <!-- 4. ЛОКАЦИЯ -->
+        <section class="band band--dark" id="location">
+            <div class="wrap wrap--wide reveal">
+                <header class="head">
+                    <h2>Места встречи</h2>
+                    <svg class="ornament" viewBox="0 0 220 30" aria-hidden="true"><use href="#orn-divider"/></svg>
+                </header>
+
+                <div class="places">
+                    <article class="place">
+                        <h3 class="place__label">Торжественная церемония</h3>
+                        <p class="place__time" id="ceremony-time"></p>
+                        <p class="place__name" id="ceremony-name"></p>
+                        <a href="#" id="ceremony-map-link" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-pin"/></svg>Карта церемонии
+                        </a>
+                    </article>
+
+                    <article class="place">
+                        <h3 class="place__label">Празднование</h3>
+                        <p class="place__time" id="celebration-time"></p>
+                        <p class="place__name" id="venue-name"></p>
+                        <p class="place__note" id="venue-address"></p>
+                        <a href="#" id="map-link" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-pin"/></svg>Открыть метку на карте
+                        </a>
+                        <p class="place__note" id="parking-text" hidden></p>
+                    </article>
+                </div>
+
+                <figure class="venue" id="venue-photo-container">
+                    <!-- Фото площадки -->
+                </figure>
+            </div>
+        </section>
+
+        <!-- 5. ПРОГРАММА ДНЯ -->
+        <section class="band" id="schedule">
+            <div class="wrap reveal">
+                <header class="head">
+                    <h2>Во сколько?</h2>
+                    <svg class="ornament" viewBox="0 0 220 30" aria-hidden="true"><use href="#orn-divider"/></svg>
+                </header>
+
+                <ol class="timeline" id="timeline">
+                    <!-- События будут добавлены через JS -->
+                </ol>
+            </div>
+        </section>
+
+        <!-- 6. ДРЕСС-КОД -->
+        <section class="band" id="dresscode" hidden>
+            <div class="wrap reveal">
+                <header class="head">
+                    <h2>Красиво вместе</h2>
+                    <svg class="ornament" viewBox="0 0 220 30" aria-hidden="true"><use href="#orn-divider"/></svg>
+                </header>
+                <p class="lead">Нам будет приятно, если вы поддержите настроение нашего праздника в своих образах.</p>
+
+                <div class="palette" id="color-palette">
+                    <!-- Цвета будут добавлены через JS -->
+                </div>
+
+                <p class="lead dresscode__note" id="dresscode-description"></p>
+            </div>
+        </section>
+
+        <!-- 7. ПОЖЕЛАНИЯ ГОСТЯМ -->
+        <section class="band" id="wishes" hidden>
+            <div class="wrap wrap--wide reveal">
+                <header class="head">
+                    <h2>Несколько пожеланий</h2>
+                    <svg class="ornament" viewBox="0 0 220 30" aria-hidden="true"><use href="#orn-divider"/></svg>
+                </header>
+
+                <div class="wishes" id="wishes-content"></div>
+            </div>
+        </section>
+
+        <!-- 8. ПОДТВЕРЖДЕНИЕ ПРИСУТСТВИЯ -->
+        <section class="band" id="rsvp" data-tone="blush">
+            <div class="wrap reveal">
+                <header class="head">
+                    <h2>Вы с нами?</h2>
+                    <svg class="ornament" viewBox="0 0 220 30" aria-hidden="true"><use href="#orn-divider"/></svg>
+                </header>
+                <p class="lead">Пожалуйста, дайте нам знать<span id="rsvp-deadline-wrap"> до <span id="rsvp-deadline"></span></span>, сможете ли вы разделить с нами этот день.</p>
+
+                <div class="form-card">
+                    <form id="rsvp-form">
+                        <div class="field">
+                            <label for="guest-name">Имя и фамилия <span class="req">*</span></label>
+                            <input class="input" type="text" id="guest-name" name="name" autocomplete="name" required>
+                        </div>
+
+                        <fieldset class="field">
+                            <legend>Сможете ли вы прийти? <span class="req">*</span></legend>
+                            <div class="choices">
+                                <label class="choice">
+                                    <input type="radio" name="attendance" value="yes" required>
+                                    <span class="choice__mark" aria-hidden="true"></span>
+                                    <span>С радостью буду</span>
+                                </label>
+                                <label class="choice">
+                                    <input type="radio" name="attendance" value="no">
+                                    <span class="choice__mark" aria-hidden="true"></span>
+                                    <span>К сожалению, не получится</span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <div class="field form-extra" id="plus-one-group" hidden>
+                            <label for="plus-one">Имя сопровождающего</label>
+                            <input class="input" type="text" id="plus-one" name="plusOne">
+                        </div>
+
+                        <fieldset class="field form-extra" id="drinks-group" hidden>
+                            <legend>Предпочтения по напиткам</legend>
+                            <div class="choices choices--chips">
+                                <label class="choice">
+                                    <input type="checkbox" name="drinks" value="wine">
+                                    <span class="choice__mark" aria-hidden="true"></span>
+                                    <span>Вино красное </span>
+                                </label>
+				<label class="choice">
+                                    <input type="checkbox" name="drinks" value="wine">
+                                    <span class="choice__mark" aria-hidden="true"></span>
+                                    <span>Вино белое </span>
+                                </label>
+                                <label class="choice">
+                                    <input type="checkbox" name="drinks" value="champagne">
+                                    <span class="choice__mark" aria-hidden="true"></span>
+                                    <span>Вино игристое</span>
+                                </label>
+				<label class="choice">
+                                    <input type="checkbox" name="drinks" value="wine">
+                                    <span class="choice__mark" aria-hidden="true"></span>
+                                    <span>Водка</span>
+                                </label>
+				<label class="choice">
+                                    <input type="checkbox" name="drinks" value="wine">
+                                    <span class="choice__mark" aria-hidden="true"></span>
+                                    <span>Коньяк</span>
+                                </label>
+                                <label class="choice">
+                                    <input type="checkbox" name="drinks" value="cocktails">
+                                    <span class="choice__mark" aria-hidden="true"></span>
+                                    <span>Коктейли</span>
+                                </label>
+                                <label class="choice">
+                                    <input type="checkbox" name="drinks" value="nonalcoholic">
+                                    <span class="choice__mark" aria-hidden="true"></span>
+                                    <span>Безалкогольные напитки</span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <div class="field form-extra" id="dietary-group" hidden>
+                            <label for="dietary">Пищевые ограничения или аллергии</label>
+                            <input class="input" type="text" id="dietary" name="dietary" aria-describedby="dietary-hint">
+                            <p class="hint" id="dietary-hint">Например: вегетарианство, непереносимость лактозы</p>
+                        </div>
+
+                        <div class="field">
+                            <label for="comments">Комментарий</label>
+                            <textarea class="input" id="comments" name="comments" placeholder="Ваши пожелания или вопросы"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn" id="submit-btn">Отправить ответ</button>
+                    </form>
+
+                    <div class="form-note form-success" id="form-success" role="status" hidden>
+                        Спасибо! Ваш ответ получен. Обнимаем <svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-heart"/></svg>
+                    </div>
+
+                    <div class="form-note form-error" id="form-error" role="alert" hidden>
+                        Упс! Что-то пошло не так. Пожалуйста, попробуйте ещё раз или свяжитесь с нами напрямую.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. КОНТАКТЫ И ФИНАЛ -->
+        <section class="band band--dark" id="contacts">
+            <div class="wrap reveal">
+                <div class="organizer" id="organizer-block">
+                    <header class="head">
+                        <h2>Если остались вопросы</h2>
+                        <svg class="ornament" viewBox="0 0 220 30" aria-hidden="true"><use href="#orn-divider"/></svg>
+                    </header>
+                    <p class="lead">В день свадьбы с организационными вопросами поможет <span id="organizer-name"></span>.</p>
+                    <p id="organizer-contact-container"></p>
+                </div>
+
+                <div class="farewell">
+                    <svg class="farewell__crown" viewBox="0 0 360 200" aria-hidden="true"><use href="#orn-crown"/></svg>
+                    <p class="farewell__script">До встречи на нашем самом счастливом дне!</p>
+                    <p class="farewell__sign">С любовью, <span id="final-names"></span></p>
+                    <svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-heart"/></svg>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Значение считается заполненным, если это не пустая строка и не заготовка вида «[ТЕКСТ]»
+        function isFilled(value) {
+            if (typeof value !== 'string') return false;
+            const text = value.trim();
+            return text !== '' && !/^\[[^\]]*\]$/.test(text);
+        }
+
+        function parseISODate(dateString) {
+            const [year, month, day] = dateString.split('-').map(Number);
+            return new Date(year, month - 1, day);
+        }
+
+        // Инициализация страницы с данными из конфигурации
+        document.addEventListener('DOMContentLoaded', function() {
+            const byId = (id) => document.getElementById(id);
+
+            // Заполнение основной информации
+            renderNames(byId('couple-names'));
+            byId('wedding-date').textContent = CONFIG.weddingDate;
+            byId('couple-signature').textContent = `${CONFIG.groomName} + ${CONFIG.brideName} = любовь`;
+            byId('final-names').textContent = `${CONFIG.groomName} и ${CONFIG.brideName}`;
+
+            if (CONFIG.weddingDateISO) {
+                const weekday = new Intl.DateTimeFormat('ru-RU', { weekday: 'long' }).format(parseISODate(CONFIG.weddingDateISO));
+                byId('wedding-weekday').textContent = weekday;
+            }
+
+            // Срок ответа показываем, только когда он указан
+            if (isFilled(CONFIG.rsvpDeadline)) {
+                byId('rsvp-deadline').textContent = CONFIG.rsvpDeadline;
+            } else {
+                byId('rsvp-deadline-wrap').hidden = true;
+            }
+
+            // Заголовок страницы
+            document.title = `${CONFIG.groomName} и ${CONFIG.brideName} — приглашение на свадьбу`;
+            document.querySelector('meta[property="og:title"]').setAttribute('content', `${CONFIG.groomName} и ${CONFIG.brideName} — приглашение на свадьбу`);
+
+            // Фотографии жениха и невесты
+            mountPhoto(byId('groom-photo'), CONFIG.photos.groomChild, 'Жених в детстве', 'Фото жениха<br>в детстве', true);
+            mountPhoto(byId('bride-photo'), CONFIG.photos.brideChild, 'Невеста в детстве', 'Фото невесты<br>в детстве', true);
+
+            // Фотографии пары
+            const couplePhotosContainer = byId('couple-photos-container');
+            couplePhotosContainer.dataset.count = CONFIG.photos.couple.length;
+            CONFIG.photos.couple.forEach((photo, index) => {
+                const print = document.createElement('div');
+                print.className = 'print';
+                print.innerHTML = '<span class="tape" aria-hidden="true"></span><div class="photo"></div>';
+                mountPhoto(print.querySelector('.photo'), photo, `Фото пары ${index + 1}`, `Фото пары<br>${index + 1}`);
+                couplePhotosContainer.appendChild(print);
+            });
+            if (CONFIG.photos.couple.length === 0) couplePhotosContainer.hidden = true;
+
+            // Календарь
+            if (CONFIG.weddingDateISO) {
+                createCalendar(CONFIG.weddingDateISO);
+            }
+
+            // Локации
+            byId('ceremony-name').textContent = CONFIG.ceremony.name;
+            byId('ceremony-time').innerHTML = formatTime(CONFIG.ceremony.time);
+            byId('celebration-time').innerHTML = formatTime(CONFIG.venue.time);
+            byId('venue-name').textContent = CONFIG.venue.name;
+
+            const ceremonyMapLink = byId('ceremony-map-link');
+            if (isFilled(CONFIG.ceremony.mapLink)) {
+                ceremonyMapLink.href = CONFIG.ceremony.mapLink;
+            } else {
+                ceremonyMapLink.hidden = true;
+            }
+
+            const venueAddress = byId('venue-address');
+            if (isFilled(CONFIG.venue.address)) {
+                venueAddress.textContent = CONFIG.venue.address;
+            } else {
+                venueAddress.hidden = true;
+            }
+
+            const mapLink = byId('map-link');
+            if (isFilled(CONFIG.venue.mapLink)) {
+                mapLink.href = CONFIG.venue.mapLink;
+            } else {
+                mapLink.hidden = true;
+            }
+
+            // Фото площадки
+            const venuePhotoContainer = byId('venue-photo-container');
+            venuePhotoContainer.innerHTML = '<div class="print"><span class="tape" aria-hidden="true"></span><div class="photo"></div></div><figcaption></figcaption>';
+            venuePhotoContainer.querySelector('figcaption').textContent = CONFIG.venue.name;
+            mountPhoto(venuePhotoContainer.querySelector('.photo'), CONFIG.venue.photo || CONFIG.photos.venue, CONFIG.venue.name, 'Фото<br>площадки', false, img => {
+                venuePhotoContainer.classList.toggle('venue--portrait', img.naturalHeight > img.naturalWidth * 1.1);
+            });
+
+            // Парковка
+            if (isFilled(CONFIG.venue.parking)) {
+                const parkingText = byId('parking-text');
+                parkingText.textContent = CONFIG.venue.parking;
+                parkingText.hidden = false;
+            }
+
+            // Программа дня
+            const timeline = byId('timeline');
+            CONFIG.schedule.forEach(event => {
+                const item = document.createElement('li');
+                item.className = 'timeline__item';
+                item.innerHTML = `
+                    <div class="timeline__time">${formatTime(event.time)}</div>
+                    <div class="timeline__body">
+                        <h3 class="timeline__title">${event.title}</h3>
+                        <p class="timeline__desc">${event.description}</p>
+                    </div>
+                `;
+                timeline.appendChild(item);
+            });
+            if (CONFIG.schedule.length > 0) {
+                const end = document.createElement('li');
+                end.className = 'timeline__end';
+                end.setAttribute('aria-hidden', 'true');
+                end.innerHTML = '<svg viewBox="0 0 24 24"><use href="#ico-heart"/></svg>';
+                timeline.appendChild(end);
+            } else {
+                byId('schedule').hidden = true;
+            }
+
+            // Дресс-код
+            const dresscodeColors = CONFIG.dresscode.colors.filter(isFilled);
+            const hasDresscodeText = isFilled(CONFIG.dresscode.description);
+            if (dresscodeColors.length > 0 || hasDresscodeText) {
+                byId('dresscode').hidden = false;
+
+                const colorPalette = byId('color-palette');
+                dresscodeColors.forEach(color => {
+                    const swatch = document.createElement('div');
+                    swatch.className = 'palette__swatch';
+                    swatch.style.backgroundColor = color;
+                    colorPalette.appendChild(swatch);
+                });
+
+                const dresscodeDescription = byId('dresscode-description');
+                if (hasDresscodeText) {
+                    dresscodeDescription.textContent = CONFIG.dresscode.description;
+                } else {
+                    dresscodeDescription.hidden = true;
+                }
+            }
+
+            // Пожелания гостям
+            const wishesContent = byId('wishes-content');
+            const wishes = [
+                ['Цветы и подарки', CONFIG.wishes.gifts],
+                ['Участие детей', CONFIG.wishes.children],
+                ['Трансфер', CONFIG.wishes.transport],
+                ['Другие детали', CONFIG.wishes.other]
+            ].filter(([, text]) => isFilled(text));
+
+            wishes.forEach(([title, text]) => {
+                wishesContent.innerHTML += `<article class="wish"><h3>${title}</h3><p>${text}</p></article>`;
+            });
+
+            if (wishes.length > 0) {
+                byId('wishes').hidden = false;
+                wishesContent.classList.toggle('wishes--pair', wishes.length % 2 === 0);
+            }
+
+            // Контакты: блок виден, когда указано имя организатора
+            if (isFilled(CONFIG.organizer.name)) {
+                byId('organizer-name').textContent = CONFIG.organizer.name;
+
+                const contactContainer = byId('organizer-contact-container');
+                if (isFilled(CONFIG.organizer.contactLink)) {
+                    const label = isFilled(CONFIG.organizer.contact) ? CONFIG.organizer.contact : 'Написать';
+                    contactContainer.innerHTML = `<a href="${CONFIG.organizer.contactLink}" class="contact-link">${label}</a>`;
+                } else if (isFilled(CONFIG.organizer.contact)) {
+                    contactContainer.innerHTML = `<span style="font-weight: 600;">${CONFIG.organizer.contact}</span>`;
+                } else {
+                    contactContainer.hidden = true;
+                }
+            } else {
+                byId('organizer-block').hidden = true;
+            }
+
+            applyRhythm();
+            typograf(document.querySelector('main'));
+
+            // Инициализация формы
+            initForm();
+
+            // Анимация появления секций
+            observeSections();
+        });
+
+        // Имена на первом экране: «Сергей + Полина»
+        function renderNames(container) {
+            container.textContent = '';
+            const groom = document.createElement('span');
+            groom.className = 'name';
+            groom.textContent = CONFIG.groomName;
+            const plus = document.createElement('span');
+            plus.className = 'plus';
+            plus.textContent = '+';
+            const bride = document.createElement('span');
+            bride.className = 'name';
+            bride.textContent = CONFIG.brideName;
+            container.append(groom, ' ', plus, ' ', bride);
+        }
+
+        // «16:00» — двоеточие чуть приподнято, чтобы стоять по центру цифр
+        function formatTime(time) {
+            return String(time).replace(':', '<span class="colon">:</span>');
+        }
+
+        // Фотография или аккуратная заглушка, если файла нет или он не загрузился
+        function mountPhoto(slot, src, alt, placeholder, eager, onLoad) {
+            const showPlaceholder = () => {
+                slot.innerHTML = `<div class="photo__empty"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-heart"/></svg><span>${placeholder}</span></div>`;
+            };
+
+            if (!isFilled(src)) {
+                showPlaceholder();
+                return;
+            }
+
+            const img = new Image();
+            img.alt = alt;
+            img.decoding = 'async';
+            if (!eager) img.loading = 'lazy';
+            img.onerror = showPlaceholder;
+            if (onLoad) img.onload = () => onLoad(img);
+            img.src = src;
+            slot.textContent = '';
+            slot.appendChild(img);
+        }
+
+        // Создание календаря
+        function createCalendar(dateString) {
+            const date = parseISODate(dateString);
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            const day = date.getDate();
+
+            const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+                              'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const label = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long', year: 'numeric', weekday: 'long' }).format(date);
+
+            const calendarHTML = `
+                <div class="calendar" role="img" aria-label="${label}">
+                    <div class="calendar__month">${monthNames[month]} ${year}</div>
+                    <div class="calendar__grid" aria-hidden="true">
+                        ${['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС'].map((name, i) => `<div class="calendar__cell calendar__cell--head${i > 4 ? ' calendar__cell--weekend' : ''}">${name}</div>`).join('')}
+                        ${generateCalendarDays(firstDay, daysInMonth, day)}
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('calendar-container').innerHTML = calendarHTML;
+        }
+
+        function generateCalendarDays(firstDay, daysInMonth, weddingDay) {
+            let html = '';
+            const startDay = firstDay === 0 ? 6 : firstDay - 1; // Понедельник = 0
+
+            // Пустые ячейки до первого дня месяца
+            for (let i = 0; i < startDay; i++) {
+                html += '<div class="calendar__cell"></div>';
+            }
+
+            // Дни месяца
+            for (let day = 1; day <= daysInMonth; day++) {
+                const isWeekend = (startDay + day - 1) % 7 > 4;
+                if (day === weddingDay) {
+                    html += `<div class="calendar__cell calendar__cell--wedding"><svg viewBox="0 0 24 24"><use href="#ico-heart"/></svg><span>${day}</span></div>`;
+                } else {
+                    html += `<div class="calendar__cell${isWeekend ? ' calendar__cell--day-off' : ''}">${day}</div>`;
+                }
+            }
+
+            return html;
+        }
+
+        // Светлые секции чередуют фон (лён / пыльная роза), даже если часть секций скрыта
+        function applyRhythm() {
+            let tone = 'linen';
+            document.querySelectorAll('main > .band').forEach(band => {
+                if (band.hidden) return;
+                if (band.classList.contains('band--dark')) {
+                    tone = 'linen';
+                    return;
+                }
+                if (band.id === 'hero') {
+                    tone = 'blush';
+                    return;
+                }
+                band.dataset.tone = tone;
+                tone = tone === 'linen' ? 'blush' : 'linen';
+            });
+        }
+
+        // Типографика: короткие предлоги и союзы не остаются висеть в конце строки
+        function typograf(root) {
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+            const nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+
+            nodes.forEach(node => {
+                if (node.parentElement.closest('textarea, script, style')) return;
+                let text = node.nodeValue;
+                if (!/\S/.test(text)) return;
+                for (let pass = 0; pass < 2; pass++) {
+                    text = text.replace(/(^|[\s\u00A0(«])(в|во|с|со|к|ко|у|о|об|от|до|по|за|из|на|не|ни|и|а|но)[ \t\r\n]+(?=\S)/gi, '$1$2\u00A0');
+                }
+                text = text
+                    .replace(/[ \t\r\n]+(ли|же|бы)(?=[\s,.!?;:]|$)/g, '\u00A0$1')
+                    .replace(/№[ \t]+(?=\d)/g, '№\u00A0')
+                    .replace(/[ \t]+—/g, '\u00A0—');
+                node.nodeValue = text;
+            });
+        }
+
+        // Инициализация формы
+        function initForm() {
+            const form = document.getElementById('rsvp-form');
+            const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
+            const extraGroups = [
+                document.getElementById('plus-one-group'),
+                document.getElementById('drinks-group'),
+                document.getElementById('dietary-group')
+            ];
+            const setExtraVisible = (visible) => extraGroups.forEach(group => { group.hidden = !visible; });
+
+            // Показ/скрытие дополнительных полей
+            attendanceRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    setExtraVisible(this.value === 'yes');
+                });
+            });
+
+            // Обработка отправки формы
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const submitBtn = document.getElementById('submit-btn');
+                const formSuccess = document.getElementById('form-success');
+                const formError = document.getElementById('form-error');
+
+                // Скрыть предыдущие сообщения
+                formSuccess.hidden = true;
+                formError.hidden = true;
+
+                // Отключить кнопку
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправка...';
+
+                try {
+                    const formData = new FormData(form);
+                    const data = {};
+
+                    formData.forEach((value, key) => {
+                        if (key === 'drinks') {
+                            if (!data[key]) data[key] = [];
+                            data[key].push(value);
+                        } else {
+                            data[key] = value;
+                        }
+                    });
+
+                    // Если указан formEndpoint, отправляем данные
+                    if (CONFIG.formEndpoint) {
+                        // Google Apps Script не принимает «непростой» запрос (preflight), поэтому для него шлём text/plain
+                        const isGoogleScript = /^https:\/\/script\.google\.com\//.test(CONFIG.formEndpoint);
+                     const response = await fetch(CONFIG.formEndpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(data)
+});
+
+                        if (response.ok) {
+                            formSuccess.hidden = false;
+                            form.reset();
+                            setExtraVisible(false);
+                        } else {
+                            throw new Error('Ошибка отправки');
+                        }
+                    } else {
+                        // Если endpoint не настроен, показываем предупреждение
+                        console.warn('Form endpoint не настроен. Данные формы:', data);
+                        alert('ВНИМАНИЕ: Форма не настроена для реальной отправки данных. Пожалуйста, настройте CONFIG.formEndpoint перед публикацией сайта.');
+                        formError.hidden = false;
+                    }
+                } catch (error) {
+                    console.error('Ошибка отправки формы:', error);
+                    formError.hidden = false;
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Отправить ответ';
+                }
+            });
+        }
+
+        // Появление секций при прокрутке: блок проявляется, как только его верх входит в экран.
+        // Всё, что уже осталось выше (например, после перехода по кнопке «Буду с вами»), проявляется сразу.
+        function observeSections() {
+            let pending = Array.from(document.querySelectorAll('.reveal'));
+            let scheduled = false;
+
+            const check = () => {
+                scheduled = false;
+                const limit = window.innerHeight - 40;
+                pending = pending.filter(block => {
+                    if (block.getBoundingClientRect().top < limit) {
+                        block.classList.add('is-visible');
+                        return false;
+                    }
+                    return true;
+                });
+                if (pending.length === 0) {
+                    window.removeEventListener('scroll', schedule);
+                    window.removeEventListener('resize', schedule);
+                }
+            };
+
+            const schedule = () => {
+                if (scheduled) return;
+                scheduled = true;
+                requestAnimationFrame(check);
+            };
+
+            window.addEventListener('scroll', schedule, { passive: true });
+            window.addEventListener('resize', schedule);
+            check();
+        }
+    </script>
+</body>
+</html>
