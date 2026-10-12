@@ -305,6 +305,7 @@
         }
 
         .hero__grid {
+            position: relative;
             --polaroid-w: min(52vw, 260px);
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -915,6 +916,35 @@
             pointer-events: none;
         }
 
+
+        /* рисованные узоры: линейные, тем же стилем, что и значки */
+        .deco {
+            position: absolute;
+            width: var(--w, 56px);
+            height: auto;
+            color: var(--c, var(--rose));
+            opacity: .9;
+            overflow: visible;
+            pointer-events: none;
+            transform: rotate(var(--r, 0deg));
+        }
+
+        .band--dark .deco { --c: var(--sand); opacity: .8; }
+
+        .hero__doodles { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
+
+        .illus {
+            display: block;
+            width: var(--w, 120px);
+            height: auto;
+            margin: 0 auto;
+            color: var(--c, var(--rose));
+            overflow: visible;
+        }
+
+        .illus--lead { margin-top: clamp(22px, 5vw, 30px); }
+        .place > .illus { --c: var(--sand); margin-bottom: clamp(14px, 3.6vw, 20px); opacity: .95; }
+
         /* бегущая строка между первым экраном и знакомством */
         .marquee {
             overflow: hidden;
@@ -1366,6 +1396,15 @@
     <svg class="sprite" aria-hidden="true" focusable="false">
         <symbol id="ico-heart" viewBox="0 0 24 24"><path d="M12 20.6c-6.3-4.4-9.6-8-9.6-11.7C2.4 6.1 4.5 4 7.1 4c2 0 3.8 1.2 4.9 3.1C13.1 5.2 14.9 4 16.9 4c2.6 0 4.7 2.1 4.7 4.9 0 3.7-3.3 7.3-9.6 11.7z"/></symbol>
         <symbol id="ico-spark" viewBox="0 0 24 24"><path d="M12 1.5c.7 5.6 4.9 9.8 10.5 10.5-5.6.7-9.8 4.9-10.5 10.5C11.3 16.9 7.1 12.7 1.5 12 7.1 11.3 11.3 7.1 12 1.5z"/></symbol>
+        <symbol id="dd-rings" viewBox="0 0 120 84"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="42" cy="50" rx="27" ry="19" transform="rotate(-28 42 50)"/><ellipse cx="42" cy="50" rx="21" ry="13.5" transform="rotate(-28 42 50)"/><ellipse cx="74" cy="44" rx="27" ry="19" transform="rotate(-28 74 44)"/><ellipse cx="74" cy="44" rx="21" ry="13.5" transform="rotate(-28 74 44)"/><path d="M92 14l5 7-5 7-5-7z"/><path d="M92 5v5M104 21h5M80 21h-5M99 11l3-3"/></g></symbol>
+        <symbol id="dd-table" viewBox="0 0 240 140"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M58 4c3 4 3 7 0 9-3-2-3-5 0-9z"/><path d="M58 13v6M55 19h6v26h-6z"/><path d="M58 45v32M50 77h16M46 86h24"/><path d="M96 14c3 4 3 7 0 9-3-2-3-5 0-9z"/><path d="M96 23v4M93 27h6v18h-6z"/><path d="M96 45v32M88 77h16M84 86h24"/><path d="M112 56h18c0 13-4 21-9 21s-9-8-9-21z"/><path d="M121 77v10M114 87h14"/><path d="M146 74c0-9 4-13 10-13s10 4 10 13c0 7-4 11-10 11s-10-4-10-11z"/><path d="M156 61V46M152 61l-9-13M160 61l9-11"/><circle cx="156" cy="42" r="5"/><circle cx="141" cy="44" r="4.5"/><circle cx="171" cy="46" r="4.5"/><path d="M182 74c0-6 3-9 7-9s7 3 7 9c0 5-3 8-7 8s-7-3-7-8z"/><path d="M189 65v-8M186 58h6"/><path d="M8 102h224M2 132h236"/><ellipse cx="46" cy="116" rx="30" ry="9"/><ellipse cx="46" cy="116" rx="19" ry="5.5"/><ellipse cx="196" cy="116" rx="30" ry="9"/><ellipse cx="196" cy="116" rx="19" ry="5.5"/><path d="M6 106v20M10 106v20M236 106v20"/></g></symbol>
+        <symbol id="dd-bouquet" viewBox="0 0 80 100"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M40 72L22 34M40 72V24M40 72l18-38M40 72L28 52M40 72l12-20"/><circle cx="22" cy="28" r="6.5"/><circle cx="22" cy="28" r="2"/><circle cx="40" cy="18" r="6.5"/><circle cx="40" cy="18" r="2"/><circle cx="58" cy="28" r="6.5"/><circle cx="58" cy="28" r="2"/><circle cx="27" cy="46" r="5.5"/><circle cx="53" cy="46" r="5.5"/><path d="M40 72c-9-7-16-3-14 3s10 4 14-3c4 7 12 9 14 3s-5-10-14-3z"/><path d="M38 77l-7 20M42 77l7 20"/></g></symbol>
+        <symbol id="dd-bottle" viewBox="0 0 96 112"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M26 6h12v20c8 5 13 11 13 22v58H13V48c0-11 5-17 13-22z"/><path d="M26 12h12M13 64h38v22H13z"/><path d="M32 70c-3-3-7 0-4 4l4 4 4-4c3-4-1-7-4-4z"/><path d="M60 52h28c0 11-6 18-14 18s-14-7-14-18z"/><path d="M74 70v22M65 92h18"/><circle cx="70" cy="30" r="2.5"/><circle cx="80" cy="22" r="2"/><circle cx="62" cy="18" r="1.8"/></g></symbol>
+        <symbol id="dd-cherubs" viewBox="0 0 170 94"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><g id="dd-cherub"><circle cx="34" cy="30" r="11"/><path d="M26 22c2-6 9-8 14-5M30 20c1 3 4 4 7 3"/><path d="M42 40c10-16 26-16 36-9-7 2-9 8-13 10 5 0 7 2 9 5-9 5-22 3-32-6z"/><path d="M28 42c-5 9-3 19 4 25 7-2 12-6 14-13"/><path d="M33 66c-1 8-7 13-14 11M33 66c5 8 11 10 17 7"/><path d="M44 50c9 3 17 2 25-3"/></g><g transform="translate(170 0) scale(-1 1)"><use href="#dd-cherub"/></g><path d="M85 46c-14-9-22-17-22-25 0-6 5-10 10-10 5 0 9 3 12 8 3-5 7-8 12-8 5 0 10 4 10 10 0 8-8 16-22 25z"/></g></symbol>
+        <symbol id="dd-balloon" viewBox="0 0 48 90"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4C11 4 4 14 4 26c0 14 12 25 20 30 8-5 20-16 20-30C44 14 37 4 24 4z"/><path d="M24 56l-4 6h8z"/><path d="M24 62c-6 8 6 12 0 18s-4 6-2 10"/><path d="M14 16c3-4 6-5 9-5"/></g></symbol>
+        <symbol id="dd-star" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4l5.5 13.5L44 18.5l-11 9.5 3.6 14.5L24 34l-12.6 8.5L15 28 4 18.5l14.5-1z"/></g></symbol>
+        <symbol id="dd-heartline" viewBox="0 0 48 44"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 40C8 29 3 21 3 14 3 8 8 4 13 4c5 0 9 3 11 8 2-5 6-8 11-8 5 0 10 4 10 10 0 7-5 15-21 26z"/><path d="M12 12c1-3 3-4 5-4"/></g></symbol>
+        <symbol id="dd-squiggle" viewBox="0 0 120 24"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14c6-12 12-12 18 0s12 12 18 0 12-12 18 0 12 12 18 0 12-12 18 0 12 12 18 0"/></g></symbol>
         <symbol id="dd-lemon" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 38c0-11 10-20 23-20 5 0 9 1.5 12 3.5l7-2.5-2 7c2.3 3 3 6.5 3 11.5 0 11-10 19-23 19S9 49 9 38z"/><path d="M20 36c1-6 5-10 11-11"/><path d="M44 21c5-9 12-11 18-9-1 7-8 11-16 11"/><path d="M50 16l6-1"/></g></symbol>
         <symbol id="dd-sprig" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 56C20 38 30 24 50 8"/><path d="M20 44c-6-1-9-5-9-10 6 0 9 4 9 10z"/><path d="M28 32c-6-1-9-5-9-10 6 0 9 4 9 10z"/><path d="M37 21c-5-1-8-5-8-10 6 0 8 4 8 10z"/><path d="M26 46c5 1 10-1 12-6-6-1-11 1-12 6z"/><path d="M36 33c5 1 10-1 12-6-6-1-11 1-12 6z"/></g></symbol>
         <symbol id="ico-pin" viewBox="0 0 24 24"><path d="M12 21.2s-6.6-6.1-6.6-11.3a6.6 6.6 0 0 1 13.2 0c0 5.2-6.6 11.3-6.6 11.3z"/><circle cx="12" cy="9.8" r="2.4"/></symbol>
@@ -1378,6 +1417,7 @@
         <!-- 1. ПЕРВЫЙ ЭКРАН -->
         <section class="band hero" id="hero">
             <div class="hero__grid">
+                <div class="hero__doodles" aria-hidden="true"><svg class="deco" style="--w:40px;--c:var(--rose);top:2%;left:-2%;--r:-14deg" viewBox="0 0 48 90" aria-hidden="true"><use href="#dd-balloon"/></svg><svg class="deco" style="--w:36px;--c:var(--ochre);top:8%;right:-2%;--r:12deg" viewBox="0 0 48 90" aria-hidden="true"><use href="#dd-balloon"/></svg><svg class="deco" style="--w:30px;--c:var(--ochre);top:27%;left:0;--r:-14deg" viewBox="0 0 48 48" aria-hidden="true"><use href="#dd-star"/></svg><svg class="deco" style="--w:30px;--c:var(--rose);top:30%;right:0;--r:12deg" viewBox="0 0 48 44" aria-hidden="true"><use href="#dd-heartline"/></svg><svg class="deco" style="--w:18px;--c:var(--wine);top:20%;left:26%;--r:10deg" viewBox="0 0 48 48" aria-hidden="true"><use href="#dd-star"/></svg><svg class="deco" style="--w:18px;--c:var(--rose);top:18%;right:24%;--r:-10deg" viewBox="0 0 48 44" aria-hidden="true"><use href="#dd-heartline"/></svg><svg class="deco" style="--w:84px;--c:var(--ochre);top:83%;left:4%;--r:-6deg" viewBox="0 0 120 24" aria-hidden="true"><use href="#dd-squiggle"/></svg><svg class="deco" style="--w:72px;--c:var(--rose);top:84%;right:4%;--r:5deg" viewBox="0 0 120 24" aria-hidden="true"><use href="#dd-squiggle"/></svg><svg class="deco" style="--w:20px;--c:var(--rose);top:78%;left:46%;--r:8deg" viewBox="0 0 48 48" aria-hidden="true"><use href="#dd-star"/></svg></div>
                 <div class="hero__title"><svg class="spark" style="--s:16px;top:8%;left:6%" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-spark"/></svg><svg class="spark" style="--s:11px;top:38%;left:1%" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-spark"/></svg><svg class="spark" style="--s:18px;top:14%;right:5%" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-spark"/></svg><svg class="spark" style="--s:10px;top:60%;right:2%" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-spark"/></svg>
                     <p class="hero__kicker">Приглашение на нашу свадьбу</p>
                     <h1><span>Тили-тили</span> <span>тесто!</span></h1>
@@ -1416,6 +1456,7 @@
 
         <!-- 2. ЗНАКОМСТВО С ПАРОЙ -->
         <section class="band" id="about" data-tone="blush">
+            <svg class="deco" style="--w:46px;--c:var(--wine);top:16px;right:max(10px,3vw);--r:14deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
             <div class="wrap wrap--wide reveal">
                 <header class="head">
                     <h2>Узнали?</h2>
@@ -1439,6 +1480,8 @@
                     <svg class="ornament" viewBox="0 0 220 30" aria-hidden="true"><use href="#orn-divider"/></svg>
                 </header>
                 <p class="lead">Есть моменты, которые хочется разделить с самыми близкими. Приглашаем вас провести с нами день, в котором мы станем семьёй!</p>
+
+                <svg class="illus illus--lead" style="--w:150px" viewBox="0 0 170 94" aria-hidden="true"><use href="#dd-cherubs"/></svg>
 
                 <div id="calendar-container"></div>
 
@@ -1464,6 +1507,7 @@
 
                 <div class="places">
                     <article class="place">
+                        <svg class="illus" style="--w:104px" viewBox="0 0 120 84" aria-hidden="true"><use href="#dd-rings"/></svg>
                         <h3 class="place__label">Торжественная церемония</h3>
                         <p class="place__time" id="ceremony-time"></p>
                         <p class="place__name" id="ceremony-name"></p>
@@ -1476,6 +1520,7 @@
                     </article>
 
                     <article class="place">
+                        <svg class="illus" style="--w:200px" viewBox="0 0 240 140" aria-hidden="true"><use href="#dd-table"/></svg>
                         <h3 class="place__label">Празднование</h3>
                         <p class="place__time" id="celebration-time"></p>
                         <p class="place__name" id="venue-name"></p>
@@ -1498,6 +1543,7 @@
 
         <!-- 5. ПРОГРАММА ДНЯ -->
         <section class="band" id="schedule">
+            <svg class="deco" style="--w:44px;--c:var(--ochre);top:18px;left:max(10px,3vw);--r:-12deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg>
             <div class="wrap reveal">
                 <header class="head">
                     <h2>Во сколько?</h2>
@@ -1512,6 +1558,7 @@
 
         <!-- 6. ДРЕСС-КОД -->
         <section class="band" id="dresscode" hidden>
+            <svg class="deco" style="--w:40px;--c:var(--wine);bottom:20px;right:max(10px,3vw);--r:10deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg>
             <div class="wrap reveal">
                 <header class="head">
                     <h2><svg class="doodle doodle--l" viewBox="0 0 64 64" aria-hidden="true"><use href="#dd-lemon"/></svg>Дресс-код<svg class="doodle doodle--r" viewBox="0 0 64 64" aria-hidden="true"><use href="#dd-sprig"/></svg></h2>
@@ -1543,6 +1590,7 @@
 
         <!-- 8. ПОДТВЕРЖДЕНИЕ ПРИСУТСТВИЯ -->
         <section class="band" id="rsvp" data-tone="blush">
+            <svg class="deco" style="--w:44px;--c:var(--rose);bottom:18px;left:max(10px,3vw);--r:-10deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
             <div class="wrap reveal">
                 <header class="head">
                     <h2>Вы с нами?</h2>
@@ -1646,6 +1694,7 @@
 
         <!-- 9. КОНТАКТЫ И ФИНАЛ -->
         <section class="band band--dark" id="contacts">
+            <svg class="deco" style="--w:44px;--c:var(--sand);top:26px;left:max(14px,4vw);--r:-8deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg>
             <div class="wrap reveal">
                 <div class="organizer" id="organizer-block">
                     <header class="head">
