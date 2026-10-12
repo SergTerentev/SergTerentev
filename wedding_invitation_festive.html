@@ -569,7 +569,7 @@
             justify-content: center;
             align-items: center;
             gap: var(--gap);
-            max-width: 30rem;
+            max-width: 21.5rem;
             margin: clamp(44px, 10vw, 64px) auto 0;
         }
 
@@ -581,7 +581,7 @@
         .collage .print:nth-child(odd) { --tilt: -2.5deg; --tape-tilt: 4deg; }
         .collage .print:nth-child(even) { --tilt: 2.5deg; --tape-tilt: -5deg; }
 
-        .collage[data-count="1"] { --cols: 1; max-width: 26rem; }
+        .collage[data-count="1"] { --cols: 1; max-width: 17rem; }
         .collage[data-count="1"] .print { --tilt: -1.5deg; }
 
         /* три фотографии: одна крупная и две поменьше внахлёст */
@@ -590,7 +590,7 @@
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 0;
         }
-        .collage[data-count="3"] .print:nth-child(1) { grid-column: 1 / -1; justify-self: center; width: 86%; z-index: 2; --tilt: -1.5deg; --tape-tilt: 3deg; }
+        .collage[data-count="3"] .print:nth-child(1) { grid-column: 1 / -1; justify-self: center; width: 72%; z-index: 2; --tilt: -1.5deg; --tape-tilt: 3deg; }
         .collage[data-count="3"] .print:nth-child(2) { justify-self: start; width: 98%; margin-top: -16%; z-index: 1; --tilt: -5deg; --tape-tilt: 6deg; }
         .collage[data-count="3"] .print:nth-child(3) { justify-self: end; width: 98%; margin-top: -8%; z-index: 3; --tilt: 4deg; --tape-tilt: -4deg; }
 
@@ -1126,11 +1126,23 @@
             .print:hover { transform: rotate(calc(var(--tilt, 0deg) * .35)) translateY(-3px); }
         }
 
+        /* ВАРИАНТ A: коллаж на всю ширину экрана (только телефон) */
+        @media (max-width: 699px) {
+            .collage {
+                width: calc(100% + var(--gutter) * 2);
+                max-width: none;
+                margin-left: calc(var(--gutter) * -1);
+                margin-right: calc(var(--gutter) * -1);
+            }
+            .collage[data-count="1"] { width: auto; max-width: 22rem; margin-left: auto; margin-right: auto; }
+            .collage[data-count="3"] .print:nth-child(1) { width: 84%; }
+        }
+
         @media (min-width: 700px) {
-            .collage { --cols: 3; max-width: 56rem; }
-            .collage[data-count="1"] { --cols: 1; max-width: 30rem; }
-            .collage[data-count="2"] { --cols: 2; max-width: 46rem; }
-            .collage[data-count="4"] { --cols: 2; max-width: 48rem; }
+            .collage { --cols: 3; max-width: 46rem; }
+            .collage[data-count="1"] { --cols: 1; max-width: 21rem; }
+            .collage[data-count="2"] { --cols: 2; max-width: 35rem; }
+            .collage[data-count="4"] { --cols: 2; max-width: 37rem; }
 
             .collage[data-count="3"] { grid-template-columns: 1fr 1.22fr 1fr; align-items: center; }
             .collage[data-count="3"] .print:nth-child(1) { grid-column: 2; grid-row: 1; width: 100%; }
