@@ -752,6 +752,19 @@
         .place .btn { margin-top: 1.15em; }
         .place .btn + .place__note { margin-top: 1.1em; }
 
+        .map {
+            width: 100%;
+            max-width: 26rem;
+            margin-top: 1.4em;
+            aspect-ratio: 4 / 3;
+            border: 1px solid rgba(222, 200, 160, .45);
+            border-radius: 2px;
+            overflow: hidden;
+            background-color: rgba(245, 236, 223, .08);
+        }
+
+        .map iframe { display: block; width: 100%; height: 100%; border: 0; }
+
         .venue {
             width: min(100%, 31rem);
             margin: clamp(48px, 12vw, 68px) auto 0;
@@ -1268,7 +1281,7 @@
                 groomChild: "images/жених.jpg", // URL детской фотографии жениха
                 brideChild: "images/невеста.jpg", // URL детской фотографии невесты
                 couple: ["images/пара2.jpg", "images/пара3.jpg", "images/пара1.jpg"], // Массив URL фотографий пары (первая — крупная, в центре)
-                venue: "" // URL фотографии площадки
+                venue: "images/зал.jpg" // URL фотографии площадки
             },
             
             // Настройки формы
@@ -1369,6 +1382,9 @@
                         <a href="#" id="ceremony-map-link" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-pin"/></svg>Карта церемонии
                         </a>
+                        <div class="map">
+                            <iframe src="https://yandex.ru/map-widget/v1/?ll=30.365281%2C59.945128&amp;z=16&amp;pt=30.365281%2C59.945128%2Cpm2rdm" title="Карта: Дворец бракосочетания № 2" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </article>
 
                     <article class="place">
@@ -1379,6 +1395,9 @@
                         <a href="#" id="map-link" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-pin"/></svg>Открыть метку на карте
                         </a>
+                        <div class="map">
+                            <iframe src="https://yandex.ru/map-widget/v1/?ll=30.408026%2C59.950087&amp;z=16&amp;pt=30.408026%2C59.950087%2Cpm2rdm" title="Карта: Аманд Холл" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                         <p class="place__note" id="parking-text" hidden></p>
                     </article>
                 </div>
