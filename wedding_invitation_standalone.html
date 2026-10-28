@@ -934,7 +934,14 @@
         }
 
         .illus--lead { margin-top: clamp(22px, 5vw, 30px); }
-        .place > .illus { --c: var(--sand); margin-bottom: clamp(14px, 3.6vw, 20px); opacity: .95; }
+        .place > .illus {
+            --c: var(--sand);
+            width: auto;
+            height: clamp(96px, 26vw, 140px);
+            max-width: 100%;
+            margin-bottom: clamp(14px, 3.6vw, 20px);
+            opacity: .95;
+        }
 
         /* бегущая строка между первым экраном и знакомством */
         .marquee {
@@ -948,9 +955,8 @@
         .marquee__track { display: inline-flex; width: max-content; }
         .marquee__item { display: inline-flex; align-items: center; gap: 1.1em; padding-right: 1.1em; }
         .marquee__item svg { width: .8em; height: .8em; fill: var(--sand); }
-        @media (prefers-reduced-motion: no-preference) {
-            .marquee__track { animation: marquee 28s linear infinite; }
-        }
+        /* строка бежит всегда, даже при «уменьшении движения» в системе: так просили */
+        .marquee__track { animation: marquee 28s linear infinite; }
         @keyframes marquee { to { transform: translateX(-50%); } }
 
         /* обратный отсчёт */
@@ -1298,6 +1304,7 @@
             html { scroll-behavior: auto; }
 
             *, *::before, *::after { animation: none !important; }
+            .marquee .marquee__track { animation: marquee 40s linear infinite !important; }
 
             .js .reveal > * { translate: none; transition: opacity .4s ease; transition-delay: 0ms; }
             .btn:active, .choice:active { transform: none; }
