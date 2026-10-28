@@ -79,7 +79,7 @@
             --measure: 39rem;
 
             --shadow-photo: 0 1px 2px rgba(70, 62, 24, .14), 0 16px 30px -14px rgba(70, 62, 24, .38);
-            --ease: cubic-bezier(.22, .68, .2, 1);
+            --ease: cubic-bezier(.23, 1, .32, 1);       /* сильный ease-out: быстрый старт, мягкая остановка */
 
             /* лёгкое бумажное зерно: две маленькие PNG-плитки (не нагружают прокрутку) */
             --grain: url("data:image/png;base64,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");
@@ -175,15 +175,20 @@
         .wrap--wide { max-width: 58rem; }
 
         /* мягкое появление секций при прокрутке */
-        .js .reveal {
+        .js .reveal > * {
             opacity: 0;
-            transform: translateY(14px);
-            transition: opacity .9s ease, transform .9s var(--ease);
+            translate: 0 18px;
+            transition: opacity .6s var(--ease), translate .7s var(--ease);
         }
 
-        .js .reveal.is-visible {
+        .js .reveal > :nth-child(2) { transition-delay: 70ms; }
+        .js .reveal > :nth-child(3) { transition-delay: 140ms; }
+        .js .reveal > :nth-child(4) { transition-delay: 210ms; }
+        .js .reveal > :nth-child(n+5) { transition-delay: 280ms; }
+
+        .js .reveal.is-visible > * {
             opacity: 1;
-            transform: none;
+            translate: none;
         }
 
         /* ==========================================================
@@ -259,10 +264,10 @@
             text-align: center;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
-            transition: background-color .25s ease, border-color .25s ease, transform .25s var(--ease), box-shadow .25s ease;
+            transition: background-color .2s ease, border-color .2s ease, transform .16s var(--ease);
         }
 
-        .btn:active { background-color: var(--wine-deep); }
+        .btn:active { background-color: var(--wine-deep); transform: scale(.97); }
 
         .btn:focus-visible,
         .contact-link:focus-visible {
@@ -511,7 +516,7 @@
             .js:not(.is-ready) .polaroid__bouquet,
             .js:not(.is-ready) .hero__lockup { opacity: 0; }
 
-            .is-ready .hero__kicker { animation: rise .7s ease .1s backwards; }
+            .is-ready .hero__kicker { animation: rise .7s var(--ease) .9s backwards; }
             .is-ready h1 span { animation: write .75s var(--ease) backwards; }
             .is-ready h1 span:nth-child(1) { animation-delay: .2s; }
             .is-ready h1 span:nth-child(2) { animation-delay: .55s; }
@@ -519,7 +524,7 @@
             .is-ready .polaroid--groom .polaroid__card { --from-x: -26px; --from-tilt: -13deg; animation-delay: .75s; }
             .is-ready .polaroid--bride .polaroid__card { --from-x: 26px; --from-tilt: 12deg; animation-delay: .9s; }
             .is-ready .polaroid__bouquet { animation: grow 1.1s var(--ease) 1.15s backwards; }
-            .is-ready .hero__lockup { animation: rise .8s ease 1.2s backwards; }
+            .is-ready .hero__lockup { animation: rise .8s var(--ease) 1.2s backwards; }
         }
 
         @keyframes rise {
@@ -1062,7 +1067,7 @@
             line-height: 1.25;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
-            transition: border-color .2s ease, background-color .2s ease;
+            transition: border-color .2s ease, background-color .2s ease, transform .16s var(--ease);
         }
 
         .choices--chips .choice { min-height: 46px; padding: 8px 16px 9px 12px; gap: 9px; border-radius: 999px; }
@@ -1120,6 +1125,7 @@
         .choice input[type="checkbox"]:checked ~ .choice__mark::after { transform: rotate(-45deg) scale(1); }
 
         .choice:has(input:checked) { border-color: var(--wine); background-color: #FBF1BF; }
+        .choice:active { transform: scale(.98); }
         .choice input:focus-visible ~ .choice__mark { outline: 2px solid var(--ochre); outline-offset: 2px; }
 
         .form-extra { animation: unfold .45s var(--ease) both; }
@@ -1195,7 +1201,7 @@
         /* ==========================================================
            13. ПЛАНШЕТ И ДЕСКТОП
            ========================================================== */
-        @media (hover: hover) {
+        @media (hover: hover) and (pointer: fine) {
             .btn:hover {
                 background-color: var(--wine-deep);
                 transform: translateY(-1px);
@@ -1291,12 +1297,11 @@
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
 
-            *, *::before, *::after {
-                animation: none !important;
-                transition: none !important;
-            }
+            *, *::before, *::after { animation: none !important; }
 
-            .js .reveal { opacity: 1; transform: none; }
+            .js .reveal > * { translate: none; transition: opacity .4s ease; transition-delay: 0ms; }
+            .btn:active, .choice:active { transform: none; }
+            .polaroid__card, .print { transition: none; }
         }
     </style>
 </head>
