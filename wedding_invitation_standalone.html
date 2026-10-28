@@ -2115,26 +2115,13 @@
                     const formData = new FormData(form);
                     const data = {};
 
-                    // В таблицу ответы уходят по-русски
-                    const RU = {
-                        attendance: { yes: 'с радостью буду', no: 'не получится' },
-                        drinks: {
-                            red_wine: 'вино красное',
-                            white_wine: 'вино белое',
-                            champagne: 'вино игристое',
-                            vodka: 'водка',
-                            cognac: 'коньяк',
-                            nonalcoholic: 'безалкогольное'
-                        }
-                    };
-                    const toRu = (key, value) => (RU[key] && RU[key][value]) || value;
-
+                    // Перевод на русский делает Google Apps Script (DRINKS), сюда уходят ключи
                     formData.forEach((value, key) => {
                         if (key === 'drinks') {
                             if (!data[key]) data[key] = [];
-                            data[key].push(toRu(key, value));
+                            data[key].push(value);
                         } else {
-                            data[key] = toRu(key, value);
+                            data[key] = value;
                         }
                     });
 
