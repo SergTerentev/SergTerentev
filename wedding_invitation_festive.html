@@ -345,13 +345,14 @@
         }
 
         h1 {
-            font: 400 clamp(3rem, 13vw, 5.4rem)/.95 var(--display);
+            font: 400 clamp(2.2rem, 9vw, 3.6rem)/1.05 var(--display);
+            text-wrap: balance;
             letter-spacing: 0;
             color: var(--wine);
-            transform: rotate(-4deg);
+            transform: rotate(-3deg);
         }
 
-        h1 span { display: block; padding: 0 .12em; }
+        h1 span { display: block; padding: 0 .12em; text-wrap: balance; }
 
         /* --- фотографии-полароиды --- */
         .polaroid {
@@ -1273,7 +1274,7 @@
 
             .hero__grid {
                 --polaroid-w: clamp(210px, 19.5vw, 330px);
-                grid-template-columns: minmax(0, 1fr) minmax(27rem, auto) minmax(0, 1fr);
+                grid-template-columns: minmax(0, 1fr) minmax(27rem, 38rem) minmax(0, 1fr);
                 grid-template-areas:
                     "groom title bride"
                     "groom lockup bride";
@@ -1283,7 +1284,7 @@
                 max-width: 82rem;
             }
 
-            h1 { font-size: clamp(4.6rem, 7.2vw, 7.4rem); }
+            h1 { font-size: clamp(2.8rem, 3.4vw, 3.9rem); }
 
             .polaroid { grid-row: 1 / -1; margin-top: clamp(70px, 9vw, 120px); }
             .polaroid--groom { margin-right: 0; }
@@ -1401,7 +1402,7 @@
             <div class="hero__grid">
                 <div class="hero__doodles" aria-hidden="true"><svg class="deco" style="--w:56px;--c:var(--rose);top:0;left:-3%;--r:-14deg" viewBox="0 0 48 90" aria-hidden="true"><use href="#dd-balloon"/></svg><svg class="deco" style="--w:50px;--c:var(--ochre);top:6%;right:-3%;--r:12deg" viewBox="0 0 48 90" aria-hidden="true"><use href="#dd-balloon"/></svg><svg class="deco" style="--w:40px;--c:var(--ochre);top:26%;left:-1%;--r:-14deg" viewBox="0 0 48 48" aria-hidden="true"><use href="#dd-star"/></svg><svg class="deco" style="--w:40px;--c:var(--rose);top:29%;right:-1%;--r:12deg" viewBox="0 0 48 44" aria-hidden="true"><use href="#dd-heartline"/></svg><svg class="deco" style="--w:24px;--c:var(--wine);top:19%;left:27%;--r:10deg" viewBox="0 0 48 48" aria-hidden="true"><use href="#dd-star"/></svg><svg class="deco" style="--w:24px;--c:var(--rose);top:17%;right:26%;--r:-10deg" viewBox="0 0 48 44" aria-hidden="true"><use href="#dd-heartline"/></svg><svg class="deco" style="--w:20px;--c:var(--ochre);top:23%;right:12%;--r:6deg" viewBox="0 0 48 48" aria-hidden="true"><use href="#dd-star"/></svg><svg class="deco" style="--w:60px;--c:var(--rose);top:92%;left:3%;--r:-10deg" viewBox="0 0 80 100" aria-hidden="true"><use href="#dd-bouquet"/></svg><svg class="deco" style="--w:54px;--c:var(--ochre);top:92%;right:4%;--r:10deg" viewBox="0 0 96 112" aria-hidden="true"><use href="#dd-bottle"/></svg></div>
                 <div class="hero__title"><svg class="spark" style="--s:16px;top:8%;left:6%" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-spark"/></svg><svg class="spark" style="--s:11px;top:38%;left:1%" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-spark"/></svg><svg class="spark" style="--s:18px;top:14%;right:5%" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-spark"/></svg><svg class="spark" style="--s:10px;top:60%;right:2%" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-spark"/></svg>
-                    <h1><span>Тили-тили</span> <span>тесто!</span></h1>
+                    <h1><span>Наша история становится общей —</span> <span>приходите стать её частью</span></h1>
                     <p class="hero__kicker">Приглашение на нашу свадьбу</p>
                 </div>
 
@@ -1738,7 +1739,7 @@
             // Заполнение основной информации
             renderNames(byId('couple-names'));
             byId('wedding-date').textContent = CONFIG.weddingDate;
-            byId('couple-signature').textContent = `${CONFIG.groomName} + ${CONFIG.brideName} = любовь`;
+            byId('couple-signature').textContent = `${CONFIG.groomName} + ${CONFIG.brideName}`;
             byId('final-names').textContent = `${CONFIG.groomName} и ${CONFIG.brideName}`;
 
             if (CONFIG.weddingDateISO) {
