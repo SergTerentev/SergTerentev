@@ -1636,12 +1636,12 @@
                             <legend>Предпочтения по напиткам</legend>
                             <div class="choices choices--chips">
                                 <label class="choice">
-                                    <input type="checkbox" name="drinks" value="red_wine">
+                                    <input type="checkbox" name="drinks" value="wine_red">
                                     <span class="choice__mark" aria-hidden="true"></span>
                                     <span>Вино красное </span>
                                 </label>
 				<label class="choice">
-                                    <input type="checkbox" name="drinks" value="white_wine">
+                                    <input type="checkbox" name="drinks" value="wine_white">
                                     <span class="choice__mark" aria-hidden="true"></span>
                                     <span>Вино белое </span>
                                 </label>
@@ -1656,7 +1656,7 @@
                                     <span>Водка</span>
                                 </label>
 				<label class="choice">
-                                    <input type="checkbox" name="drinks" value="cognac">
+                                    <input type="checkbox" name="drinks" value="conyuack">
                                     <span class="choice__mark" aria-hidden="true"></span>
                                     <span>Коньяк</span>
                                 </label>
@@ -2115,7 +2115,7 @@
                     const formData = new FormData(form);
                     const data = {};
 
-                    // Перевод на русский делает Google Apps Script (DRINKS), сюда уходят ключи
+                    // Перевод на русский делает Google Apps Script (DRINKS); ключи совпадают с ним
                     formData.forEach((value, key) => {
                         if (key === 'drinks') {
                             if (!data[key]) data[key] = [];
