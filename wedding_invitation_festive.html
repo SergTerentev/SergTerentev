@@ -308,7 +308,7 @@
            5. ПЕРВЫЙ ЭКРАН
            ========================================================== */
         .hero {
-            padding-top: clamp(78px, 21vw, 96px);
+            padding-top: clamp(78px, 21vw, 132px);
             padding-bottom: clamp(64px, 14vw, 96px);
         }
 
@@ -458,8 +458,8 @@
             position: absolute;
             z-index: 0;
             top: 0;
-            left: -12%;
-            width: 122%;
+            left: 0;
+            width: 100%;
             max-width: none;
             aspect-ratio: 1;
             overflow: visible;
@@ -470,7 +470,7 @@
 
         .polaroid--bride .polaroid__bouquet {
             left: auto;
-            right: -12%;
+            right: 0;
             transform: translateY(-58%) scaleX(-1) rotate(-4deg);
         }
 
@@ -936,10 +936,10 @@
             background: none;
         }
         .frame__sprig { position: absolute; width: clamp(46px, 13vw, 128px); height: auto; --art-line: var(--sage); }
-        .frame__sprig--bl { left: -2px; bottom: -2px; }
-        .frame__sprig--br { right: -2px; bottom: -2px; transform: scaleX(-1); }
-        .frame__sprig--tl { left: -2px; top: -2px; transform: scaleY(-1); }
-        .frame__sprig--tr { right: -2px; top: -2px; transform: scale(-1, -1); }
+        .frame__sprig--bl { left: 9px; bottom: 9px; }
+        .frame__sprig--br { right: 9px; bottom: 9px; transform: scaleX(-1); }
+        .frame__sprig--tl { left: 9px; top: 9px; transform: scaleY(-1); }
+        .frame__sprig--tr { right: 9px; top: 9px; transform: scale(-1, -1); }
 
         /* история: свободная лента-линия */
         .ribbon-line { display: block; width: min(78%, 300px); height: auto; margin: clamp(10px, 3vw, 16px) auto 0; color: var(--wine); opacity: .85; }
@@ -1456,13 +1456,17 @@
                 align-items: center;
                 min-height: min(100vh, 66rem);
                 min-height: min(100svh, 66rem);
-                padding-top: clamp(48px, 7vh, 88px);
-                padding-bottom: clamp(48px, 7vh, 88px);
+                padding-top: clamp(150px, 17vh, 190px);
+                padding-bottom: clamp(96px, 11vh, 130px);
             }
 
+            /* букеты за полароидами ниже и компактнее, чтобы оставаться внутри рамки */
+            .polaroid__bouquet { left: 0; width: 100%; transform: translateY(-44%) rotate(-4deg); }
+            .polaroid--bride .polaroid__bouquet { left: auto; right: 0; transform: translateY(-44%) scaleX(-1) rotate(-4deg); }
+
             .hero__grid {
-                --polaroid-w: clamp(210px, 19.5vw, 330px);
-                grid-template-columns: minmax(0, 1fr) minmax(27rem, 38rem) minmax(0, 1fr);
+                --polaroid-w: clamp(176px, 18vw, 320px);
+                grid-template-columns: minmax(0, 1fr) minmax(31rem, 1.8fr) minmax(0, 1fr);
                 grid-template-areas:
                     "groom title bride"
                     "groom lockup bride";
@@ -1472,7 +1476,7 @@
                 max-width: 82rem;
             }
 
-            h1 { font-size: clamp(3.2rem, 4vw, 4.4rem); }
+            h1 { max-width: none; font-size: clamp(2.9rem, 3.4vw, 4rem); }
             h1 .h1__sub { font-size: clamp(1.8rem, 1.9vw, 2.2rem); }
 
             .polaroid { grid-row: 1 / -1; margin-top: clamp(70px, 9vw, 120px); }
@@ -1740,7 +1744,6 @@
             <svg class="emboss emboss--vine-l" viewBox="0 0 120 400" aria-hidden="true"><use class="emb-hi" href="#emb-vine"/><use class="emb-sh" href="#emb-vine"/></svg>
             <svg class="emboss emboss--vine-r" viewBox="0 0 120 400" aria-hidden="true"><use class="emb-hi" href="#emb-vine"/><use class="emb-sh" href="#emb-vine"/></svg>
             <div class="wrap reveal">
-                <svg class="emboss emboss--oval" viewBox="0 -8 300 216" aria-hidden="true"><use class="emb-hi" href="#emb-oval"/><use class="emb-sh" href="#emb-oval"/></svg>
                 <header class="head">
                     <h2>Дресс-код</h2>
                     <svg class="ornament" viewBox="0 0 220 30" aria-hidden="true"><use href="#orn-divider"/></svg>
