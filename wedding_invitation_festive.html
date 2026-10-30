@@ -1145,6 +1145,53 @@
             .corner-sprig { top: -54px; width: 44px; }
         }
 
+        /* ==========================================================
+           ЛИНИИ, НАРИСОВАННЫЕ ПЕРОМ: новые детали и их появление
+           ========================================================== */
+        .ink .berry { fill: var(--art-berry, #E9C3C8); stroke: var(--art-flower, currentColor); stroke-width: 1; }
+        .ink .pt { fill: var(--art-petal, #F7E6E8); stroke: var(--art-flower, currentColor); stroke-width: .9; }
+        .band--dark .ink { --art-berry: rgba(233, 195, 200, .55); }
+
+        .corner-ribbon { position: absolute; top: 0; width: clamp(64px, 17vw, 130px); height: auto; color: var(--wine); pointer-events: none; }
+        .corner-ribbon--l { left: clamp(6px, 2vw, 22px); }
+        .corner-ribbon--r { right: clamp(6px, 2vw, 22px); transform: scaleX(-1); }
+
+        .edge-art { position: absolute; bottom: clamp(10px, 3vw, 26px); height: auto; color: var(--wine); pointer-events: none; }
+        .edge-art--bl { left: clamp(4px, 2vw, 40px); width: clamp(84px, 22vw, 140px); }
+        .edge-art--br { right: clamp(4px, 2vw, 40px); width: clamp(70px, 19vw, 130px); --art-line: var(--sage); --art-flower: var(--wine); }
+
+        .venue { position: relative; }
+        .venue-berry { position: absolute; bottom: -26px; width: clamp(92px, 26vw, 140px); height: auto; color: var(--sand); --art-line: var(--sand); --art-flower: var(--sand); z-index: 3; pointer-events: none; }
+        .venue-berry--l { left: -18px; transform: rotate(-8deg); }
+        .venue-berry--r { right: -18px; transform: scaleX(-1) rotate(-8deg); }
+
+        .farewell__scene { display: flex; justify-content: center; align-items: flex-end; gap: 0; margin: 0 auto clamp(20px, 5vw, 30px); }
+        .farewell__scene .farewell__art { margin: 0; }
+        .farewell__berry { width: clamp(88px, 24vw, 130px); height: auto; color: var(--sand); --art-line: var(--sand); --art-flower: var(--sand); margin-bottom: -4px; }
+        .farewell__berry--l { margin-right: -18px; }
+        .farewell__berry--r { margin-left: -18px; transform: scaleX(-1); }
+
+        @media (max-width: 600px) {
+            .edge-art { opacity: .8; }
+            .corner-ribbon { width: 68px; }
+        }
+
+        /* фокусный момент: рисунок появляется так, будто его ведут пером */
+        @media (prefers-reduced-motion: no-preference) {
+            .js .draw { stroke-dasharray: 900; stroke-dashoffset: 900; opacity: .25; transition: stroke-dashoffset 2.4s cubic-bezier(.16, 1, .3, 1), opacity .9s ease; }
+            .js .draw.is-drawn { stroke-dashoffset: 0; opacity: 1; }
+            .js .draw.is-drawn.edge-art { opacity: 1; }
+            /* живые огоньки свечей, только пока финал на экране */
+            .is-lit .flame { transform-box: fill-box; transform-origin: 50% 100%; animation: flicker 2.8s ease-in-out infinite alternate; }
+        }
+        @keyframes flicker {
+            0% { transform: scale(1, 1) rotate(0); }
+            35% { transform: scale(.94, 1.06) rotate(-2deg); }
+            70% { transform: scale(1.04, .96) rotate(1.5deg); }
+            100% { transform: scale(.97, 1.03) rotate(-1deg); }
+        }
+        @media (max-width: 600px) { .js .draw.is-drawn.edge-art { opacity: .8; } }
+
         /* анкета: лёгкая двойная рамка по контуру, внутри — ничего */
         .form-card { box-shadow: 0 0 0 1px rgba(137, 62, 74, .4), 0 0 0 7px var(--paper), 0 0 0 8px rgba(137, 62, 74, .22); }
 
@@ -1605,6 +1652,9 @@
         <symbol id="art-swag" viewBox="0 0 400 70"><g class="ink"><path d="M20 14C70 52 140 52 200 16"/><path d="M200 16C260 52 330 52 380 14"/><path d="M23 19C72 56 140 56 197 21" opacity=".55"/><path d="M203 21C260 56 328 56 377 19" opacity=".55"/><use href="#bow" x="0" y="6" width="40" height="28"/><use href="#bow" x="180" y="8" width="40" height="28"/><use href="#bow" x="360" y="6" width="40" height="28"/></g></symbol>
         <symbol id="emb-vine" viewBox="0 0 120 400"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M60 396C40 360 80 330 60 295C40 260 82 230 60 195C38 160 80 130 60 95C42 62 74 34 60 6"/><circle cx="46" cy="322" r="9"/><path d="M41.95 322.9C42.4 317.05 50.5 316.6 50.05 322C49.6 326.5 43.75 326.95 44.2 322"/><path d="M37 323.8C40.6 331.45 51.4 331.45 55 323.8"/><circle cx="74" cy="228" r="10"/><path d="M69.5 229.0C70.0 222.5 79.0 222.0 78.5 228C78.0 233.0 71.5 233.5 72.0 228"/><path d="M64 230.0C68.0 238.5 80.0 238.5 84 230.0"/><circle cx="46" cy="128" r="9"/><path d="M41.95 128.9C42.4 123.05 50.5 122.6 50.05 128C49.6 132.5 43.75 132.95 44.2 128"/><path d="M37 129.8C40.6 137.45 51.4 137.45 55 129.8"/><circle cx="70" cy="40" r="8"/><path d="M66.4 40.8C66.8 35.6 74.0 35.2 73.6 40C73.2 44.0 68.0 44.4 68.4 40"/><path d="M62 41.6C65.2 48.4 74.8 48.4 78 41.6"/><path transform="translate(58 370) rotate(-150) scale(1)" d="M0 0C4-6 13-6 18 0C13 6 4 6 0 0ZM2 0H15"/><path transform="translate(66 350) rotate(-20) scale(1)" d="M0 0C4-6 13-6 18 0C13 6 4 6 0 0ZM2 0H15"/><path transform="translate(54 272) rotate(-160) scale(0.9)" d="M0 0C4-6 13-6 18 0C13 6 4 6 0 0ZM2 0H15"/><path transform="translate(66 258) rotate(-30) scale(0.9)" d="M0 0C4-6 13-6 18 0C13 6 4 6 0 0ZM2 0H15"/><path transform="translate(54 175) rotate(-150) scale(1)" d="M0 0C4-6 13-6 18 0C13 6 4 6 0 0ZM2 0H15"/><path transform="translate(64 160) rotate(-25) scale(1)" d="M0 0C4-6 13-6 18 0C13 6 4 6 0 0ZM2 0H15"/><path transform="translate(56 80) rotate(-155) scale(0.85)" d="M0 0C4-6 13-6 18 0C13 6 4 6 0 0ZM2 0H15"/><path transform="translate(66 66) rotate(-30) scale(0.85)" d="M0 0C4-6 13-6 18 0C13 6 4 6 0 0ZM2 0H15"/><circle cx="32" cy="300" r="2.2"/><circle cx="36" cy="292" r="2.2"/><circle cx="88" cy="205" r="2.2"/><circle cx="92" cy="214" r="2.2"/><circle cx="30" cy="110" r="2.2"/><circle cx="34" cy="102" r="2.2"/></g></symbol>
         <symbol id="emb-oval" viewBox="0 -8 300 216"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><ellipse cx="150" cy="100" rx="140" ry="92"/><ellipse cx="150" cy="100" rx="125" ry="77"/><circle cx="282.0" cy="100.0" r="1.5"/><circle cx="281.5" cy="107.3" r="1.5"/><circle cx="280.0" cy="114.6" r="1.5"/><circle cx="277.5" cy="121.7" r="1.5"/><circle cx="274.0" cy="128.7" r="1.5"/><circle cx="269.6" cy="135.5" r="1.5"/><circle cx="264.3" cy="142.0" r="1.5"/><circle cx="258.1" cy="148.2" r="1.5"/><circle cx="251.1" cy="154.0" r="1.5"/><circle cx="243.3" cy="159.4" r="1.5"/><circle cx="234.8" cy="164.3" r="1.5"/><circle cx="225.7" cy="168.8" r="1.5"/><circle cx="216.0" cy="172.7" r="1.5"/><circle cx="205.8" cy="176.1" r="1.5"/><circle cx="195.1" cy="178.9" r="1.5"/><circle cx="184.2" cy="181.1" r="1.5"/><circle cx="172.9" cy="182.7" r="1.5"/><circle cx="161.5" cy="183.7" r="1.5"/><circle cx="150.0" cy="184.0" r="1.5"/><circle cx="138.5" cy="183.7" r="1.5"/><circle cx="127.1" cy="182.7" r="1.5"/><circle cx="115.8" cy="181.1" r="1.5"/><circle cx="104.9" cy="178.9" r="1.5"/><circle cx="94.2" cy="176.1" r="1.5"/><circle cx="84.0" cy="172.7" r="1.5"/><circle cx="74.3" cy="168.8" r="1.5"/><circle cx="65.2" cy="164.3" r="1.5"/><circle cx="56.7" cy="159.4" r="1.5"/><circle cx="48.900000000000006" cy="154.0" r="1.5"/><circle cx="41.900000000000006" cy="148.2" r="1.5"/><circle cx="35.7" cy="142.0" r="1.5"/><circle cx="30.400000000000006" cy="135.5" r="1.5"/><circle cx="26.0" cy="128.7" r="1.5"/><circle cx="22.5" cy="121.7" r="1.5"/><circle cx="20.0" cy="114.6" r="1.5"/><circle cx="18.5" cy="107.3" r="1.5"/><circle cx="18.0" cy="100.0" r="1.5"/><circle cx="18.5" cy="92.7" r="1.5"/><circle cx="20.0" cy="85.4" r="1.5"/><circle cx="22.5" cy="78.3" r="1.5"/><circle cx="26.0" cy="71.3" r="1.5"/><circle cx="30.400000000000006" cy="64.5" r="1.5"/><circle cx="35.7" cy="58.0" r="1.5"/><circle cx="41.900000000000006" cy="51.8" r="1.5"/><circle cx="48.900000000000006" cy="46.0" r="1.5"/><circle cx="56.7" cy="40.6" r="1.5"/><circle cx="65.2" cy="35.7" r="1.5"/><circle cx="74.3" cy="31.200000000000003" r="1.5"/><circle cx="84.0" cy="27.299999999999997" r="1.5"/><circle cx="94.2" cy="23.900000000000006" r="1.5"/><circle cx="104.9" cy="21.099999999999994" r="1.5"/><circle cx="115.8" cy="18.900000000000006" r="1.5"/><circle cx="127.1" cy="17.299999999999997" r="1.5"/><circle cx="138.5" cy="16.299999999999997" r="1.5"/><circle cx="150.0" cy="16.0" r="1.5"/><circle cx="161.5" cy="16.299999999999997" r="1.5"/><circle cx="172.9" cy="17.299999999999997" r="1.5"/><circle cx="184.2" cy="18.900000000000006" r="1.5"/><circle cx="195.1" cy="21.099999999999994" r="1.5"/><circle cx="205.8" cy="23.900000000000006" r="1.5"/><circle cx="216.0" cy="27.299999999999997" r="1.5"/><circle cx="225.7" cy="31.200000000000003" r="1.5"/><circle cx="234.8" cy="35.7" r="1.5"/><circle cx="243.3" cy="40.6" r="1.5"/><circle cx="251.1" cy="46.0" r="1.5"/><circle cx="258.1" cy="51.8" r="1.5"/><circle cx="264.3" cy="58.0" r="1.5"/><circle cx="269.6" cy="64.5" r="1.5"/><circle cx="274.0" cy="71.3" r="1.5"/><circle cx="277.5" cy="78.3" r="1.5"/><circle cx="280.0" cy="85.4" r="1.5"/><circle cx="281.5" cy="92.7" r="1.5"/><path d="M150 8C143 0 132 2 128 9M150 8C157 0 168 2 172 9M150 8V-4M144-2C147 1 150 1 150-4C150 1 153 1 156-2"/><path d="M150 192C143 200 132 198 128 191M150 192C157 200 168 198 172 191"/></g></symbol>
+        <symbol id="art-berries" viewBox="0 0 120 120"><g class="ink"><g class="st"><path d="M8 116C30 96 46 74 58 50C66 34 80 20 104 10"/><path d="M40 82C52 80 64 74 72 64"/><path d="M58 50C50 40 48 28 52 16"/><path d="M80 24C90 30 100 32 112 30"/></g><path class="lf" transform="translate(22 102) rotate(-60) scale(1.1)" d="M0 0C3.5-4.6 10.5-5 15 0C10.5 4.6 3.5 4.6 0 0Z"/><path class="lf" transform="translate(30 92) rotate(-150) scale(1)" d="M0 0C3.5-4.6 10.5-5 15 0C10.5 4.6 3.5 4.6 0 0Z"/><path class="lf" transform="translate(48 68) rotate(-160) scale(0.95)" d="M0 0C3.5-4.6 10.5-5 15 0C10.5 4.6 3.5 4.6 0 0Z"/><path class="lf" transform="translate(64 42) rotate(-30) scale(0.9)" d="M0 0C3.5-4.6 10.5-5 15 0C10.5 4.6 3.5 4.6 0 0Z"/><path class="lf" transform="translate(92 16) rotate(-170) scale(0.85)" d="M0 0C3.5-4.6 10.5-5 15 0C10.5 4.6 3.5 4.6 0 0Z"/><circle class="berry" cx="73.5" cy="63.9" r="3.6"/><circle class="berry" cx="77.4" cy="64.6" r="3.2"/><circle class="berry" cx="77.3" cy="64.3" r="2.9"/><circle class="berry" cx="73.6" cy="63.2" r="2.9"/><circle class="berry" cx="68.9" cy="65.6" r="2.9"/><circle class="berry" cx="74.7" cy="67.3" r="3.9"/><circle class="berry" cx="49.5" cy="13.7" r="3.9"/><circle class="berry" cx="57.8" cy="16.7" r="3.2"/><circle class="berry" cx="52.5" cy="15.6" r="3.2"/><circle class="berry" cx="52.5" cy="13.8" r="3.5"/><circle class="berry" cx="50.3" cy="13.0" r="3.5"/><circle class="berry" cx="112.4" cy="30.2" r="3.0"/><circle class="berry" cx="110.7" cy="27.3" r="3.2"/><circle class="berry" cx="109.3" cy="28.4" r="3.2"/><circle class="berry" cx="113.3" cy="25.3" r="3.0"/><circle class="berry" cx="108.7" cy="28.3" r="3.9"/><circle class="berry" cx="103.8" cy="7.6" r="3.5"/><circle class="berry" cx="105.5" cy="10.4" r="3.2"/><circle class="berry" cx="105.4" cy="11.0" r="2.5"/><circle class="berry" cx="102.1" cy="5.7" r="3.0"/></g></symbol>
+        <symbol id="art-ribbon-corner" viewBox="0 0 150 220"><g class="ink"><path d="M30 30C60 28 96 36 140 30"/><path d="M30 30C26 70 40 104 30 140C22 170 34 196 26 214L32 208L36 216C44 194 32 170 40 140C48 106 36 72 34 34"/><use href="#bow" x="2" y="6" width="56" height="39"/></g></symbol>
+        <symbol id="art-vase" viewBox="0 0 110 160"><g class="ink"><g class="st"><path d="M38 108C34 122 34 140 40 152H76C82 140 82 122 78 108Z"/><path d="M36 116H80" opacity=".5"/><path d="M52 108C52 80 52 52 52 18"/><path d="M60 108C64 86 74 70 86 58"/><path d="M56 108C50 92 38 80 26 72"/><path d="M64 108C70 96 82 92 94 90"/></g><circle class="berry" cx="52.0" cy="18" r="3.2"/><circle class="berry" cx="54.1" cy="24" r="3.1"/><circle class="berry" cx="54.3" cy="30" r="3.0"/><circle class="berry" cx="52.4" cy="36" r="2.8"/><circle class="berry" cx="50.1" cy="42" r="2.7"/><circle class="berry" cx="49.6" cy="48" r="2.6"/><circle class="berry" cx="51.3" cy="54" r="2.5"/><circle class="berry" cx="53.6" cy="60" r="2.4"/><circle class="berry" cx="54.5" cy="66" r="2.2"/><ellipse class="pt" cx="93.0" cy="52.0" rx="4.34" ry="2.66" transform="rotate(0 93.0 52.0)"/><ellipse class="pt" cx="90.9" cy="56.9" rx="4.34" ry="2.66" transform="rotate(45 90.9 56.9)"/><ellipse class="pt" cx="86.0" cy="59.0" rx="4.34" ry="2.66" transform="rotate(90 86.0 59.0)"/><ellipse class="pt" cx="81.1" cy="56.9" rx="4.34" ry="2.66" transform="rotate(135 81.1 56.9)"/><ellipse class="pt" cx="79.0" cy="52.0" rx="4.34" ry="2.66" transform="rotate(180 79.0 52.0)"/><ellipse class="pt" cx="81.1" cy="47.1" rx="4.34" ry="2.66" transform="rotate(225 81.1 47.1)"/><ellipse class="pt" cx="86.0" cy="45.0" rx="4.34" ry="2.66" transform="rotate(270 86.0 45.0)"/><ellipse class="pt" cx="90.9" cy="47.1" rx="4.34" ry="2.66" transform="rotate(315 90.9 47.1)"/><circle class="bd" cx="86" cy="52" r="2.24"/><ellipse class="pt" cx="30.0" cy="68.0" rx="3.7199999999999998" ry="2.2800000000000002" transform="rotate(0 30.0 68.0)"/><ellipse class="pt" cx="28.2" cy="72.2" rx="3.7199999999999998" ry="2.2800000000000002" transform="rotate(45 28.2 72.2)"/><ellipse class="pt" cx="24.0" cy="74.0" rx="3.7199999999999998" ry="2.2800000000000002" transform="rotate(90 24.0 74.0)"/><ellipse class="pt" cx="19.8" cy="72.2" rx="3.7199999999999998" ry="2.2800000000000002" transform="rotate(135 19.8 72.2)"/><ellipse class="pt" cx="18.0" cy="68.0" rx="3.7199999999999998" ry="2.2800000000000002" transform="rotate(180 18.0 68.0)"/><ellipse class="pt" cx="19.8" cy="63.8" rx="3.7199999999999998" ry="2.2800000000000002" transform="rotate(225 19.8 63.8)"/><ellipse class="pt" cx="24.0" cy="62.0" rx="3.7199999999999998" ry="2.2800000000000002" transform="rotate(270 24.0 62.0)"/><ellipse class="pt" cx="28.2" cy="63.8" rx="3.7199999999999998" ry="2.2800000000000002" transform="rotate(315 28.2 63.8)"/><circle class="bd" cx="24" cy="68" r="1.92"/><path class="lf" transform="translate(56 86) rotate(-140) scale(1.1)" d="M0 0C3.5-4.6 10.5-5 15 0C10.5 4.6 3.5 4.6 0 0Z"/><path class="lf" transform="translate(64 78) rotate(-40) scale(1)" d="M0 0C3.5-4.6 10.5-5 15 0C10.5 4.6 3.5 4.6 0 0Z"/><path class="lf" transform="translate(94 90) rotate(-10) scale(0.9)" d="M0 0C3.5-4.6 10.5-5 15 0C10.5 4.6 3.5 4.6 0 0Z"/><path class="lf" transform="translate(40 84) rotate(-170) scale(0.9)" d="M0 0C3.5-4.6 10.5-5 15 0C10.5 4.6 3.5 4.6 0 0Z"/></g></symbol>
         <symbol id="ico-pin" viewBox="0 0 24 24"><path d="M12 21.2s-6.6-6.1-6.6-11.3a6.6 6.6 0 0 1 13.2 0c0 5.2-6.6 11.3-6.6 11.3z"/><circle cx="12" cy="9.8" r="2.4"/></symbol>
         <symbol id="orn-bouquet" viewBox="0 0 300 300"><path class="b-stem" d="M133.2 259.5Q129.6 244.1 127.7 236.6Q125.8 229 123.7 221.5Q121.7 214.1 119.4 206.7Q117.2 199.3 114.8 192Q112.4 184.7 109.8 177.4Q107.2 170.2 104.5 162.9Q101.7 155.7 98.8 148.5Q95.9 141.3 92.7 134.1Q89.6 126.9 86.3 119.8Q83 112.6 79.5 105.3Q76 98.1 72.2 90.9Q68.5 83.6 64.6 76.3Q60.7 69 56.6 61.7L52.4 54.3M167 267.6Q170 253.9 171.6 247.2Q173.2 240.4 174.9 233.7Q176.6 227 178.5 220.4Q180.3 213.8 182.3 207.2Q184.3 200.6 186.4 194.1Q188.5 187.6 190.7 181.1Q193 174.6 195.4 168.1Q197.8 161.6 200.3 155.1Q202.8 148.5 205.5 142Q208.2 135.5 211.1 128.9Q213.9 122.4 217 115.8Q220 109.1 223.2 102.5Q226.3 95.8 229.7 89L233 82.3M145 260.1Q143.7 243.2 143.1 234.6Q142.4 226.1 141.7 217.5Q141 208.8 140.2 200.2Q139.4 191.5 138.6 182.9Q137.8 174.2 136.9 165.5Q136 156.9 135.1 148.2Q134.2 139.6 133.3 131Q132.3 122.5 131.3 114Q130.3 105.6 129.3 97.2Q128.2 88.9 127.2 80.7Q126.1 72.5 125 64.5Q123.9 56.5 122.8 48.6Q121.7 40.8 120.5 33.3L119.4 25.7M123.1 277.3Q118.4 265.6 115.9 259.8Q113.4 254 110.8 248.3Q108.2 242.6 105.5 237.1Q102.7 231.5 99.8 226Q96.9 220.5 93.9 215.1Q90.9 209.7 87.7 204.3Q84.5 198.9 81.1 193.6Q77.8 188.3 74.3 183.1Q70.7 177.8 67.1 172.6Q63.4 167.4 59.5 162.2Q55.6 157 51.6 151.8Q47.6 146.6 43.3 141.4Q39.1 136.2 34.7 131L30.3 125.9M175.9 280Q180.1 268.7 182.3 263.2Q184.5 257.6 186.9 252.2Q189.2 246.8 191.7 241.4Q194.2 236 196.8 230.8Q199.4 225.5 202.1 220.3Q204.9 215 207.7 209.9Q210.6 204.7 213.7 199.6Q216.7 194.5 219.9 189.4Q223.1 184.3 226.4 179.2Q229.7 174.2 233.2 169.1Q236.8 164.1 240.4 159Q244.1 154 247.9 148.9Q251.8 143.9 255.8 138.8L259.8 133.7M154 208Q156.2 190.9 157.4 182.3Q158.6 173.7 159.9 165.1Q161.2 156.5 162.5 147.9Q163.9 139.3 165.4 130.7Q166.8 122.2 168.4 113.7L169.9 105.2M169.9 105.2Q169.5 97.7 169.3 93.9Q169.1 90.1 169 86.3Q168.8 82.5 168.6 78.7Q168.5 74.9 168.4 71.1Q168.2 67.3 168.1 63.5L168 59.7M168 59.7Q167.2 56.6 166.8 55Q166.4 53.3 166 51.7Q165.7 50.1 165.3 48.5Q165 46.8 164.7 45.2Q164.4 43.6 164.1 42L163.8 40.3M163.8 40.3Q163.1 39.1 162.8 38.5Q162.4 37.8 162.1 37.2Q161.7 36.6 161.4 35.9Q161 35.3 160.6 34.7Q160.3 34 159.9 33.4L159.6 32.8M163.8 40.3Q163.9 38.8 164 38Q164 37.2 164 36.4Q164.1 35.7 164.1 34.9Q164.1 34.1 164.1 33.3Q164 32.5 164 31.7L164 31M168 59.7Q168.5 56.4 168.8 54.8Q169 53.1 169.4 51.5Q169.7 49.8 170 48.2Q170.4 46.6 170.8 44.9Q171.2 43.3 171.7 41.7L172.1 40.1M172.1 40.1Q171.6 38.6 171.3 37.8Q171.1 37 170.8 36.3Q170.6 35.5 170.4 34.7Q170.1 34 169.9 33.2Q169.7 32.4 169.5 31.6L169.3 30.9M172.1 40.1Q172.6 38.7 172.9 38Q173.2 37.4 173.4 36.7Q173.7 36 174 35.3Q174.3 34.6 174.6 34Q174.9 33.3 175.2 32.6L175.5 32M172.1 40.1Q173.2 39.1 173.8 38.6Q174.4 38.1 174.9 37.6Q175.5 37.1 176.1 36.6Q176.7 36.1 177.3 35.6Q177.9 35.2 178.5 34.7L179.1 34.3M169.9 105.2Q173.1 97.6 174.6 93.7Q176.1 89.8 177.5 85.9Q178.9 81.9 180.2 78Q181.5 74 182.7 70Q183.9 66 185 62L186.1 58M186.1 58Q186.4 54.1 186.6 52.1Q186.9 50.1 187.1 48.2Q187.4 46.2 187.8 44.2Q188.1 42.2 188.5 40.3Q188.9 38.3 189.3 36.4L189.8 34.5M189.8 34.5Q189.2 32.8 188.9 32Q188.6 31.1 188.4 30.3Q188.1 29.4 187.9 28.6Q187.6 27.7 187.3 26.9Q187.1 26 186.9 25.2L186.6 24.3M189.8 34.5Q190.1 32.9 190.3 32Q190.4 31.2 190.6 30.4Q190.7 29.6 190.9 28.7Q191 27.9 191.1 27.1Q191.2 26.3 191.3 25.4L191.4 24.6M189.8 34.5Q190.9 33.4 191.5 32.8Q192.1 32.2 192.7 31.6Q193.3 31 193.9 30.4Q194.5 29.8 195 29.2Q195.6 28.6 196.1 28L196.7 27.4M186.1 58Q187.9 55.2 188.8 53.7Q189.7 52.3 190.6 50.8Q191.5 49.3 192.3 47.9Q193.2 46.4 194.1 45Q195 43.5 195.9 42L196.7 40.6M196.7 40.6Q196.9 38.9 197 38.1Q197.1 37.2 197.3 36.4Q197.4 35.5 197.5 34.7Q197.7 33.9 197.9 33Q198 32.2 198.2 31.4L198.4 30.5M196.7 40.6Q197.5 39.3 197.9 38.7Q198.3 38 198.7 37.4Q199.1 36.7 199.6 36.1Q200 35.5 200.4 34.9Q200.9 34.3 201.3 33.7L201.8 33.1M196.7 40.6Q197.9 39.8 198.5 39.4Q199.1 39 199.7 38.6Q200.3 38.1 200.9 37.7Q201.5 37.3 202 36.9Q202.6 36.4 203.2 36L203.7 35.5"/><path class="b-leaf" d="M138.2 178.3Q153.7 174.6 156.3 161.1Q142.6 163 138.2 178.3ZM135.8 154.1Q128.9 141 116 141.8Q121 153.6 135.8 154.1ZM133.2 130.1Q146.4 126.7 148.5 115Q136.8 116.9 133.2 130.1ZM130.4 106.4Q124.4 95.3 113.5 96.1Q117.8 106.1 130.4 106.4ZM127.5 83.1Q138.6 80.1 140.2 70.3Q130.4 72 127.5 83.1ZM124.5 60.5Q119.4 51.5 110.4 52.3Q114.1 60.5 124.5 60.5ZM121.4 38.6Q130.2 36.1 131.3 28.1Q123.5 29.7 121.4 38.6ZM120 30Q123.5 20.8 117.7 14.6Q114 22.3 120 30Z"/><path class="b-awn" d="M84.3 130.9L73.8 116.3M96.5 125.8L93.5 108M77.6 115.5L65.7 99.8M89 110.4L85.2 91.1M70.5 100.1L57.1 83.4M81.1 95L76.4 74.1M62.8 84.5L48.1 66.8M72.7 79.5L67.1 57.1M54.8 68.8L38.5 50.2M63.8 63.9L57.3 40.1M46.2 52.9L28.4 33.4M54.5 48.2L47 22.9M46.5 43.9L32.2 18.9M194.7 151.9L196.8 135.5M206.4 156.2L215.4 142.4M202.8 133.2L205.7 115M213.5 137.6L224.1 122.5M211.5 114.5L215.2 94.5M221.4 118.8L233.5 102.5M220.9 95.6L225.6 73.8M229.8 99.8L243.6 82.2M231 76.4L236.6 52.8M239 80.4L254.4 61.7M238.2 72.1L250 48.6"/><path class="b-grain" d="M96.2 142.1Q92.7 133.4 83.8 130.5Q87.3 139.1 96.2 142.1ZM96.2 142.1Q100.3 133.7 96.5 125.1Q92.5 133.5 96.2 142.1ZM89.1 125.8Q85.6 117.7 77.1 115.1Q80.7 123.2 89.1 125.8ZM89.1 125.8Q92.7 117.7 89 109.7Q85.4 117.8 89.1 125.8ZM81.5 109.4Q78 101.9 70 99.7Q73.5 107.2 81.5 109.4ZM81.5 109.4Q84.7 101.8 81.1 94.4Q77.8 102 81.5 109.4ZM73.4 93Q69.9 86.1 62.4 84.1Q65.9 91.1 73.4 93ZM73.4 93Q76.3 85.8 72.7 78.9Q69.8 86.1 73.4 93ZM64.8 76.5Q61.4 70.1 54.3 68.5Q57.7 74.9 64.8 76.5ZM64.8 76.5Q67.3 69.7 63.8 63.4Q61.3 70.2 64.8 76.5ZM55.6 59.9Q52.4 54 45.8 52.6Q49 58.5 55.6 59.9ZM55.6 59.9Q57.8 53.5 54.4 47.7Q52.2 54.1 55.6 59.9ZM53.2 55.7Q52.3 47.9 46.1 43.2Q46.9 51 53.2 55.7ZM195.7 167.2Q198.8 159 194.6 151.2Q191.4 159.4 195.7 167.2ZM195.7 167.2Q203.9 164 206.8 155.7Q198.6 158.9 195.7 167.2ZM203.3 147.5Q206.5 139.9 202.8 132.6Q199.6 140.2 203.3 147.5ZM203.3 147.5Q211 144.8 214 137.2Q206.2 139.8 203.3 147.5ZM211.6 127.7Q214.7 120.8 211.5 113.9Q208.4 120.8 211.6 127.7ZM211.6 127.7Q218.8 125.4 221.8 118.4Q214.5 120.7 211.6 127.7ZM220.7 107.7Q223.7 101.4 220.9 95.1Q217.9 101.3 220.7 107.7ZM220.7 107.7Q227.3 105.8 230.2 99.4Q223.5 101.4 220.7 107.7ZM230.5 87.4Q233.4 81.8 231 75.9Q228.1 81.5 230.5 87.4ZM230.5 87.4Q236.6 85.8 239.4 80.1Q233.2 81.7 230.5 87.4ZM232.4 83.6Q238.1 78.8 238.5 71.4Q232.8 76.2 232.4 83.6Z"/><path class="b-head" d="M32.2 128.1C38.7 121.5 24.9 104.9 6.6 98.7C10.3 117.6 24.8 133.6 32.2 128.1ZM258 136.1C265.1 141 277.8 125.9 280.6 108.1C263.8 114.5 251.7 130.2 258 136.1Z"/><path class="b-fuzz" d="M25 128.7L20.9 129.3M33.8 121L34.9 117.4M22 126.5L17.4 127M32.1 117.8L32.9 114.2M19.3 124.1L14.8 124.3M30.1 114.7L30.8 110.6M16.8 121.5L13.1 121.5M27.9 111.9L28.4 107.5M14.5 118.7L10.8 118.4M25.4 109.2L25.7 105M12.5 115.7L8.8 115.2M22.7 106.8L22.7 103.1M10.7 112.5L6.5 111.7M19.8 104.6L19.5 99.7M9.1 109.1L5.4 108.2M16.7 102.5L16.2 98.6M7.7 105.6L3.3 104.1M13.3 100.7L12.4 95.7M6.6 98.7L3.7 95.3M256.2 129.6L254.7 125.3M264.7 136.4L268.9 136.9M257.7 126.5L256.3 121.5M267.4 134.3L271 134.6M259.4 123.7L258.4 118.8M269.8 132.1L273.9 132.1M261.3 121L260.7 117.2M272 129.6L275.8 129.4M263.5 118.5L263.1 114.4M274 127L278.9 126.4M265.9 116.2L265.8 112.3M275.8 124.2L280.2 123.4M268.5 114L268.6 109.4M277.3 121.2L281.4 120.2M271.3 112.1L271.7 107.6M278.6 118L282.2 116.9M274.4 110.3L274.9 106.6M279.7 114.7L283.4 113.3M280.6 108.1L283.4 104.6"/><g class="b-dot"><circle cx="159.6" cy="32.8" r="2.6"/><circle cx="164" cy="31" r="2.8"/><circle cx="169.3" cy="30.9" r="2.9"/><circle cx="175.5" cy="32" r="2.9"/><circle cx="179.1" cy="34.3" r="3.2"/><circle cx="186.6" cy="24.3" r="2.3"/><circle cx="191.4" cy="24.6" r="2.4"/><circle cx="196.7" cy="27.4" r="2.7"/><circle cx="198.4" cy="30.5" r="2.6"/><circle cx="201.8" cy="33.1" r="3.3"/><circle cx="203.7" cy="35.5" r="2.5"/></g></symbol>
     </svg>
@@ -1658,6 +1708,8 @@
 
         <!-- 2. ЗНАКОМСТВО С ПАРОЙ -->
         <section class="band" id="about" data-tone="blush">
+            <svg class="draw corner-ribbon corner-ribbon--l" viewBox="0 0 150 220" aria-hidden="true"><use href="#art-ribbon-corner"/></svg>
+            <svg class="draw corner-ribbon corner-ribbon--r" viewBox="0 0 150 220" aria-hidden="true"><use href="#art-ribbon-corner"/></svg>
             <div class="wrap wrap--wide reveal">
                 <header class="head">
                     <h2>Узнали?</h2>
@@ -1670,13 +1722,13 @@
                 </div>
 
                 <p class="signature" id="couple-signature"></p>
-                <svg class="ribbon-line" viewBox="0 0 300 40" aria-hidden="true"><use href="#art-ribbon"/></svg>
+                <svg class="ribbon-line draw" viewBox="0 0 300 40" aria-hidden="true"><use href="#art-ribbon"/></svg>
             </div>
         </section>
 
         <!-- 3. ПРИГЛАШЕНИЕ И ДАТА -->
         <section class="band" id="invitation">
-            <svg class="swag" viewBox="0 0 400 70" aria-hidden="true"><use href="#art-swag"/></svg>
+            <svg class="swag draw" viewBox="0 0 400 70" aria-hidden="true"><use href="#art-swag"/></svg>
             <div class="wrap reveal">
                 <header class="head">
                     <h2>Наш день</h2>
@@ -1713,7 +1765,7 @@
 
                 <div class="places">
                     <article class="place">
-                        <svg class="illus" viewBox="0 0 120 92" aria-hidden="true"><use href="#art-rings"/></svg>
+                        <svg class="illus draw" viewBox="0 0 120 92" aria-hidden="true"><use href="#art-rings"/></svg>
                         <h3 class="place__label">Торжественная церемония</h3>
                         <p class="place__time" id="ceremony-time"></p>
                         <p class="place__name" id="ceremony-name"></p>
@@ -1727,7 +1779,7 @@
                     </article>
 
                     <article class="place">
-                        <svg class="illus" viewBox="0 0 140 108" aria-hidden="true"><use href="#art-glasses"/></svg>
+                        <svg class="illus draw" viewBox="0 0 140 108" aria-hidden="true"><use href="#art-glasses"/></svg>
                         <h3 class="place__label">Празднование</h3>
                         <p class="place__time" id="celebration-time"></p>
                         <p class="place__name" id="venue-name"></p>
@@ -1765,6 +1817,8 @@
 
         <!-- 6. ДРЕСС-КОД -->
         <section class="band" id="dresscode" hidden>
+            <svg class="draw edge-art edge-art--bl" viewBox="0 0 120 120" aria-hidden="true"><use href="#art-berries"/></svg>
+            <svg class="draw edge-art edge-art--br" viewBox="0 0 110 160" aria-hidden="true"><use href="#art-vase"/></svg>
             <svg class="emboss emboss--vine-l" viewBox="0 0 120 400" aria-hidden="true"><use class="emb-hi" href="#emb-vine"/><use class="emb-sh" href="#emb-vine"/></svg>
             <svg class="emboss emboss--vine-r" viewBox="0 0 120 400" aria-hidden="true"><use class="emb-hi" href="#emb-vine"/><use class="emb-sh" href="#emb-vine"/></svg>
             <div class="wrap reveal">
@@ -1800,7 +1854,7 @@
 
         <!-- 8. ПОДТВЕРЖДЕНИЕ ПРИСУТСТВИЯ -->
         <section class="band" id="rsvp" data-tone="blush">
-            <svg class="swag" viewBox="0 0 400 70" aria-hidden="true"><use href="#art-swag"/></svg>
+            <svg class="swag draw" viewBox="0 0 400 70" aria-hidden="true"><use href="#art-swag"/></svg>
             <div class="wrap reveal">
                 <header class="head">
                     <h2>Вы с нами?</h2>
@@ -1905,7 +1959,7 @@
                     </div>
                 </div>
 
-                <div class="feast" aria-hidden="true"><svg class="feast__art feast__art--tower" viewBox="0 0 170 176"><use href="#art-tower"/></svg><svg class="feast__art feast__art--cake" viewBox="0 0 150 176"><use href="#art-cake"/></svg></div>
+                <div class="feast" aria-hidden="true"><svg class="feast__art feast__art--tower draw" viewBox="0 0 170 176"><use href="#art-tower"/></svg><svg class="feast__art feast__art--cake draw" viewBox="0 0 150 176"><use href="#art-cake"/></svg></div>
             </div>
         </section>
 
@@ -1914,7 +1968,7 @@
             <div class="wrap reveal">
 
                 <div class="farewell">
-                    <svg class="farewell__art" viewBox="0 0 200 240" aria-hidden="true"><use href="#art-candelabra"/></svg>
+                    <div class="farewell__scene"><svg class="draw farewell__berry farewell__berry--l" viewBox="0 0 120 120" aria-hidden="true"><use href="#art-berries"/></svg><svg class="farewell__art draw" viewBox="0 0 200 240" aria-hidden="true"><g class="ink"><g class="st"><path d="M62 232C62 221 138 221 138 232Z"/><path d="M80 221C86 213 114 213 120 221"/><path d="M96 213L96 180M104 213L104 180"/><ellipse cx="100" cy="196" rx="10" ry="4.5"/><ellipse cx="100" cy="178" rx="8.5" ry="4"/><path d="M97 174L97 152M103 174L103 152"/><path d="M100 162C80 172 50 170 46 142"/><path d="M100 162C120 172 150 170 154 142"/><path d="M86 146C86 152 114 152 114 146L109 140L91 140Z"/><path d="M34 142C34 148 58 148 58 142L53 136L39 136Z"/><path d="M142 142C142 148 166 148 166 142L161 136L147 136Z"/><path d="M94.0 140L94.0 39C94.0 36 106.0 36 106.0 39L106.0 140"/><path d="M100 36L100 32"/><path class="flame" d="M100 10C106 18 106 26 100 30C94 26 94 18 100 10Z"/><path d="M100 19C101.8 22 101.8 25 100 27"/><path d="M106.0 46C107.2 52 105.4 56 106.0 60"/><path d="M41.0 136L41.0 69C41.0 66 51.0 66 51.0 69L51.0 136"/><path d="M46 66L46 62"/><path class="flame" d="M46 40C52 48 52 56 46 60C40 56 40 48 46 40Z"/><path d="M46 49C47.8 52 47.8 55 46 57"/><path d="M51.0 76C52.2 82 50.4 86 51.0 90"/><path d="M149.0 136L149.0 69C149.0 66 159.0 66 159.0 69L159.0 136"/><path d="M154 66L154 62"/><path class="flame" d="M154 40C160 48 160 56 154 60C148 56 148 48 154 40Z"/><path d="M154 49C155.8 52 155.8 55 154 57"/><path d="M159.0 76C160.2 82 158.4 86 159.0 90"/><path d="M95 186C85 204 93 216 79 236"/><path d="M105 186C115 204 107 218 121 236"/></g><use href="#bow" x="68" y="150" width="64" height="45"/></g></svg><svg class="draw farewell__berry farewell__berry--r" viewBox="0 0 120 120" aria-hidden="true"><use href="#art-berries"/></svg></div>
                     <p class="farewell__script">До встречи на нашем самом счастливом дне!</p>
                     <p class="farewell__sign">С любовью, <span id="final-names"></span></p>
                     <svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-heart"/></svg>
@@ -2050,6 +2104,7 @@
             const venuePhotoContainer = byId('venue-photo-container');
             venuePhotoContainer.innerHTML = '<div class="print"><span class="tape" aria-hidden="true"></span><div class="photo"></div></div><figcaption></figcaption>';
             venuePhotoContainer.querySelector('figcaption').textContent = CONFIG.venue.name;
+            ['l', 'r'].forEach(side => venuePhotoContainer.insertAdjacentHTML('beforeend', `<svg class="draw venue-berry venue-berry--${side}" viewBox="0 0 120 120" aria-hidden="true"><use href="#art-berries"/></svg>`));
             mountPhoto(venuePhotoContainer.querySelector('.photo'), CONFIG.venue.photo || CONFIG.photos.venue, CONFIG.venue.name, 'Фото<br>площадки', false, img => {
                 venuePhotoContainer.classList.toggle('venue--portrait', img.naturalHeight > img.naturalWidth * 1.1);
             });
@@ -2172,6 +2227,7 @@
 
             // Анимация появления секций
             observeSections();
+            drawOnScroll();
         });
 
         // Имена на первом экране: «Сергей + Полина»
@@ -2477,6 +2533,18 @@
                     submitBtn.textContent = 'Отправить ответ';
                 }
             });
+        }
+
+        // Рисунки «ведутся пером», когда попадают на экран; огоньки свечей горят, только пока финал виден
+        function drawOnScroll() {
+            const items = document.querySelectorAll('.draw');
+            if (!('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('is-drawn')); return; }
+            const io = new IntersectionObserver(entries => entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('is-drawn'); io.unobserve(entry.target); }
+            }), { rootMargin: '0px 0px -12% 0px' });
+            items.forEach(el => io.observe(el));
+            const farewell = document.querySelector('.farewell');
+            if (farewell) new IntersectionObserver(([entry]) => farewell.classList.toggle('is-lit', entry.isIntersecting)).observe(farewell);
         }
 
         // Появление секций при прокрутке: блок проявляется, как только его верх входит в экран.
