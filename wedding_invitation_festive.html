@@ -996,7 +996,7 @@
         .emboss { position: absolute; height: auto; pointer-events: none; overflow: visible; }
         .emboss .emb-hi { color: rgba(255, 255, 255, .85); transform: translate(-.7px, -.7px); }
         .emboss .emb-sh { color: rgba(65, 45, 45, .07); transform: translate(.7px, .7px); }
-        .emboss--oval { top: -18px; left: 50%; width: min(112%, 700px); transform: translateX(-50%); z-index: -1; }
+        .emboss--oval { top: -28px; left: 50%; width: min(112%, 560px); transform: translateX(-50%); z-index: -1; }
         .emboss--vine-l, .emboss--vine-r { top: 8%; width: clamp(70px, 9vw, 120px); display: none; }
         .emboss--vine-l { left: clamp(10px, 4vw, 70px); }
         .emboss--vine-r { right: clamp(10px, 4vw, 70px); transform: scaleX(-1); }
@@ -1021,6 +1021,104 @@
             .feast__art { width: 190px; }
             .feast__art--tower { transform: translateX(calc(-100% - 70px)); }
             .feast__art--cake { transform: translateX(calc(100% + 70px)); }
+        }
+
+        /* первый экран: тихая ссылка к местам встречи */
+        .hero__where {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            margin-top: 6px;
+            padding: 0 12px;
+            color: var(--wine);
+            font-style: italic;
+            font-size: 1.15rem;
+            text-decoration: underline;
+            text-decoration-color: rgba(137, 62, 74, .4);
+            text-underline-offset: .22em;
+        }
+        .hero__lockup .hero__where { display: flex; justify-content: center; width: max-content; margin-left: auto; margin-right: auto; }
+
+        /* «Наш день»: время над календарём */
+        .day-times {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px clamp(18px, 6vw, 36px);
+            margin-top: clamp(22px, 5vw, 30px);
+            font-size: clamp(1.25rem, 5vw, 1.45rem);
+            color: var(--ink-soft);
+        }
+        .day-times b { font-weight: 600; color: var(--wine); font-variant-numeric: lining-nums; margin-right: .2em; }
+
+        /* дресс-код: живой текст, подписи цветов, увеличение картинки */
+        .dresscode__style { max-width: 31em; margin: .9em auto 0; font-weight: 600; color: var(--wine); }
+        .palette__item { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 0; width: clamp(52px, 14.6vw, 84px); }
+        .palette__item figcaption { font-size: .95rem; line-height: 1.15; color: var(--ink-soft); }
+        .dresscode__photo { cursor: zoom-in; }
+        .dresscode__photo:focus-visible { outline: 2px solid var(--ochre); outline-offset: 6px; }
+        .dresscode__zoom-hint { margin-top: 12px; font-style: italic; font-size: 1rem; color: var(--ink-soft); }
+        .zoom {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            max-height: 100%;
+            margin: 0;
+            padding: 64px 12px 24px;
+            border: 0;
+            background-color: var(--linen);
+            overflow: auto;
+        }
+        .zoom::backdrop { background-color: rgba(65, 45, 45, .4); }
+        .zoom img { display: block; width: min(100%, 960px); max-width: none; margin: 0 auto; }
+        .zoom__close {
+            position: fixed;
+            top: 10px;
+            right: 12px;
+            min-height: 44px;
+            padding: 0 18px;
+            border: 1px solid rgba(137, 62, 74, .45);
+            border-radius: 999px;
+            background-color: var(--paper);
+            color: var(--wine);
+            font: 600 1.05rem/1 var(--serif);
+            cursor: pointer;
+        }
+
+        /* анкета: личная карточка после отправки */
+        .rsvp-done { text-align: center; outline: none; animation: rise .6s var(--ease) both; }
+        .rsvp-done__bow { display: block; width: 76px; height: auto; margin: 0 auto 10px; color: var(--wine); }
+        .rsvp-done__title { font: 400 clamp(2rem, 8vw, 2.6rem)/1.15 var(--display); color: var(--wine); text-wrap: balance; }
+        .rsvp-done__text { margin-top: .5em; color: var(--ink-soft); text-wrap: balance; white-space: pre-line; }
+        .rsvp-done__recap {
+            display: grid;
+            gap: 10px;
+            margin: clamp(20px, 5vw, 28px) 0 0;
+            padding: clamp(16px, 4vw, 22px) 0 0;
+            border-top: 1px solid rgba(137, 62, 74, .22);
+            text-align: left;
+        }
+        .rsvp-done__recap div { display: grid; grid-template-columns: minmax(0, 9.5em) minmax(0, 1fr); gap: 12px; }
+        .rsvp-done__recap dt { font-size: 1.05rem; color: var(--ink-soft); }
+        .rsvp-done__recap dd { margin: 0; overflow-wrap: anywhere; }
+        .rsvp-done__edit {
+            min-height: 44px;
+            margin-top: clamp(18px, 5vw, 24px);
+            padding: 0 6px;
+            border: 0;
+            background: none;
+            color: var(--wine);
+            font: italic 500 1.15rem/1 var(--serif);
+            text-decoration: underline;
+            text-underline-offset: .22em;
+            cursor: pointer;
+        }
+        @media (max-width: 420px) { .rsvp-done__recap div { grid-template-columns: 1fr; gap: 0; } }
+
+        /* мелочи шлифовки */
+        #about { padding-bottom: clamp(70px, 14vw, 120px); }
+        @media (max-width: 600px) {
+            .corner-sprig { top: -54px; width: 44px; }
         }
 
         /* анкета: лёгкая двойная рамка по контуру, внутри — ничего */
@@ -1386,6 +1484,7 @@
             .hero__names { font-size: clamp(3.1rem, 4.5vw, 4rem); }
             .hero__date { font-size: 1.9rem; }
             .hero__lockup .btn { font-size: 1.3rem; min-height: 58px; }
+            .hero__where { font-size: 1.3rem; }
         }
 
         /* ==========================================================
@@ -1429,8 +1528,10 @@
             
             // Дресс-код
             dresscode: {
-                colors: ["#FFF6D9", "#F8E596", "#E3C96C", "#DDA58C", "#92A36E", "#5E6B47"], // Массив цветов
+                colors: ["#F3C2D0", "#F5E090", "#BFC39C", "#E8CCC0", "#B1CADF"], // Цвета нарядов гостей, как на картинке
+                colorNames: ["розовый", "жёлтый", "светлый хаки", "пудровый", "голубой"],
                 photo: "images/дресскод.jpg", // Картинка с примерами нарядов
+                style: "Стиль — коктейльный. Мужчинам: тёмный низ и светлая рубашка.",
                 description: "Дорогие, мы очень старались сделать этот день особенным и красивым. Будем рады, если вы поддержите атмосферу, выбрав наряды в цветах нашей свадьбы."
             },
             
@@ -1520,6 +1621,7 @@
                         <span class="hero__weekday" id="wedding-weekday"></span>
                     </p>
                     <a href="#rsvp" class="btn">Буду с вами</a>
+                    <a href="#location" class="hero__where">Где и когда ↓</a>
                 </div>
             </div>
         </section>
@@ -1554,6 +1656,8 @@
                 </header>
                 <p class="lead">Есть моменты, которые хочется разделить с самыми близкими. Приглашаем вас провести с нами день, в котором мы станем семьёй!</p>
 
+
+                <p class="day-times" id="day-times"></p>
 
                 <div id="calendar-container"></div>
 
@@ -1602,7 +1706,7 @@
                         <p class="place__note">Вкусная еда, тосты и наши любимые люди рядом</p>
                         <p class="place__note" id="venue-address"></p>
                         <a href="#" id="map-link" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-pin"/></svg>Открыть метку на карте
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-pin"/></svg>Карта праздника
                         </a>
                         <div class="map">
                             <iframe src="https://yandex.ru/map-widget/v1/?ll=30.408026%2C59.950087&amp;z=16&amp;pt=30.408026%2C59.950087%2Cpm2rdm" title="Карта: Аманд Холл" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -1646,9 +1750,11 @@
                 </div>
 
                 <p class="lead dresscode__note" id="dresscode-description"></p>
+                <p class="dresscode__style" id="dresscode-style" hidden></p>
 
-                <figure class="dresscode__photo" id="dresscode-photo" hidden>
+                <figure class="dresscode__photo" id="dresscode-photo" role="button" tabindex="0" aria-label="Увеличить картинку с примерами нарядов" hidden>
                     <div class="print"><span class="tape" aria-hidden="true"></span><div class="photo"></div></div>
+                    <figcaption class="dresscode__zoom-hint">Нажмите, чтобы увеличить</figcaption>
                 </figure>
             </div>
         </section>
@@ -1753,12 +1859,20 @@
                         <button type="submit" class="btn" id="submit-btn">Отправить ответ</button>
                     </form>
 
+                    <div class="rsvp-done" id="rsvp-done" tabindex="-1" hidden>
+                        <svg class="rsvp-done__bow" viewBox="0 0 120 84" aria-hidden="true"><use href="#bow"/></svg>
+                        <p class="rsvp-done__title" id="rsvp-done-title"></p>
+                        <p class="rsvp-done__text" id="rsvp-done-text"></p>
+                        <dl class="rsvp-done__recap" id="rsvp-done-recap"></dl>
+                        <button type="button" class="rsvp-done__edit" id="rsvp-edit">Изменить ответ</button>
+                    </div>
+
                     <div class="form-note form-success" id="form-success" role="status" hidden>
                         Спасибо! Ваш ответ получен. Обнимаем <svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-heart"/></svg>
                     </div>
 
                     <div class="form-note form-error" id="form-error" role="alert" hidden>
-                        Упс! Что-то пошло не так. Пожалуйста, попробуйте ещё раз или свяжитесь с нами напрямую.
+                        Не получилось отправить. Проверьте интернет и нажмите ещё раз — ваши ответы сохранены.
                     </div>
                 </div>
 
@@ -1779,6 +1893,12 @@
             </div>
         </section>
     </main>
+
+    <!-- Картинка дресс-кода во весь экран -->
+    <dialog class="zoom" id="zoom" aria-label="Примеры нарядов">
+        <button type="button" class="zoom__close">Закрыть</button>
+        <img alt="Дресс-код: примеры нарядов">
+    </dialog>
 
     <!-- JAVASCRIPT -->
     <script>
@@ -1806,7 +1926,7 @@
 
             if (CONFIG.weddingDateISO) {
                 const weekday = new Intl.DateTimeFormat('ru-RU', { weekday: 'long' }).format(parseISODate(CONFIG.weddingDateISO));
-                byId('wedding-weekday').textContent = weekday;
+                byId('wedding-weekday').textContent = isFilled(CONFIG.ceremony.time) ? `${weekday} · начало в ${CONFIG.ceremony.time}` : weekday;
             }
 
             // Срок ответа показываем, только когда он указан
@@ -1860,6 +1980,15 @@
                 };
                 if (tick()) setInterval(tick, 1000);
                 createCalendar(CONFIG.weddingDateISO);
+            }
+
+            // «Наш день»: время прямо над календарём
+            const dayTimes = byId('day-times');
+            const timeItems = [[CONFIG.ceremony.time, 'церемония'], [CONFIG.venue.time, 'празднование']].filter(([t]) => isFilled(t));
+            if (timeItems.length) {
+                dayTimes.innerHTML = timeItems.map(([t, what]) => `<span class="day-times__item"><b>${t}</b> ${what}</span>`).join('');
+            } else {
+                dayTimes.hidden = true;
             }
 
             // Локации
@@ -1944,17 +2073,36 @@
                 byId('dresscode').hidden = false;
 
                 const colorPalette = byId('color-palette');
-                dresscodeColors.forEach(color => {
-                    const swatch = document.createElement('div');
-                    swatch.className = 'palette__swatch';
-                    swatch.style.backgroundColor = color;
-                    colorPalette.appendChild(swatch);
+                dresscodeColors.forEach((color, index) => {
+                    const name = (CONFIG.dresscode.colorNames || [])[index] || '';
+                    const item = document.createElement('figure');
+                    item.className = 'palette__item';
+                    item.innerHTML = '<span class="palette__swatch" aria-hidden="true"></span><figcaption></figcaption>';
+                    item.firstChild.style.backgroundColor = color;
+                    item.lastChild.textContent = name;
+                    colorPalette.appendChild(item);
                 });
 
                 if (isFilled(CONFIG.dresscode.photo)) {
                     const dcPhoto = byId('dresscode-photo');
                     dcPhoto.hidden = false;
                     mountPhoto(dcPhoto.querySelector('.photo'), CONFIG.dresscode.photo, 'Дресс-код: примеры нарядов', 'Дресс-код', false);
+                    const zoom = byId('zoom');
+                    const zoomImg = zoom.querySelector('img');
+                    const openZoom = () => {
+                        zoomImg.src = CONFIG.dresscode.photo;
+                        if (zoom.showModal) zoom.showModal(); else zoom.setAttribute('open', '');
+                    };
+                    dcPhoto.addEventListener('click', openZoom);
+                    dcPhoto.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openZoom(); } });
+                    zoom.querySelector('.zoom__close').addEventListener('click', () => zoom.close ? zoom.close() : zoom.removeAttribute('open'));
+                    zoom.addEventListener('click', e => { if (e.target === zoom) zoom.close(); });
+                }
+
+                if (isFilled(CONFIG.dresscode.style)) {
+                    const dresscodeStyle = byId('dresscode-style');
+                    dresscodeStyle.textContent = CONFIG.dresscode.style;
+                    dresscodeStyle.hidden = false;
                 }
 
                 const dresscodeDescription = byId('dresscode-description');
@@ -2125,6 +2273,7 @@
 
         // Инициализация формы
         function initForm() {
+            const byId = id => document.getElementById(id);
             const form = document.getElementById('rsvp-form');
             const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
             const extraGroups = [
@@ -2133,17 +2282,70 @@
                 document.getElementById('dietary-group')
             ];
             const setExtraVisible = (visible) => extraGroups.forEach(group => { group.hidden = !visible; });
+            const clearExtras = () => extraGroups.forEach(group => group.querySelectorAll('input').forEach(input => {
+                if (input.type === 'checkbox') input.checked = false; else input.value = '';
+            }));
+            const done = byId('rsvp-done');
+            let sending = false;
 
-            // Показ/скрытие дополнительных полей
+            // Показ/скрытие дополнительных полей; при «не получится» они очищаются, чтобы не уйти в таблицу
             attendanceRadios.forEach(radio => {
                 radio.addEventListener('change', function() {
-                    setExtraVisible(this.value === 'yes');
+                    const coming = this.value === 'yes';
+                    setExtraVisible(coming);
+                    if (!coming) clearExtras();
                 });
+            });
+
+            // Личная карточка после отправки вместо формы
+            const showDone = (data) => {
+                const coming = data.attendance === 'yes';
+                const where = [[CONFIG.weddingDate, isFilled(CONFIG.ceremony.time) ? `начало в ${CONFIG.ceremony.time}` : ''].filter(isFilled).join(', '), CONFIG.ceremony.name].filter(isFilled).join('\n');
+                byId('rsvp-done-title').textContent = coming ? `${data.name}, ждём вас!` : `${data.name}, спасибо, что предупредили`;
+                byId('rsvp-done-text').textContent = coming ? where : 'Нам будет вас не хватать. Обнимаем и обязательно поделимся фотографиями.';
+                const drinks = Array.from(form.querySelectorAll('input[name="drinks"]:checked')).map(box => box.parentElement.textContent.trim().toLowerCase());
+                const recap = [
+                    ['Ответ', coming ? 'с радостью буду' : 'не получится'],
+                    ['Сопровождающий', data.plusOne],
+                    ['Напитки', drinks.join(', ')],
+                    ['Питание', data.dietary],
+                    ['Комментарий', data.comments]
+                ].filter(([, value]) => isFilled(value));
+                const list = byId('rsvp-done-recap');
+                list.innerHTML = '';
+                recap.forEach(([term, value]) => {
+                    const row = document.createElement('div');
+                    row.innerHTML = '<dt></dt><dd></dd>';
+                    row.firstChild.textContent = term;
+                    row.lastChild.textContent = value;
+                    list.appendChild(row);
+                });
+                form.hidden = true;
+                done.hidden = false;
+                done.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+                done.focus({ preventScroll: true });
+            };
+
+            // «Изменить ответ»: форма возвращается с прежними ответами
+            byId('rsvp-edit').addEventListener('click', () => {
+                done.hidden = true;
+                form.hidden = false;
+                form.querySelector('input, textarea').focus();
             });
 
             // Обработка отправки формы
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
+                if (sending) return;
+
+                // Имя без лишних пробелов; из одних пробелов — как пустое
+                const nameInput = byId('guest-name');
+                nameInput.value = nameInput.value.trim().replace(/\s+/g, ' ');
+                if (!nameInput.value) {
+                    nameInput.setCustomValidity('Напишите, пожалуйста, имя и фамилию');
+                    nameInput.reportValidity();
+                    return;
+                }
 
                 const submitBtn = document.getElementById('submit-btn');
                 const formSuccess = document.getElementById('form-success');
@@ -2154,6 +2356,7 @@
                 formError.hidden = true;
 
                 // Отключить кнопку
+                sending = true;
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Отправка...';
 
@@ -2167,9 +2370,15 @@
                             if (!data[key]) data[key] = [];
                             data[key].push(value);
                         } else {
-                            data[key] = value;
+                            data[key] = typeof value === 'string' ? value.trim() : value;
                         }
                     });
+                    // Кто не придёт, тому дополнительные поля не отправляем
+                    if (data.attendance !== 'yes') {
+                        delete data.plusOne;
+                        delete data.drinks;
+                        delete data.dietary;
+                    }
 
                     // Если указан formEndpoint, отправляем данные
                     if (CONFIG.formEndpoint) {
@@ -2182,9 +2391,7 @@
 });
 
                         if (response.ok) {
-                            formSuccess.hidden = false;
-                            form.reset();
-                            setExtraVisible(false);
+                            showDone(data);
                         } else {
                             throw new Error('Ошибка отправки');
                         }
@@ -2198,6 +2405,7 @@
                     console.error('Ошибка отправки формы:', error);
                     formError.hidden = false;
                 } finally {
+                    sending = false;
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Отправить ответ';
                 }
