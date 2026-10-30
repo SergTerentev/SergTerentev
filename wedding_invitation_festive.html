@@ -1087,7 +1087,31 @@
 
         /* анкета: личная карточка после отправки */
         .rsvp-done { text-align: center; outline: none; animation: rise .6s var(--ease) both; }
+        .rsvp-done { position: relative; }
         .rsvp-done__bow { display: block; width: 76px; height: auto; margin: 0 auto 10px; color: var(--wine); }
+        /* бант «завязывается»: линия рисуется пером */
+        .rsvp-done.is-yes .rsvp-done__bow { stroke-dasharray: 260; stroke-dashoffset: 260; animation: tie 1.4s var(--ease) .15s forwards; }
+        @keyframes tie { to { stroke-dashoffset: 0; } }
+        .rsvp-done__cal { display: flex; width: 100%; margin-top: clamp(20px, 5vw, 26px); }
+        .btn--soft { background-color: transparent; border-color: rgba(137, 62, 74, .5); color: var(--wine); box-shadow: none; }
+        .btn--soft:active { background-color: rgba(137, 62, 74, .08); }
+        .rsvp-done__cal + .rsvp-done__edit { margin-top: 8px; }
+        /* несколько лепестков один раз, только для «да» */
+        .petals { position: absolute; inset: -24px 0 0; overflow: hidden; pointer-events: none; }
+        .petals span {
+            position: absolute;
+            top: -14px;
+            width: 9px;
+            height: 13px;
+            border-radius: 60% 0 60% 0;
+            opacity: 0;
+            animation: petal 2.8s cubic-bezier(.3, .4, .5, 1) var(--d) forwards;
+        }
+        @keyframes petal {
+            0% { opacity: 0; transform: translate(0, 0) rotate(0); }
+            12% { opacity: .9; }
+            100% { opacity: 0; transform: translate(var(--x), 320px) rotate(var(--r)); }
+        }
         .rsvp-done__title { font: 400 clamp(2rem, 8vw, 2.6rem)/1.15 var(--display); color: var(--wine); text-wrap: balance; }
         .rsvp-done__text { margin-top: .5em; color: var(--ink-soft); text-wrap: balance; white-space: pre-line; }
         .rsvp-done__recap {
@@ -1867,7 +1891,9 @@
                         <p class="rsvp-done__title" id="rsvp-done-title"></p>
                         <p class="rsvp-done__text" id="rsvp-done-text"></p>
                         <dl class="rsvp-done__recap" id="rsvp-done-recap"></dl>
+                        <a class="btn btn--soft rsvp-done__cal" id="rsvp-cal" download="svadba-sergey-polina.ics" hidden>Добавить в календарь</a>
                         <button type="button" class="rsvp-done__edit" id="rsvp-edit">Изменить ответ</button>
+                        <div class="petals" aria-hidden="true"></div>
                     </div>
 
                     <div class="form-note form-success" id="form-success" role="status" hidden>
@@ -2326,6 +2352,41 @@
                     row.lastChild.textContent = value;
                     list.appendChild(row);
                 });
+                // «Да»: бант завязывается, падает несколько лепестков, появляется ссылка в календарь
+                done.classList.toggle('is-yes', coming);
+                const petals = done.querySelector('.petals');
+                petals.innerHTML = '';
+                if (coming && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    const tones = ['var(--wine)', 'var(--rose)', '#E9C3C8', 'var(--sage)'];
+                    for (let i = 0; i < 14; i++) {
+                        const petal = document.createElement('span');
+                        petal.style.left = `${4 + Math.random() * 92}%`;
+                        petal.style.setProperty('--d', `${Math.random() * 0.9}s`);
+                        petal.style.setProperty('--x', `${Math.round((Math.random() - .5) * 80)}px`);
+                        petal.style.setProperty('--r', `${Math.round(Math.random() * 300 - 150)}deg`);
+                        petal.style.backgroundColor = tones[i % tones.length];
+                        petals.appendChild(petal);
+                    }
+                    setTimeout(() => { petals.innerHTML = ''; }, 3800);
+                }
+                const cal = byId('rsvp-cal');
+                cal.hidden = !(coming && CONFIG.weddingDateISO && isFilled(CONFIG.ceremony.time));
+                if (!cal.hidden) {
+                    const stamp = CONFIG.weddingDateISO.replace(/-/g, '') + 'T' + CONFIG.ceremony.time.replace(':', '') + '00';
+                    const esc = t => String(t).replace(/[\\;,]/g, m => '\\' + m);
+                    const ics = [
+                        'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Sergey&Polina//Wedding//RU', 'BEGIN:VEVENT',
+                        `UID:wedding-${CONFIG.weddingDateISO}@sergey-polina`,
+                        `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '')}`,
+                        `DTSTART;TZID=Europe/Moscow:${stamp}`,
+                        `SUMMARY:${esc(`Свадьба: ${CONFIG.groomName} и ${CONFIG.brideName}`)}`,
+                        `LOCATION:${esc(CONFIG.ceremony.name)}`,
+                        `DESCRIPTION:${[`${CONFIG.ceremony.time} — церемония, ${CONFIG.ceremony.name}`, isFilled(CONFIG.venue.time) ? `${CONFIG.venue.time} — празднование, ${CONFIG.venue.name}` : ''].filter(Boolean).map(esc).join('\\n')}`,
+                        'BEGIN:VALARM', 'TRIGGER:-P1D', 'ACTION:DISPLAY', 'DESCRIPTION:Завтра свадьба!', 'END:VALARM',
+                        'END:VEVENT', 'END:VCALENDAR'
+                    ].join('\r\n');
+                    cal.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+                }
                 form.hidden = true;
                 done.hidden = false;
                 done.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
