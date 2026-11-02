@@ -1640,7 +1640,7 @@
             
             // Пожелания гостям (необязательные секции)
             wishes: {
-                gifts: "", // Текст о подарках
+                gifts: "Пожалуйста, не дарите нам цветы — в суете праздника мы не успеем насладиться их красотой.", // Текст о подарках
                 children: "", // Текст об участии детей
                 transport: "", // Информация о трансфере
                 other: "" // Другие пожелания
@@ -1736,8 +1736,6 @@
                         <span id="wedding-date"></span>
                         <span class="hero__weekday" id="wedding-weekday"></span>
                     </p>
-                    <a href="#rsvp" class="btn">Буду с вами</a>
-                    <a href="#location" class="hero__where">Где и когда ↓</a>
                 </div>
             </div>
         </section>
@@ -2130,7 +2128,7 @@
             const dayTimes = byId('day-times');
             const timeItems = [[CONFIG.ceremony.time, 'церемония'], [CONFIG.venue.time, 'празднование']].filter(([t]) => isFilled(t));
             if (timeItems.length) {
-                dayTimes.innerHTML = timeItems.map(([t, what]) => `<span class="day-times__item"><b>${t}</b> ${what}</span>`).join('');
+                dayTimes.innerHTML = timeItems.map(([t]) => `<span class="day-times__item"><b>${t}</b></span>`).join('');
             } else {
                 dayTimes.hidden = true;
             }
@@ -2299,7 +2297,7 @@
             groom.textContent = CONFIG.groomName;
             const plus = document.createElement('span');
             plus.className = 'plus';
-            plus.textContent = '+';
+            plus.textContent = 'и';
             const bride = document.createElement('span');
             bride.className = 'name';
             bride.textContent = CONFIG.brideName;
