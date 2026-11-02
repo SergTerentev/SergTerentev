@@ -2627,17 +2627,32 @@
                     if (CONFIG.formEndpoint) {
                         // Google Apps Script не принимает «непростой» запрос (preflight), поэтому для него шлём text/plain
                         const isGoogleScript = /^https:\/\/script\.google\.com\//.test(CONFIG.formEndpoint);
-                     const response = await fetch(CONFIG.formEndpoint, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify(data)
-});
+                        const post = payload => fetch(CONFIG.formEndpoint, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                            body: JSON.stringify(payload)
+                        });
 
-                        if (response.ok) {
-                            showDone(data);
-                        } else {
-                            throw new Error('Ошибка отправки');
+                        // Гость — своей строкой
+                        const { companion: companionRow, ...guestRow } = data;
+                        const response = await post(guestRow);
+                        if (!response.ok) throw new Error('Ошибка отправки');
+
+                        // Спутник — ещё одной строкой, как отдельный гость с пометкой, чья вторая половинка.
+                        // Работает с любым скриптом таблицы: это обычный ответ анкеты.
+                        if (companionRow) {
+                            const second = await post({
+                                name: companionRow.name,
+                                attendance: data.attendance,
+                                plusOne: `вторая половинка: ${data.name}`,
+                                drinks: companionRow.drinks,
+                                dietary: companionRow.dietary,
+                                comments: companionRow.comments
+                            });
+                            if (!second.ok) throw new Error('Ошибка отправки ответа спутника');
                         }
+
+                        showDone(data);
                     } else {
                         // Если endpoint не настроен, показываем предупреждение
                         console.warn('Form endpoint не настроен. Данные формы:', data);

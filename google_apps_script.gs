@@ -27,11 +27,8 @@ function doPost(e) {
     // Гость, который заполнил анкету
     sheet.appendRow([now, data.name || '', coming, data.plusOne || '', drinks(data.drinks), data.dietary || '', data.comments || '']);
 
-    // Его спутник (спутница) — отдельной строкой, с пометкой, чья вторая половинка
-    const c = data.companion;
-    if (c && c.name) {
-      sheet.appendRow([now, c.name, coming, 'вторая половинка: ' + (data.name || ''), drinks(c.drinks), c.dietary || '', c.comments || '']);
-    }
+    // Спутник (спутница) приходит отдельным запросом и попадает сюда же,
+    // в колонке «Сопровождающий» у него стоит «вторая половинка: <имя гостя>».
 
     return json_({ result: 'success' });
   } catch (err) {
