@@ -1640,7 +1640,7 @@
             
             // Пожелания гостям (необязательные секции)
             wishes: {
-                gifts: "Пожалуйста, не дарите нам цветы — в суете праздника мы не успеем насладиться их красотой.", // Текст о подарках
+                gifts: "Мы очень любим цветы, но вскоре после праздника уезжаем в отпуск и не успеем насладиться их красотой. Будем благодарны, если вы придёте без букетов. Главное для нас — разделить этот день с вами!", // Текст о подарках
                 children: "", // Текст об участии детей
                 transport: "", // Информация о трансфере
                 other: "" // Другие пожелания
@@ -1780,8 +1780,6 @@
                 </header>
                 <p class="lead">Есть моменты, которые хочется разделить с самыми близкими. Приглашаем вас провести с нами день, в котором мы станем семьёй!</p>
 
-
-                <p class="day-times" id="day-times"></p>
 
                 <div id="calendar-container"></div>
 
@@ -2124,15 +2122,6 @@
                 createCalendar(CONFIG.weddingDateISO);
             }
 
-            // «Наш день»: время прямо над календарём
-            const dayTimes = byId('day-times');
-            const timeItems = [[CONFIG.ceremony.time, 'церемония'], [CONFIG.venue.time, 'празднование']].filter(([t]) => isFilled(t));
-            if (timeItems.length) {
-                dayTimes.innerHTML = timeItems.map(([t]) => `<span class="day-times__item"><b>${t}</b></span>`).join('');
-            } else {
-                dayTimes.hidden = true;
-            }
-
             // Локации
             byId('ceremony-name').textContent = CONFIG.ceremony.name;
             byId('ceremony-time').innerHTML = formatTime(CONFIG.ceremony.time);
@@ -2269,7 +2258,7 @@
             ].filter(([, text]) => isFilled(text));
 
             wishes.forEach(([title, text]) => {
-                wishesContent.innerHTML += `<article class="wish"><h3>${title}</h3><p>${text}</p></article>`;
+                wishesContent.innerHTML += wishes.length === 1 ? `<article class="wish"><p>${text}</p></article>` : `<article class="wish"><h3>${title}</h3><p>${text}</p></article>`;
             });
 
             if (wishes.length > 0) {
