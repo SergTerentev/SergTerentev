@@ -1220,6 +1220,17 @@
             .band:has(> .nook--tl:not([style*="--wm:0px"]), > .nook--tr:not([style*="--wm:0px"]), > .corner-ribbon) { padding-top: calc(var(--band-y) + 40px); }
         }
 
+        /* анкета спутника: отделена тоном и бантом-разделителем */
+        .companion {
+            margin: 4px 0 clamp(22px, 6vw, 28px);
+            padding: clamp(18px, 5vw, 24px) clamp(14px, 4vw, 20px) 2px;
+            border-radius: 10px;
+            background-color: rgba(243, 231, 229, .55);
+            animation: unfold .45s var(--ease) both;
+        }
+        .companion__hint { margin: 0 0 16px; }
+        .companion__title { margin-bottom: 2px; font: 400 clamp(1.6rem, 6.4vw, 1.9rem)/1.15 var(--display); color: var(--wine); }
+
         /* анкета: лёгкая двойная рамка по контуру, внутри — ничего */
         .form-card { box-shadow: 0 0 0 1px rgba(137, 62, 74, .4), 0 0 0 7px var(--paper), 0 0 0 8px rgba(137, 62, 74, .22); }
 
@@ -1992,6 +2003,23 @@
                             <p class="hint" id="dietary-hint">Например: вегетарианство, непереносимость лактозы</p>
                         </div>
 
+                        <div class="companion" id="companion-group" hidden>
+                            <p class="companion__title" id="companion-name"></p>
+                            <p class="hint companion__hint">Напитки и пожелания для вашего спутника (спутницы)</p>
+                            <fieldset class="field">
+                                <legend>Предпочтения по напиткам</legend>
+                                <div class="choices choices--chips" id="companion-drinks"></div>
+                            </fieldset>
+                            <div class="field">
+                                <label for="dietary2">Пищевые ограничения или аллергии</label>
+                                <input class="input" type="text" id="dietary2" name="dietary2">
+                            </div>
+                            <div class="field">
+                                <label for="comments2">Комментарий</label>
+                                <textarea class="input" id="comments2" name="comments2" placeholder="Пожелания или вопросы"></textarea>
+                            </div>
+                        </div>
+
                         <div class="field">
                             <label for="comments">Комментарий</label>
                             <textarea class="input" id="comments" name="comments" placeholder="Ваши пожелания или вопросы"></textarea>
@@ -2430,12 +2458,35 @@
             const done = byId('rsvp-done');
             let sending = false;
 
+            // Анкета для спутника: те же напитки, отдельные питание и комментарий
+            const companion = byId('companion-group');
+            const plusOne = byId('plus-one');
+            byId('drinks-group').querySelectorAll('.choice').forEach(choice => {
+                const copy = choice.cloneNode(true);
+                copy.querySelector('input').name = 'drinks2';
+                copy.querySelector('input').checked = false;
+                byId('companion-drinks').appendChild(copy);
+            });
+            const clearCompanion = () => companion.querySelectorAll('input, textarea').forEach(input => {
+                if (input.type === 'checkbox') input.checked = false; else input.value = '';
+            });
+            const updateCompanion = () => {
+                const coming = form.querySelector('input[name="attendance"]:checked')?.value === 'yes';
+                const name = plusOne.value.trim();
+                const show = coming && name !== '';
+                companion.hidden = !show;
+                byId('companion-name').textContent = name;
+                if (!show) clearCompanion();
+            };
+            plusOne.addEventListener('input', updateCompanion);
+
             // Показ/скрытие дополнительных полей; при «не получится» они очищаются, чтобы не уйти в таблицу
             attendanceRadios.forEach(radio => {
                 radio.addEventListener('change', function() {
                     const coming = this.value === 'yes';
                     setExtraVisible(coming);
                     if (!coming) clearExtras();
+                    updateCompanion();
                 });
             });
 
@@ -2448,10 +2499,13 @@
                 const drinks = Array.from(form.querySelectorAll('input[name="drinks"]:checked')).map(box => box.parentElement.textContent.trim().toLowerCase());
                 const recap = [
                     ['Ответ', coming ? 'с радостью буду' : 'не получится'],
-                    ['Сопровождающий', data.plusOne],
+                    ['Кто будет с вами', data.plusOne],
                     ['Напитки', drinks.join(', ')],
                     ['Питание', data.dietary],
-                    ['Комментарий', data.comments]
+                    ['Комментарий', data.comments],
+                    ...(data.companion ? [[`${data.companion.name}: напитки`, Array.from(form.querySelectorAll('input[name="drinks2"]:checked')).map(box => box.parentElement.textContent.trim().toLowerCase()).join(', ')],
+                        [`${data.companion.name}: питание`, data.companion.dietary],
+                        [`${data.companion.name}: комментарий`, data.companion.comments]] : [])
                 ].filter(([, value]) => isFilled(value));
                 const list = byId('rsvp-done-recap');
                 list.innerHTML = '';
@@ -2543,13 +2597,25 @@
 
                     // Перевод на русский делает Google Apps Script (DRINKS); ключи совпадают с ним
                     formData.forEach((value, key) => {
-                        if (key === 'drinks') {
+                        if (key === 'drinks' || key === 'drinks2') {
                             if (!data[key]) data[key] = [];
                             data[key].push(value);
                         } else {
                             data[key] = typeof value === 'string' ? value.trim() : value;
                         }
                     });
+                    // Анкета спутника уходит отдельным блоком: скрипт запишет его новой строкой
+                    const companionData = {
+                        name: data.plusOne || '',
+                        drinks: data.drinks2 || [],
+                        dietary: data.dietary2 || '',
+                        comments: data.comments2 || ''
+                    };
+                    delete data.drinks2;
+                    delete data.dietary2;
+                    delete data.comments2;
+                    if (data.attendance === 'yes' && companionData.name) data.companion = companionData;
+
                     // Кто не придёт, тому дополнительные поля не отправляем
                     if (data.attendance !== 'yes') {
                         delete data.plusOne;
