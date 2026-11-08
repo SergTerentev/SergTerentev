@@ -1231,6 +1231,48 @@
         .companion__hint { margin: 0 0 16px; }
         .companion__title { margin-bottom: 2px; font: 400 clamp(1.6rem, 6.4vw, 1.9rem)/1.15 var(--display); color: var(--wine); }
 
+        /* кнопка музыки: в углу экрана, с подписью на первом экране */
+        .music {
+            position: fixed;
+            right: calc(14px + env(safe-area-inset-right, 0px));
+            bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+            z-index: 50;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 50px;
+            height: 50px;
+            padding: 0 15px;
+            border: 1px solid rgba(250, 247, 240, .5);
+            border-radius: 999px;
+            background-color: var(--wine);
+            color: var(--cream);
+            font: 600 1.05rem/1 var(--serif);
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 8px 20px -10px rgba(65, 45, 45, .55);
+            transition: transform .16s var(--ease), background-color .2s ease, padding .3s var(--ease);
+        }
+        .music:active { transform: scale(.95); }
+        .music:focus-visible { outline: 2px solid var(--ochre); outline-offset: 3px; }
+        .music__icon { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+        .music__icon--pause, .music.is-playing .music__icon--play { display: none; }
+        .music.is-playing .music__icon--pause { display: block; }
+        .music.is-compact { padding: 0; justify-content: center; width: 50px; }
+        .music.is-compact .music__label { display: none; }
+        /* пока играет — мягкое кольцо вокруг кнопки */
+        .music.is-playing::after {
+            content: "";
+            position: absolute;
+            inset: -6px;
+            border: 1.5px solid rgba(137, 62, 74, .45);
+            border-radius: inherit;
+            animation: music-ring 2.4s ease-out infinite;
+            pointer-events: none;
+        }
+        @keyframes music-ring { from { opacity: .9; transform: scale(.92); } to { opacity: 0; transform: scale(1.18); } }
+        @media (prefers-reduced-motion: reduce) { .music.is-playing::after { animation: none; opacity: .6; } }
+
         /* анкета: лёгкая двойная рамка по контуру, внутри — ничего */
         .form-card { box-shadow: 0 0 0 1px rgba(137, 62, 74, .4), 0 0 0 7px var(--paper), 0 0 0 8px rgba(137, 62, 74, .22); }
 
@@ -1669,6 +1711,9 @@
                 venue: "images/зал.jpg" // URL фотографии площадки
             },
             
+            // Музыка: включается кнопкой в углу экрана (сами браузеры не дают звуку стартовать без нажатия)
+            music: "audio/music.mp3",
+
             // Настройки формы
             formEndpoint: "https://script.google.com/macros/s/AKfycby7C-1IsMg2FoFjE43nJ5jMUiSrFRkuIWaruvTE7hWI5JJwDi1ADcGP1DZal22pVFLh/exec" // URL для отправки формы (например, FormSubmit, Google Forms, или свой сервер)
         };
@@ -2069,6 +2114,13 @@
         </section>
     </main>
 
+    <!-- Музыка -->
+    <button type="button" class="music" id="music-btn" aria-pressed="false" aria-label="Включить музыку" hidden>
+        <svg class="music__icon music__icon--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17.5V5.5l10-2v12"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/></svg>
+        <svg class="music__icon music__icon--pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>
+        <span class="music__label">Включить музыку</span>
+    </button>
+
     <!-- Картинка дресс-кода во весь экран -->
     <dialog class="zoom" id="zoom" aria-label="Примеры нарядов">
         <button type="button" class="zoom__close">Закрыть</button>
@@ -2310,6 +2362,7 @@
             // Анимация появления секций
             observeSections();
             drawOnScroll();
+            initMusic();
         });
 
         // Имена на первом экране: «Сергей + Полина»
@@ -2667,6 +2720,42 @@
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Отправить ответ';
                 }
+            });
+        }
+
+        // Музыка: запускается только по нажатию, плавно набирает громкость, замолкает, когда страницу свернули
+        function initMusic() {
+            const btn = document.getElementById('music-btn');
+            if (!CONFIG.music) return;
+            btn.hidden = false;
+            let audio = null;
+            let wanted = false;
+            const setState = playing => {
+                btn.classList.toggle('is-playing', playing);
+                btn.setAttribute('aria-pressed', String(playing));
+                btn.setAttribute('aria-label', playing ? 'Выключить музыку' : 'Включить музыку');
+            };
+            const fadeIn = () => {
+                audio.volume = 0;
+                const step = () => { if (!audio.paused && audio.volume < .8) { audio.volume = Math.min(.8, audio.volume + .05); setTimeout(step, 90); } };
+                step();
+            };
+            const play = () => {
+                if (!audio) { audio = new Audio(CONFIG.music); audio.loop = true; audio.preload = 'auto'; }
+                audio.play().then(() => { setState(true); fadeIn(); }).catch(() => setState(false));
+            };
+            btn.addEventListener('click', () => {
+                btn.classList.add('is-compact');
+                wanted = !(audio && !audio.paused);
+                if (wanted) play(); else { audio.pause(); setState(false); }
+            });
+            // на первом экране кнопка с подписью, дальше — компактный кружок
+            const compact = () => { if (window.scrollY > window.innerHeight * .6) btn.classList.add('is-compact'); };
+            window.addEventListener('scroll', compact, { passive: true });
+            document.addEventListener('visibilitychange', () => {
+                if (!audio) return;
+                if (document.hidden) { audio.pause(); setState(false); }
+                else if (wanted) play();
             });
         }
 
