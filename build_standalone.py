@@ -9,9 +9,9 @@ src = (root / 'wedding_invitation_festive.html').read_text(encoding='utf-8')
 
 def data_uri(path):
     im = Image.open(path).convert('RGB')
-    im.thumbnail((1000, 1400))
+    im.thumbnail((900, 1260))
     buf = io.BytesIO()
-    im.save(buf, 'JPEG', quality=82, optimize=True)
+    im.save(buf, 'JPEG', quality=78, optimize=True)
     return 'data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()
 
 def repl(m):

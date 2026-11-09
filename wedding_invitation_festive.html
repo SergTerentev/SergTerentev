@@ -32,6 +32,10 @@
                 ]).then(start, start);
             }
             setTimeout(start, 1800);
+            // страховка для старых телефонов: если сценарий страницы не запустился, показываем всё как есть
+            setTimeout(function () {
+                if (!root.classList.contains('js-ok')) root.classList.remove('js', 'js-live');
+            }, 4000);
         })(document.documentElement);
     </script>
 
@@ -176,18 +180,18 @@
         .wrap--wide { max-width: 58rem; }
 
         /* мягкое появление секций при прокрутке */
-        .js .reveal > * {
+        .js-live .reveal > * {
             opacity: 0;
             translate: 0 18px;
             transition: opacity .6s var(--ease), translate .7s var(--ease);
         }
 
-        .js .reveal > :nth-child(2) { transition-delay: 70ms; }
-        .js .reveal > :nth-child(3) { transition-delay: 140ms; }
-        .js .reveal > :nth-child(4) { transition-delay: 210ms; }
-        .js .reveal > :nth-child(n+5) { transition-delay: 280ms; }
+        .js-live .reveal > :nth-child(2) { transition-delay: 70ms; }
+        .js-live .reveal > :nth-child(3) { transition-delay: 140ms; }
+        .js-live .reveal > :nth-child(4) { transition-delay: 210ms; }
+        .js-live .reveal > :nth-child(n+5) { transition-delay: 280ms; }
 
-        .js .reveal.is-visible > * {
+        .js-live .reveal.is-visible > * {
             opacity: 1;
             translate: none;
         }
@@ -918,12 +922,14 @@
         .frame {
             --inset: clamp(10px, 3vw, 26px);
             position: absolute;
-            inset: var(--inset);
+            left: var(--inset);
+            right: var(--inset);
+            bottom: var(--inset);
             top: calc(var(--inset) + clamp(14px, 4vw, 22px));
             color: var(--wine);
             pointer-events: none;
         }
-        .frame__line { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; overflow: visible; }
+        .frame__line { position: absolute; top: 0; left: 0; width: 100%; height: 100%; max-width: none; overflow: visible; }
         .frame__line path { fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
         .frame__line .frame__echo { stroke-width: .8; opacity: .35; }
         .frame__bow {
@@ -1177,8 +1183,8 @@
 
         /* фокусный момент: рисунок появляется так, будто его ведут пером */
         @media (prefers-reduced-motion: no-preference) {
-            .js .draw { stroke-dasharray: 2400; stroke-dashoffset: 2400; fill-opacity: 0; transition: stroke-dashoffset 2.6s cubic-bezier(.33, .1, .25, 1), fill-opacity .8s ease 1.4s; }
-            .js .draw.is-drawn { stroke-dashoffset: 0; fill-opacity: 1; }
+            .js-live .draw { stroke-dasharray: 2400; stroke-dashoffset: 2400; fill-opacity: 0; transition: stroke-dashoffset 2.6s cubic-bezier(.33, .1, .25, 1), fill-opacity .8s ease 1.4s; }
+            .js-live .draw.is-drawn { stroke-dashoffset: 0; fill-opacity: 1; }
             /* живые огоньки свечей, только пока финал на экране */
             .is-lit .flame { transform-box: fill-box; transform-origin: 50% 100%; animation: flicker 2.8s ease-in-out infinite alternate; }
         }
@@ -1652,7 +1658,7 @@
             *, *::before, *::after { animation: none !important; }
             .marquee .marquee__track { animation: marquee 40s linear infinite !important; }
 
-            .js .reveal > * { translate: none; transition: opacity .4s ease; transition-delay: 0ms; }
+            .js-live .reveal > * { translate: none; transition: opacity .4s ease; transition-delay: 0ms; }
             .btn:active, .choice:active { transform: none; }
             .polaroid__card, .print { transition: none; }
         }
@@ -2363,6 +2369,7 @@
             observeSections();
             drawOnScroll();
             initMusic();
+            document.documentElement.classList.add('js-ok');
         });
 
         // Имена на первом экране: «Сергей + Полина»
@@ -2524,7 +2531,8 @@
                 if (input.type === 'checkbox') input.checked = false; else input.value = '';
             });
             const updateCompanion = () => {
-                const coming = form.querySelector('input[name="attendance"]:checked')?.value === 'yes';
+                const checked = form.querySelector('input[name="attendance"]:checked');
+                const coming = !!checked && checked.value === 'yes';
                 const name = plusOne.value.trim();
                 const show = coming && name !== '';
                 companion.hidden = !show;
@@ -2774,6 +2782,7 @@
         // Появление секций при прокрутке: блок проявляется, как только его верх входит в экран.
         // Всё, что уже осталось выше (например, после перехода по кнопке «Буду с вами»), проявляется сразу.
         function observeSections() {
+            document.documentElement.classList.add('js-live');
             let pending = Array.from(document.querySelectorAll('.reveal'));
             let scheduled = false;
 
