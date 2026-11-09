@@ -26,4 +26,6 @@ def audio_uri(m):
 
 out = re.sub(r'"(audio/[^"]+\.mp3)"', audio_uri, out)
 (root / 'wedding_invitation_standalone.html').write_text(out, encoding='utf-8')
+# копия для GitHub Pages: сайт открывается по адресу без имени файла
+(root / 'index.html').write_text(out, encoding='utf-8')
 print('ok', len(out) // 1024, 'KB')
